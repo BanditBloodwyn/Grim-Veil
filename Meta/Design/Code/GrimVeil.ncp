@@ -1,0 +1,55 @@
+<Project>
+  <Name>GrimVeil</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Concepts</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Interface">
+        <Name>IGameObject</Name>
+        <Access>Public</Access>
+        <Location left="564" top="135" />
+        <Size width="260" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Update(GameTime gameTime)</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IDrawable</Name>
+        <Access>Public</Access>
+        <Location left="847" top="135" />
+        <Size width="260" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Draw(SpriteBatch spriteBatch, GameTime gameTime)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>World</Name>
+        <Access>Public</Access>
+        <Location left="575" top="424" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameManager</Name>
+        <Access>Public</Access>
+        <Location left="306" top="135" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Realization" first="2" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
