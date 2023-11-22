@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
+using UI.Core;
 
 namespace GrimVeil.GameManagement.States;
 
@@ -17,7 +18,23 @@ public class MainMenuState : GameState
         : base(stateMachine)
     { }
 
-    public override void OnBegin()
+    protected override void OnLoadContent()
+    {
+        ObjectPool.AddObject(
+            "mainMenu_Background",
+            new Image(
+                ContentPool.Textures["mainMenu_Background"],
+                new Rectangle(0, 0, _screenWidth, _screenHeight)));
+        ObjectPool.AddObject(
+            "mainMenu_Logo",
+            new Image(
+                ContentPool.Textures["gameLogo_dark"],
+                new Rectangle(100, 0,
+                    (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)),
+                    _screenWidth / (LOGO_SIZE_DEVIDER * 2 / 3))));
+    }
+
+    protected override void OnInitialize()
     {
         GameManager manager = stateMachine as GameManager;
         if (manager == null)
@@ -41,18 +58,7 @@ public class MainMenuState : GameState
 
     public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
-        spriteBatch.Draw(
-            ContentPool.Textures["mainMenu_Background"],
-            new Rectangle(0, 0, _screenWidth, _screenHeight),
-            Color.White);
-        spriteBatch.Draw(
-            ContentPool.Textures["gameLogo_dark"],
-            new Rectangle(
-                100,
-                0,
-                (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)),
-                _screenWidth / (LOGO_SIZE_DEVIDER * 2 / 3)),
-            Color.White);
+        base.Draw(spriteBatch, gameTime);
 
         float menuPositionX = _screenWidth - 400;
         float menuPositionY = _screenHeight;

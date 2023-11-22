@@ -25,7 +25,6 @@ namespace GrimVeil
             Exiting += Shutdown;
 
             _gameManager = new GameManager(_graphics, Content, Window);
-            _gameManager.ChangeState(new SplashScreenState(_gameManager));
         }
 
         protected override void Initialize()
@@ -36,6 +35,10 @@ namespace GrimVeil
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            ContentPool.LoadSplashScreenContent(Content);
+
+            _gameManager.ChangeState(new SplashScreenState(_gameManager));
 
             ContentPool.LoadContent(Content);
         }

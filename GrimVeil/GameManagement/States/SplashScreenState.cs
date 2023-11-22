@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System;
+using UI.Core;
 
 namespace GrimVeil.GameManagement.States;
 
@@ -16,8 +17,22 @@ public class SplashScreenState : GameState
     public SplashScreenState(GameManager stateMachine)
         : base(stateMachine)
     { }
+    
+    protected override void OnLoadContent()
+    {
+        ObjectPool.AddObject(
+            "background",
+            new Image(
+                ContentPool.Textures["splashscreen"],
+                new Rectangle(0, 0, SPLASHSCREEN_WIDTH, SPLASHSCREEN_HEIGHT)));
+        ObjectPool.AddObject(
+            "logo",
+            new Image(
+                ContentPool.Textures["gameLogo"],
+                new Rectangle(SPLASHSCREEN_WIDTH / 6, 0, (int)(SPLASHSCREEN_WIDTH / 1.5f), SPLASHSCREEN_WIDTH / 4)));
+    }
 
-    public override void OnBegin()
+    protected override void OnInitialize()
     {
         GameManager manager = stateMachine as GameManager;
         if (manager == null)
@@ -40,23 +55,13 @@ public class SplashScreenState : GameState
 
     public override void Update(GameTime gameTime)
     {
+        base.Update(gameTime);
+
         TimeSpan startingTime = gameTime.TotalGameTime;
 
         while (startingTime.TotalSeconds < MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
         stateMachine.ChangeState(new MainMenuState(stateMachine as GameManager));
-    }
-
-    public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-    {
-        spriteBatch.Draw(
-            ContentPool.Textures["splashscreen"],
-            new Rectangle(0, 0, SPLASHSCREEN_WIDTH, SPLASHSCREEN_HEIGHT),
-            Color.White);
-        spriteBatch.Draw(
-            ContentPool.Textures["gameLogo"],
-            new Rectangle(SPLASHSCREEN_WIDTH / 6, 0, (int)(SPLASHSCREEN_WIDTH / 1.5f), SPLASHSCREEN_WIDTH / 4),
-            Color.White);
     }
 }

@@ -7,6 +7,12 @@ namespace UI.Core
 {
     public class Button : IUpdatable, IDrawable
     {
+        public Rectangle Rectangle { get; }
+
+        public Button(string text, Rectangle rectangle)
+        {
+            Rectangle = rectangle;
+        }
         public void Update(GameTime gameTime)
         {
         }

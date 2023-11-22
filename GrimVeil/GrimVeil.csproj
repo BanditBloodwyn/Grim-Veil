@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />
+    <ProjectReference Include="..\UI.Core\UI.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Fonts\" />

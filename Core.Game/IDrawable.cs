@@ -5,5 +5,7 @@ namespace Core.Game;
 
 public interface IDrawable
 {
+    public Rectangle Rectangle { get; }
+
     public void Draw(SpriteBatch spriteBatch, GameTime gameTime);
 }
