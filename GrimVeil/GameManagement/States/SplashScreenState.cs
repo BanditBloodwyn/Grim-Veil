@@ -1,6 +1,6 @@
-﻿using GrimVeil.Utilities;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Pools;
 using System;
 
 namespace GrimVeil.GameManagement.States;
@@ -51,11 +51,11 @@ public class SplashScreenState : GameState
     public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
         spriteBatch.Draw(
-            ContentLoader.Textures["splashscreen"],
+            ContentPool.Textures["splashscreen"],
             new Rectangle(0, 0, SPLASHSCREEN_WIDTH, SPLASHSCREEN_HEIGHT),
             Color.White);
         spriteBatch.Draw(
-            ContentLoader.Textures["gameLogo"],
+            ContentPool.Textures["gameLogo"],
             new Rectangle(SPLASHSCREEN_WIDTH / 6, 0, (int)(SPLASHSCREEN_WIDTH / 1.5f), SPLASHSCREEN_WIDTH / 4),
             Color.White);
     }

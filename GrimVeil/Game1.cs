@@ -1,9 +1,9 @@
 ﻿using GrimVeil.GameManagement;
 using GrimVeil.GameManagement.States;
-using GrimVeil.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Pools;
 using System;
 
 namespace GrimVeil
@@ -37,7 +37,7 @@ namespace GrimVeil
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ContentLoader.LoadContent(Content);
+            ContentPool.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)

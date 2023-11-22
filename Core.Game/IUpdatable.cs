@@ -2,7 +2,7 @@
 
 namespace Core.Game
 {
-    public interface IGameObject
+    public interface IUpdatable
     {
         public void Update(GameTime gameTime);
     }

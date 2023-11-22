@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GrimVeil.Utilities;
+namespace Pools;
 
-public static class ContentLoader
+public static class ContentPool
 {
     public static Dictionary<object, Texture2D> Textures = new();
     public static Dictionary<object, SpriteFont> Fonts = new();

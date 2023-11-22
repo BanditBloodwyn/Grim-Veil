@@ -1,6 +1,6 @@
-﻿using GrimVeil.Utilities;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Pools;
 
 namespace GrimVeil.GameManagement.States;
 
@@ -11,11 +11,11 @@ public class MainMenuState : GameState
     private readonly int _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
     private readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
+    public override string StateLogString => "Main Menu";
+   
     public MainMenuState(GameManager stateMachine)
         : base(stateMachine)
     { }
-
-    public override string StateLogString => "Main Menu";
 
     public override void OnBegin()
     {
@@ -42,32 +42,32 @@ public class MainMenuState : GameState
     public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
         spriteBatch.Draw(
-            ContentLoader.Textures["mainMenu_Background"],
+            ContentPool.Textures["mainMenu_Background"],
             new Rectangle(0, 0, _screenWidth, _screenHeight),
             Color.White);
         spriteBatch.Draw(
-            ContentLoader.Textures["gameLogo_dark"],
+            ContentPool.Textures["gameLogo_dark"],
             new Rectangle(
-                100, 
-                0, 
-                (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)), 
-                _screenWidth / (LOGO_SIZE_DEVIDER * 2/3)),
+                100,
+                0,
+                (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)),
+                _screenWidth / (LOGO_SIZE_DEVIDER * 2 / 3)),
             Color.White);
 
         float menuPositionX = _screenWidth - 400;
         float menuPositionY = _screenHeight;
 
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "New Game", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "New Game",
             new Vector2(menuPositionX, menuPositionY - 500), Color.White);
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Load", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Load",
             new Vector2(menuPositionX, menuPositionY - 430), Color.White);
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Settings", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Settings",
             new Vector2(menuPositionX, menuPositionY - 360), Color.White);
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Extras", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Extras",
             new Vector2(menuPositionX, menuPositionY - 290), Color.White);
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Credits", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Credits",
             new Vector2(menuPositionX, menuPositionY - 220), Color.White);
-        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Quit", 
+        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Quit",
             new Vector2(menuPositionX, menuPositionY - 150), Color.White);
     }
 }
