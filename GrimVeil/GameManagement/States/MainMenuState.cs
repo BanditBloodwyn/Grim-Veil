@@ -1,10 +1,16 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GrimVeil.Utilities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GrimVeil.GameManagement.States;
 
 public class MainMenuState : GameState
 {
+    private const int LOGO_SIZE_DEVIDER = 9;
+
+    private readonly int _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+    private readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
     public MainMenuState(GameManager stateMachine)
         : base(stateMachine)
     { }
@@ -17,12 +23,9 @@ public class MainMenuState : GameState
         if (manager == null)
             return;
 
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
         manager.Window.Position = new Point(0, 0);
-        manager.Graphics.PreferredBackBufferWidth = screenWidth;
-        manager.Graphics.PreferredBackBufferHeight = screenHeight;
+        manager.Graphics.PreferredBackBufferWidth = _screenWidth;
+        manager.Graphics.PreferredBackBufferHeight = _screenHeight;
         manager.Graphics.IsFullScreen = true;
 
         manager.Graphics.ApplyChanges();
@@ -32,12 +35,39 @@ public class MainMenuState : GameState
     {
     }
 
-
     public override void Update(GameTime gameTime)
     {
     }
 
     public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
+        spriteBatch.Draw(
+            ContentLoader.Textures["mainMenu_Background"],
+            new Rectangle(0, 0, _screenWidth, _screenHeight),
+            Color.White);
+        spriteBatch.Draw(
+            ContentLoader.Textures["gameLogo_dark"],
+            new Rectangle(
+                100, 
+                0, 
+                (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)), 
+                _screenWidth / (LOGO_SIZE_DEVIDER * 2/3)),
+            Color.White);
+
+        float menuPositionX = _screenWidth - 400;
+        float menuPositionY = _screenHeight;
+
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "New Game", 
+            new Vector2(menuPositionX, menuPositionY - 500), Color.White);
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Load", 
+            new Vector2(menuPositionX, menuPositionY - 430), Color.White);
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Settings", 
+            new Vector2(menuPositionX, menuPositionY - 360), Color.White);
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Extras", 
+            new Vector2(menuPositionX, menuPositionY - 290), Color.White);
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Credits", 
+            new Vector2(menuPositionX, menuPositionY - 220), Color.White);
+        spriteBatch.DrawString(ContentLoader.Fonts["Victorian"], "Quit", 
+            new Vector2(menuPositionX, menuPositionY - 150), Color.White);
     }
 }

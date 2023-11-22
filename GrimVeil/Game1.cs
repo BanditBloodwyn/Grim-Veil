@@ -4,16 +4,15 @@ using GrimVeil.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace GrimVeil
 {
     public class Game1 : Game
     {
         private readonly GraphicsDeviceManager _graphics;
-        private readonly GameManager _gameManager;
-
         private SpriteBatch _spriteBatch;
-        private Texture2D _testTexture2D;
+        private readonly GameManager _gameManager;
 
         public Game1()
         {
@@ -22,6 +21,8 @@ namespace GrimVeil
             IsMouseVisible = true;
 
             Window.Title = "Grim Veil";
+
+            Exiting += Shutdown;
 
             _gameManager = new GameManager(_graphics, Content, Window);
             _gameManager.ChangeState(new SplashScreenState(_gameManager));
@@ -44,7 +45,6 @@ namespace GrimVeil
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             _gameManager.Update(gameTime);
 
             base.Update(gameTime);
@@ -59,6 +59,11 @@ namespace GrimVeil
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private static void Shutdown(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

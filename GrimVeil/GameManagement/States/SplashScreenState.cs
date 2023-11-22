@@ -7,9 +7,9 @@ namespace GrimVeil.GameManagement.States;
 
 public class SplashScreenState : GameState
 {
-    private const float MINIMUM_SPLASHSCREEN_TIME_SECONDS = 3f;
-    private const int SPLASHSCREEN_WIDTH = 800;
-    private const int SPLASHSCREEN_HEIGHT = 499;
+    private const float MINIMUM_SPLASHSCREEN_TIME_SECONDS = 2f;
+    private const int SPLASHSCREEN_WIDTH = 900;
+    private const int SPLASHSCREEN_HEIGHT = 561;
 
     public override string StateLogString => "Splash Screen State";
 
@@ -25,7 +25,7 @@ public class SplashScreenState : GameState
 
         int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-        
+
         manager.Window.Position = new Point(screenWidth / 2 - SPLASHSCREEN_WIDTH / 2, screenHeight / 2 - SPLASHSCREEN_HEIGHT / 2);
         manager.Graphics.PreferredBackBufferWidth = SPLASHSCREEN_WIDTH;
         manager.Graphics.PreferredBackBufferHeight = SPLASHSCREEN_HEIGHT;
@@ -53,6 +53,10 @@ public class SplashScreenState : GameState
         spriteBatch.Draw(
             ContentLoader.Textures["splashscreen"],
             new Rectangle(0, 0, SPLASHSCREEN_WIDTH, SPLASHSCREEN_HEIGHT),
+            Color.White);
+        spriteBatch.Draw(
+            ContentLoader.Textures["gameLogo"],
+            new Rectangle(SPLASHSCREEN_WIDTH / 6, 0, (int)(SPLASHSCREEN_WIDTH / 1.5f), SPLASHSCREEN_WIDTH / 4),
             Color.White);
     }
 }
