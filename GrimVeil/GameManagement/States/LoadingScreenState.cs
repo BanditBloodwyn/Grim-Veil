@@ -17,10 +17,6 @@ public class LoadingScreenState : GameState
         : base(stateMachine, content)
     { }
 
-    public override void OnExit()
-    {
-    }
-
     protected override void OnLoadContent()
     {
         ContentPool.LoadLoadingScreenContent(Content);

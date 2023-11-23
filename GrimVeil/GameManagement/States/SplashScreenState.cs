@@ -48,10 +48,6 @@ public class SplashScreenState : GameState
         stateMachine.Graphics.ApplyChanges();
     }
 
-    public override void OnExit()
-    {
-    }
-
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);

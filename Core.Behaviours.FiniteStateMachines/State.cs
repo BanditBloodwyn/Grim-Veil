@@ -15,7 +15,7 @@ public abstract class State<TState, TStateMachine>
 
     public abstract void OnBegin();
 
-    public abstract void OnExit();
+    public virtual void OnExit() {}
 
     protected void ChangeState(TState state)
     {

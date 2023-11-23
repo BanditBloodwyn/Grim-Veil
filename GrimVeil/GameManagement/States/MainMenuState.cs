@@ -49,10 +49,6 @@ public class MainMenuState : GameState
             CreateButton("Quit", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 150, (_, _) => stateMachine.OnExit()));
     }
 
-    public override void OnExit()
-    {
-    }
-
     private static Button CreateButton(string text, SpriteFont font, int posX, int posY, EventHandler? @event)
     {
         Button button = new(
