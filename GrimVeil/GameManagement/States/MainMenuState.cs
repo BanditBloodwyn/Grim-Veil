@@ -32,6 +32,18 @@ public class MainMenuState : GameState
                 new Rectangle(100, 0,
                     (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)),
                     _screenWidth / (LOGO_SIZE_DEVIDER * 2 / 3))));
+
+        ObjectPool.AddObject("newGameButton", CreateButton("New Game", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 500));
+    }
+
+    private Button CreateButton(string text, SpriteFont font, int posX, int posY)
+    {
+        Button button = new(
+            new Rectangle(posX, posY - 500, (int)font.MeasureString(text).X, (int)font.MeasureString(text).Y));
+        button.Text = text;
+        button.SpriteFont = font;
+
+        return button;
     }
 
     protected override void OnInitialize()
@@ -52,10 +64,6 @@ public class MainMenuState : GameState
     {
     }
 
-    public override void Update(GameTime gameTime)
-    {
-    }
-
     public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
         base.Draw(spriteBatch, gameTime);
@@ -63,17 +71,17 @@ public class MainMenuState : GameState
         float menuPositionX = _screenWidth - 400;
         float menuPositionY = _screenHeight;
 
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "New Game",
-            new Vector2(menuPositionX, menuPositionY - 500), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Load",
-            new Vector2(menuPositionX, menuPositionY - 430), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Settings",
-            new Vector2(menuPositionX, menuPositionY - 360), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Extras",
-            new Vector2(menuPositionX, menuPositionY - 290), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Credits",
-            new Vector2(menuPositionX, menuPositionY - 220), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Quit",
-            new Vector2(menuPositionX, menuPositionY - 150), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "New Game",
+        //    new Vector2(menuPositionX, menuPositionY - 500), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Load",
+        //    new Vector2(menuPositionX, menuPositionY - 430), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Settings",
+        //    new Vector2(menuPositionX, menuPositionY - 360), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Extras",
+        //    new Vector2(menuPositionX, menuPositionY - 290), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Credits",
+        //    new Vector2(menuPositionX, menuPositionY - 220), Color.White);
+        //spriteBatch.DrawString(ContentPool.Fonts["Victorian"], "Quit",
+        //    new Vector2(menuPositionX, menuPositionY - 150), Color.White);
     }
 }

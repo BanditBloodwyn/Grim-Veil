@@ -1,4 +1,5 @@
-﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using Core.Game;
+using Core.Patterns.Behaviours.FiniteStateMachines;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
@@ -28,7 +29,7 @@ public abstract class GameState : State<GameState>
 
     public virtual void Update(GameTime gameTime)
     {
-        foreach (KeyValuePair<object, IUpdateable> drawable in ObjectPool.Updateables)
+        foreach (KeyValuePair<object, IUpdatable> drawable in ObjectPool.Updateables)
             drawable.Value.Update(gameTime);
     }
 
