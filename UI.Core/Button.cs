@@ -22,11 +22,11 @@ namespace UI.Core
         
         public Color NormalFontColor { get; set; } = Color.White;
        
-        public Color MouseOverFontColor { get; set; } = Color.LightGray;
+        public Color MouseOverFontColor { get; set; } = Color.Gray;
 
         public Color NormalTint { get; set; } = Color.White;
 
-        public Color MouseOverTint { get; set; } = Color.Gray;
+        public Color MouseOverTint { get; set; } = Color.LightGray;
 
         public bool IsClicked { get; private set; }
 
