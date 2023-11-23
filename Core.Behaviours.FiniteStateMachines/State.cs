@@ -1,13 +1,14 @@
 ﻿namespace Core.Patterns.Behaviours.FiniteStateMachines;
 
-public abstract class State<TState> 
-    where TState : State<TState>
+public abstract class State<TState, TStateMachine>
+    where TState : State<TState, TStateMachine>
+    where TStateMachine : StateMachine<TState, TStateMachine>
 {
-    protected readonly StateMachine<TState> stateMachine;
+    protected readonly TStateMachine stateMachine;
   
     public abstract string StateLogString { get; }
 
-    protected State(StateMachine<TState> stateMachine)
+    protected State(TStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
     }

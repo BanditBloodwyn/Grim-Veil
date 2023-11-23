@@ -1,12 +1,15 @@
-﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using System;
+using Core.Patterns.Behaviours.FiniteStateMachines;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GrimVeil.GameManagement;
 
-public class GameManager : StateMachine<GameState>
+public class GameManager : StateMachine<GameState, GameManager>
 {
+    public event Action? ExitRequested;
+
     public ContentManager Content { get; }
     public GraphicsDeviceManager Graphics { get; }
     public GameWindow Window { get; }
@@ -29,5 +32,10 @@ public class GameManager : StateMachine<GameState>
     public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
         CurrentState?.Draw(spriteBatch, gameTime);
+    }
+
+    public void OnExit()
+    {
+        ExitRequested?.Invoke();
     }
 }

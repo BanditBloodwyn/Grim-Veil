@@ -2,7 +2,6 @@
 using GrimVeil.GameManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Pools;
 using System;
 
@@ -10,21 +9,19 @@ namespace GrimVeil
 {
     public class Game1 : Game
     {
-        private readonly GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private SpriteBatch? _spriteBatch;
         private readonly GameManager _gameManager;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            GraphicsDeviceManager graphics = new(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
             Window.Title = "Grim Veil";
 
-            Exiting += Shutdown;
-
-            _gameManager = new GameManager(_graphics, Content, Window);
+            _gameManager = new GameManager(graphics, Content, Window);
+            _gameManager.ExitRequested += OnExit;
         }
 
         protected override void Initialize()
@@ -45,8 +42,8 @@ namespace GrimVeil
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
             _gameManager.Update(gameTime);
 
@@ -57,15 +54,19 @@ namespace GrimVeil
         {
             GraphicsDevice.Clear(Color.BlueViolet);
 
-            _spriteBatch.Begin();
-            _gameManager.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
+            if (_spriteBatch != null)
+            {
+                _spriteBatch.Begin();
+                _gameManager.Draw(_spriteBatch, gameTime);
+                _spriteBatch.End();
+            }
 
             base.Draw(gameTime);
         }
 
-        private static void Shutdown(object sender, EventArgs e)
+        public void OnExit()
         {
+            Exit();
             Environment.Exit(0);
         }
     }

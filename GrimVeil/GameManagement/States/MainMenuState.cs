@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using UI.Core;
@@ -13,7 +14,7 @@ public class MainMenuState : GameState
     private readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
     public override string StateLogString => "Main Menu";
-   
+
     public MainMenuState(GameManager stateMachine)
         : base(stateMachine)
     { }
@@ -33,38 +34,42 @@ public class MainMenuState : GameState
                     (int)(_screenWidth / (LOGO_SIZE_DEVIDER * 0.25f)),
                     _screenWidth / (LOGO_SIZE_DEVIDER * 2 / 3))));
 
-        ObjectPool.AddObject("button_newGame", CreateButton("New Game", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 500));
-        ObjectPool.AddObject("button_loadGame", CreateButton("Load", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 430));
-        ObjectPool.AddObject("button_settings", CreateButton("Settings", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 360));
-        ObjectPool.AddObject("button_extras", CreateButton("Extras", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 290));
-        ObjectPool.AddObject("button_credits", CreateButton("Credits", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 220));
-        ObjectPool.AddObject("button_quit", CreateButton("Quit", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 150));
+        ObjectPool.AddObject("button_newGame", 
+            CreateButton("New Game", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 500, null));
+        ObjectPool.AddObject("button_loadGame", 
+            CreateButton("Load", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 430, null));
+        ObjectPool.AddObject("button_settings", 
+            CreateButton("Settings", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 360, null));
+        ObjectPool.AddObject("button_extras", 
+            CreateButton("Extras", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 290, null));
+        ObjectPool.AddObject("button_credits", 
+            CreateButton("Credits", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 220, null));
+        ObjectPool.AddObject("button_quit", 
+            CreateButton("Quit", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 150, (_, _) => stateMachine.OnExit()));
     }
 
     protected override void OnInitialize()
     {
-        GameManager manager = stateMachine as GameManager;
-        if (manager == null)
-            return;
-
-        manager.Window.Position = new Point(0, 0);
-        manager.Graphics.PreferredBackBufferWidth = _screenWidth;
-        manager.Graphics.PreferredBackBufferHeight = _screenHeight;
-        manager.Graphics.IsFullScreen = true;
-
-        manager.Graphics.ApplyChanges();
+        stateMachine.Window.Position = new Point(0, 0);
+        stateMachine.Graphics.PreferredBackBufferWidth = _screenWidth;
+        stateMachine.Graphics.PreferredBackBufferHeight = _screenHeight;
+        stateMachine.Graphics.IsFullScreen = true;
+        stateMachine.Graphics.ApplyChanges();
     }
 
     public override void OnExit()
     {
     }
 
-    private static Button CreateButton(string text, SpriteFont font, int posX, int posY)
+    private static Button CreateButton(string text, SpriteFont font, int posX, int posY, EventHandler? @event)
     {
         Button button = new(
             new Rectangle(posX, posY, (int)font.MeasureString(text).X, (int)font.MeasureString(text).Y));
         button.Text = text;
         button.SpriteFont = font;
+
+        if(@event != null) 
+            button.Clicked += @event;
 
         return button;
     }

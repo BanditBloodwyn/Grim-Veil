@@ -8,11 +8,11 @@ using IDrawable = Core.Game.IDrawable;
 
 namespace GrimVeil.GameManagement;
 
-public abstract class GameState : State<GameState>
+public abstract class GameState : State<GameState, GameManager>
 {
     protected ObjectPool ObjectPool { get; }
 
-    protected GameState(StateMachine<GameState> stateMachine)
+    protected GameState(GameManager stateMachine)
         : base(stateMachine)
     {
         ObjectPool = new ObjectPool();

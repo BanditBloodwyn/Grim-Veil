@@ -2,5 +2,5 @@
 
 namespace Tests.Core.StateMachines;
 
-public class TrafficLight : StateMachine<TrafficState>
+public class TrafficLight : StateMachine<TrafficState, TrafficLight>
 { }

@@ -1,7 +1,8 @@
 ﻿namespace Core.Patterns.Behaviours.FiniteStateMachines
 {
-    public abstract class StateMachine<TState> 
-        where TState : State<TState>
+    public abstract class StateMachine<TState, TStateMachine> 
+        where TState : State<TState, TStateMachine>
+        where TStateMachine : StateMachine<TState, TStateMachine> 
     {
         protected TState? CurrentState { get; private set; }
         

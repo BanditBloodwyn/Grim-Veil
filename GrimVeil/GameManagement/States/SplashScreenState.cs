@@ -17,7 +17,7 @@ public class SplashScreenState : GameState
     public SplashScreenState(GameManager stateMachine)
         : base(stateMachine)
     { }
-    
+
     protected override void OnLoadContent()
     {
         ObjectPool.AddObject(
@@ -34,19 +34,15 @@ public class SplashScreenState : GameState
 
     protected override void OnInitialize()
     {
-        GameManager manager = stateMachine as GameManager;
-        if (manager == null)
-            return;
-
         int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-        manager.Window.Position = new Point(screenWidth / 2 - SPLASHSCREEN_WIDTH / 2, screenHeight / 2 - SPLASHSCREEN_HEIGHT / 2);
-        manager.Graphics.PreferredBackBufferWidth = SPLASHSCREEN_WIDTH;
-        manager.Graphics.PreferredBackBufferHeight = SPLASHSCREEN_HEIGHT;
-        manager.Window.IsBorderless = true;
+        stateMachine.Window.Position = new Point(screenWidth / 2 - SPLASHSCREEN_WIDTH / 2, screenHeight / 2 - SPLASHSCREEN_HEIGHT / 2);
+        stateMachine.Graphics.PreferredBackBufferWidth = SPLASHSCREEN_WIDTH;
+        stateMachine.Graphics.PreferredBackBufferHeight = SPLASHSCREEN_HEIGHT;
+        stateMachine.Window.IsBorderless = true;
 
-        manager.Graphics.ApplyChanges();
+        stateMachine.Graphics.ApplyChanges();
     }
 
     public override void OnExit()
@@ -62,6 +58,6 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        stateMachine.ChangeState(new MainMenuState(stateMachine as GameManager));
+        ChangeState(new MainMenuState(stateMachine));
     }
 }
