@@ -34,7 +34,7 @@ public class GameManager : StateMachine<GameState, GameManager>
         CurrentState?.Draw(spriteBatch, gameTime);
     }
 
-    public void OnExit()
+    public void OnExitGame()
     {
         ExitRequested?.Invoke();
     }

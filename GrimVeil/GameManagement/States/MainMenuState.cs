@@ -46,6 +46,6 @@ public class MainMenuState : GameState
         ObjectPool.AddObject("button_credits",
             ButtonFactory.CreateTextButton("Credits", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 220, null));
         ObjectPool.AddObject("button_quit",
-            ButtonFactory.CreateTextButton("Quit", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 150, (_, _) => stateMachine.OnExit()));
+            ButtonFactory.CreateTextButton("Quit", ContentPool.Fonts["Victorian"], _screenWidth - 400, _screenHeight - 150, (_, _) => stateMachine.OnExitGame()));
     }
 }
