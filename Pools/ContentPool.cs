@@ -16,16 +16,15 @@ public static class ContentPool
     public static void LoadLoadingScreenContent(ContentManager contentManager)
     {
         Textures.Add("loadingScreen_Background1", contentManager.Load<Texture2D>("Images/loadingScreen1"));
+        Fonts.Add("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
     }
 
     public static void LoadContent(ContentManager contentManager)
     {
         Textures.Add("gameLogo_dark", contentManager.Load<Texture2D>("Images/logo_dark"));
         Textures.Add("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
-
+        
         Textures.Add("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));
-
-        Fonts.Add("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
     }
 
 }
