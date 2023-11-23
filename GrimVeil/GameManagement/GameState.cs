@@ -1,6 +1,7 @@
 ﻿using Core.Game;
 using Core.Patterns.Behaviours.FiniteStateMachines;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Collections.Generic;
@@ -11,11 +12,13 @@ namespace GrimVeil.GameManagement;
 public abstract class GameState : State<GameState, GameManager>
 {
     protected ObjectPool ObjectPool { get; }
+    protected ContentManager Content { get; }
 
-    protected GameState(GameManager stateMachine)
+    protected GameState(GameManager stateMachine, ContentManager content)
         : base(stateMachine)
     {
         ObjectPool = new ObjectPool();
+        Content = content;
     }
 
     public override void OnBegin()
@@ -24,8 +27,8 @@ public abstract class GameState : State<GameState, GameManager>
         OnInitialize();
     }
 
-    protected abstract void OnLoadContent();
-    protected abstract void OnInitialize();
+    protected virtual void OnLoadContent() { }
+    protected virtual void OnInitialize() { }
 
     public virtual void Update(GameTime gameTime)
     {

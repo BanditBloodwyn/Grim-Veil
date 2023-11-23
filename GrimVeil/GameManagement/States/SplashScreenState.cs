@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System;
@@ -14,12 +15,14 @@ public class SplashScreenState : GameState
 
     public override string StateLogString => "Splash Screen State";
 
-    public SplashScreenState(GameManager stateMachine)
-        : base(stateMachine)
+    public SplashScreenState(GameManager stateMachine, ContentManager content)
+        : base(stateMachine, content)
     { }
 
     protected override void OnLoadContent()
     {
+        ContentPool.LoadSplashScreenContent(Content);
+
         ObjectPool.AddObject(
             "background",
             new Image(
@@ -58,6 +61,6 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        ChangeState(new MainMenuState(stateMachine));
+        ChangeState(new LoadingScreenState(stateMachine, Content));
     }
 }

@@ -2,7 +2,6 @@
 using GrimVeil.GameManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pools;
 using System;
 
 namespace GrimVeil
@@ -33,18 +32,11 @@ namespace GrimVeil
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ContentPool.LoadSplashScreenContent(Content);
-
-            _gameManager.ChangeState(new SplashScreenState(_gameManager));
-
-            ContentPool.LoadContent(Content);
+            _gameManager.ChangeState(new SplashScreenState(_gameManager, Content));
         }
 
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
-
             _gameManager.Update(gameTime);
 
             base.Update(gameTime);

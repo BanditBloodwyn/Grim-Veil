@@ -1,8 +1,8 @@
-﻿using System;
-using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using Core.Patterns.Behaviours.FiniteStateMachines;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace GrimVeil.GameManagement;
 
