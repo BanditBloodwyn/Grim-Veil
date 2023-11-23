@@ -38,8 +38,18 @@ public abstract class GameState : State<GameState, GameManager>
 
     public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
-        foreach (KeyValuePair<object, IDrawable> drawable in ObjectPool.Drawables)
-            drawable.Value.Draw(spriteBatch, gameTime);
+        if (!ObjectPool.IsEmpty)
+        {
+            foreach (KeyValuePair<object, IDrawable> drawable in ObjectPool.Drawables)
+                drawable.Value.Draw(spriteBatch, gameTime);
+            return;
+        }
+
+        spriteBatch.DrawString(ContentPool.Fonts["Default"], "State:", new Vector2(3, 3), Color.White);
+        spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{GetType()}", new Vector2(100, 3), Color.White);
+
+        spriteBatch.DrawString(ContentPool.Fonts["Default"], "Gametime:", new Vector2(3, 23), Color.White);
+        spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", new Vector2(100, 23), Color.White);
     }
 
     protected void AddObject(object key, object @object) => ObjectPool.AddObject(key, @object);

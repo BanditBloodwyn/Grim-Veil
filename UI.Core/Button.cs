@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Reflection.Emit;
 using IDrawable = Core.Game.IDrawable;
 
 namespace UI.Core
@@ -16,9 +15,9 @@ namespace UI.Core
         private MouseState _previousMouseState;
         private bool _isMouseOver;
         private bool _isMousePressed;
-       
+
         public Rectangle Rectangle { get; }
-        
+
         public Color NormalFontColor { get; set; } = Color.White;
         public Color MouseOverFontColor { get; set; } = Color.Gray;
         public Color MousePressFontColor { get; set; } = Color.DarkGray;
@@ -71,9 +70,9 @@ namespace UI.Core
                         ? MousePressTint
                         : MouseOverTint;
                 }
-                else 
+                else
                     _background.Tint = NormalTint;
-                
+
                 _background.Draw(spriteBatch, gameTime);
             }
 

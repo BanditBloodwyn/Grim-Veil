@@ -11,9 +11,14 @@ namespace GrimVeil
         private SpriteBatch? _spriteBatch;
         private readonly GameManager _gameManager;
 
+        private readonly Color CLEARCOLOR = new(new Vector3(0, 0, 0.2f));
+
         public Game1()
         {
             GraphicsDeviceManager graphics = new(this);
+            graphics.SynchronizeWithVerticalRetrace = false;
+            
+            IsFixedTimeStep = false;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
@@ -44,7 +49,7 @@ namespace GrimVeil
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.BlueViolet);
+            GraphicsDevice.Clear(CLEARCOLOR);
 
             if (_spriteBatch != null)
             {

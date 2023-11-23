@@ -8,6 +8,10 @@ public class ObjectPool
     public Dictionary<object, IUpdatable> Updateables = new();
     public Dictionary<object, IDrawable> Drawables = new();
 
+    public bool NoUpdatables => Updateables.Count == 0;
+    public bool NoDrawables => Drawables.Count == 0;
+    public bool IsEmpty => NoUpdatables && NoDrawables;
+
     public void AddObject(object key, object @object)
     {
         if (@object is IUpdatable updateable)

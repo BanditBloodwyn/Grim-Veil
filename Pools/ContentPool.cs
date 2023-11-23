@@ -12,7 +12,10 @@ public static class ContentPool
     {
         Textures.Add("splashscreen", contentManager.Load<Texture2D>("Images/splashscreen"));
         Textures.Add("gameLogo", contentManager.Load<Texture2D>("Images/logo"));
+      
+        Fonts.Add("Default", contentManager.Load<SpriteFont>("Fonts/Default"));
     }
+
     public static void LoadLoadingScreenContent(ContentManager contentManager)
     {
         Textures.Add("loadingScreen_Background1", contentManager.Load<Texture2D>("Images/loadingScreen1"));

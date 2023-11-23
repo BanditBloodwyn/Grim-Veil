@@ -121,6 +121,13 @@
 /processorParam:TextureFormat=Color
 /build:Environment/Buildings/House_verylower1.png
 
+#begin Fonts/Default.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Default.spritefont
+
 #begin Fonts/VictorianText.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

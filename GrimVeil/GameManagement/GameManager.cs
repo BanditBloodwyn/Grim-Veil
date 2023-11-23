@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
+using System.Text;
 
 namespace GrimVeil.GameManagement;
 
@@ -26,12 +28,38 @@ public class GameManager : StateMachine<GameState, GameManager>
 
     public void Update(GameTime gameTime)
     {
-        CurrentState?.Update(gameTime);
+        try
+        {
+            CurrentState?.Update(gameTime);
+        }
+        catch (Exception e)
+        {
+            StringBuilder sb = new();
+            sb.Append($"=== Exception during Update(): {e.Message}");
+            if (e.InnerException != null)
+                sb.Append($", {e.InnerException}");
+            Debug.WriteLine(sb.ToString());
+
+            OnExitGame();
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
-        CurrentState?.Draw(spriteBatch, gameTime);
+        try
+        {
+            CurrentState?.Draw(spriteBatch, gameTime);
+        }
+        catch (Exception e)
+        {
+            StringBuilder sb = new();
+            sb.Append($"=== Exception during Draw(): {e.Message}");
+            if (e.InnerException != null)
+                sb.Append($", {e.InnerException}");
+            Debug.WriteLine(sb.ToString());
+
+            OnExitGame();
+        }
     }
 
     public void OnExitGame()
