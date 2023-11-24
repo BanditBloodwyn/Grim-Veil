@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,7 +15,10 @@ public class InGameState : GameState
 
     public override void Update(GameTime gameTime)
     {
-        if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (Input.IsKeyPressed(Keys.Escape))
             stateMachine.OnExitGame();
+
+        if (Input.IsKeyPressed(Keys.Space))
+            Debug.WriteLine("Space");
     }
 }

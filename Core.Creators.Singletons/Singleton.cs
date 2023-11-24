@@ -1,7 +1,6 @@
-﻿namespace Core.Patterns.Creators.Singletons
-{
-    public class Singleton
-    {
+﻿namespace Core.Patterns.Creators.Singletons;
 
-    }
+public class Singleton
+{
+
 }

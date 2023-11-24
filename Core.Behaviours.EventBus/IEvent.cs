@@ -1,4 +1,3 @@
-﻿namespace Core.Patterns.Behaviours.EventBus
-{
-    public interface IEvent { }
-}
+﻿namespace Core.Patterns.Behaviours.EventBus;
+
+public interface IEvent { }

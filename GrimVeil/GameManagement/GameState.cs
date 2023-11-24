@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Collections.Generic;
+using Managers.InputManagement;
 using IDrawable = Core.Game.IDrawable;
 
 namespace GrimVeil.GameManagement;
@@ -13,16 +14,20 @@ public abstract class GameState : State<GameState, GameManager>
 {
     protected ObjectPool ObjectPool { get; }
     protected ContentManager Content { get; }
+    protected InputManager Input { get; }
 
     protected GameState(GameManager stateMachine, ContentManager content)
         : base(stateMachine)
     {
         ObjectPool = new ObjectPool();
         Content = content;
+        Input = new InputManager();
     }
 
     public override void OnBegin()
     {
+        ObjectPool.AddObject("InputManager", Input);
+
         OnLoadContent();
         OnInitialize();
     }

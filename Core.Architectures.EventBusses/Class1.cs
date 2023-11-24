@@ -1,7 +1,6 @@
-﻿namespace Core.Patterns.Architectures.EventBusses
-{
-    public class Class1
-    {
+﻿namespace Core.Patterns.Architectures.EventBusses;
 
-    }
+public class Class1
+{
+
 }
