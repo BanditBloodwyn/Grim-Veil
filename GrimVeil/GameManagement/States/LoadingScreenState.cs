@@ -45,7 +45,7 @@ public class LoadingScreenState : GameState
         stateMachine.Window.Position = new Point(0, 0);
         stateMachine.Graphics.PreferredBackBufferWidth = _screenWidth;
         stateMachine.Graphics.PreferredBackBufferHeight = _screenHeight;
-        stateMachine.Graphics.IsFullScreen = true;
+        //stateMachine.Graphics.IsFullScreen = true;
         stateMachine.Graphics.ApplyChanges();
     }
 
@@ -55,7 +55,7 @@ public class LoadingScreenState : GameState
 
         base.Update(gameTime);
 
-        while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 5)
+        while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
         ContentPool.LoadContent(Content);

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Core.Game;
+﻿using Core.Game;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -46,6 +45,7 @@ public class Button : IUpdatable, IDrawable
 
     public void Update(GameTime gameTime)
     {
+        _inputManager.Update(gameTime);
         MouseState currentMouseState = _inputManager.GetCurrentMouseState();
 
         Rectangle mouseRectangle = new(currentMouseState.X, currentMouseState.Y, 1, 1);
