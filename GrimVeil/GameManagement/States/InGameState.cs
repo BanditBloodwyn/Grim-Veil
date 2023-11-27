@@ -15,6 +15,8 @@ public class InGameState : GameState
 
     public override void Update(GameTime gameTime)
     {
+        base.Update(gameTime);
+
         if (Input.IsKeyPressed(Keys.Escape))
             stateMachine.OnExitGame();
 

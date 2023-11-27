@@ -43,7 +43,7 @@ public abstract class GameState : State<GameState, GameManager>
 
     public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
-        if (!ObjectPool.IsEmpty)
+        if (!ObjectPool.NoDrawables)
         {
             foreach (KeyValuePair<object, IDrawable> drawable in ObjectPool.Drawables)
                 drawable.Value.Draw(spriteBatch, gameTime);
