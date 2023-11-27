@@ -3,39 +3,39 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace Managers.InputManagement;
-public class InputManager : IUpdatable
+public class InputManager
 {
-    private KeyboardState _currentKeyboardState;
-    private KeyboardState _previousKeyboardState;
-    private MouseState _currentMouseState;
-    private MouseState _previousMouseState;
+    private static KeyboardState _currentKeyboardState;
+    private static KeyboardState _previousKeyboardState;
+    private static MouseState _currentMouseState;
+    private static MouseState _previousMouseState;
 
-    public InputManager()
+    //public static InputManager()
+    //{
+    //    _currentKeyboardState = Keyboard.GetState();
+    //    _previousKeyboardState = _currentKeyboardState;
+    //    _currentMouseState = Mouse.GetState();
+    //    _previousMouseState = _currentMouseState;
+    //}
+
+    public static void Update(GameTime gameTime)
     {
-        _currentKeyboardState = Keyboard.GetState();
         _previousKeyboardState = _currentKeyboardState;
-        _currentMouseState = Mouse.GetState();
+        _currentKeyboardState = Keyboard.GetState();
         _previousMouseState = _currentMouseState;
+        _currentMouseState = Mouse.GetState();
     }
 
-    public void Update(GameTime gameTime)
-    {
-        _previousKeyboardState = _currentKeyboardState;
-        _currentKeyboardState = Keyboard.GetState();
-        _previousMouseState = _currentMouseState;
-        _currentMouseState = Mouse.GetState();
-    }
+    public static MouseState GetCurrentMouseState() => _currentMouseState;
 
-    public MouseState GetCurrentMouseState() => _currentMouseState;
+    public static bool IsKeyPressed(Keys key) => _currentKeyboardState.IsKeyDown(key) && _previousKeyboardState.IsKeyUp(key);
+    public static bool IsKeyHeld(Keys key) => _currentKeyboardState.IsKeyDown(key) && _previousKeyboardState.IsKeyDown(key);
+    public static bool IsKeyReleased(Keys key) => _currentKeyboardState.IsKeyUp(key) && _previousKeyboardState.IsKeyDown(key);
 
-    public bool IsKeyPressed(Keys key) => _currentKeyboardState.IsKeyDown(key) && _previousKeyboardState.IsKeyUp(key);
-    public bool IsKeyHeld(Keys key) => _currentKeyboardState.IsKeyDown(key) && _previousKeyboardState.IsKeyDown(key);
-    public bool IsKeyReleased(Keys key) => _currentKeyboardState.IsKeyUp(key) && _previousKeyboardState.IsKeyDown(key);
-
-    public bool IsLeftMouseButtonClicked() =>
+    public static bool IsLeftMouseButtonClicked() =>
         _currentMouseState.LeftButton == ButtonState.Released &&
         _previousMouseState.LeftButton == ButtonState.Pressed;
 
-    public bool IsRightMouseButtonClicked() => _currentMouseState.RightButton == ButtonState.Released && _previousMouseState.RightButton == ButtonState.Pressed;
-    public bool IsMiddleMouseButtonClicked() => _currentMouseState.MiddleButton == ButtonState.Released && _previousMouseState.MiddleButton == ButtonState.Pressed;
+    public static bool IsRightMouseButtonClicked() => _currentMouseState.RightButton == ButtonState.Released && _previousMouseState.RightButton == ButtonState.Pressed;
+    public static bool IsMiddleMouseButtonClicked() => _currentMouseState.MiddleButton == ButtonState.Released && _previousMouseState.MiddleButton == ButtonState.Pressed;
 }

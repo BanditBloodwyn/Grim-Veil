@@ -45,8 +45,7 @@ public class Button : IUpdatable, IDrawable
 
     public void Update(GameTime gameTime)
     {
-        _inputManager.Update(gameTime);
-        MouseState currentMouseState = _inputManager.GetCurrentMouseState();
+        MouseState currentMouseState = InputManager.GetCurrentMouseState();
 
         Rectangle mouseRectangle = new(currentMouseState.X, currentMouseState.Y, 1, 1);
         _isMouseOver = mouseRectangle.Intersects(Rectangle);
@@ -55,7 +54,7 @@ public class Button : IUpdatable, IDrawable
         {
             _isMousePressed = currentMouseState.LeftButton == ButtonState.Pressed;
 
-            if (_inputManager.IsLeftMouseButtonClicked())
+            if (InputManager.IsLeftMouseButtonClicked())
                 Clicked?.Invoke(this, EventArgs.Empty);
         }
     }

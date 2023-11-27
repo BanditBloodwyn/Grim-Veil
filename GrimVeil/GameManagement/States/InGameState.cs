@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
@@ -17,10 +18,10 @@ public class InGameState : GameState
     {
         base.Update(gameTime);
 
-        if (Input.IsKeyPressed(Keys.Escape))
+        if (InputManager.IsKeyPressed(Keys.Escape))
             stateMachine.OnExitGame();
 
-        if (Input.IsKeyPressed(Keys.Space))
+        if (InputManager.IsKeyPressed(Keys.Space))
             Debug.WriteLine("Space");
     }
 }
