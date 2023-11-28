@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Managers.StateManagement.Program;
+using Managers.StateManagement.Program.States;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StateManagement.Program;
-using StateManagement.Program.States;
 using System;
 
 namespace GrimVeil;

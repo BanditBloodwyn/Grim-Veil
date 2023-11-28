@@ -1,11 +1,11 @@
-﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using System.Diagnostics;
+using System.Text;
+using Core.Patterns.Behaviours.FiniteStateMachines;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System.Diagnostics;
-using System.Text;
 
-namespace StateManagement.Program;
+namespace Managers.StateManagement.Program;
 
 public class GameManager : StateMachine<GameState, GameManager>
 {

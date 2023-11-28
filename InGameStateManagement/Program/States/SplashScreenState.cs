@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using UI.Core;
 
-namespace StateManagement.Program.States;
+namespace Managers.StateManagement.Program.States;
 
 public class SplashScreenState : GameState
 {

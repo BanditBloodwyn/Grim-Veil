@@ -5,7 +5,7 @@ using Pools;
 using UI.Core;
 using UI.Core.Factories;
 
-namespace StateManagement.Program.States;
+namespace Managers.StateManagement.Program.States;
 
 public class MainMenuState : GameState
 {

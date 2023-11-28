@@ -1,10 +1,10 @@
-﻿using Managers.InputManagement;
+﻿using System.Diagnostics;
+using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
 
-namespace StateManagement.Program.States;
+namespace Managers.StateManagement.Program.States;
 
 public class InGameState : GameState
 {

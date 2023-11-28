@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using IDrawable = Core.Game.IDrawable;
 
-namespace StateManagement.Program;
+namespace Managers.StateManagement.Program;
 
 public abstract class GameState : State<GameState, GameManager>
 {
