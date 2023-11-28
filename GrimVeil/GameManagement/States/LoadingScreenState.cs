@@ -53,8 +53,6 @@ public class LoadingScreenState : GameState
     {
         _startingTime ??= gameTime.TotalGameTime;
 
-        base.Update(gameTime);
-
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 

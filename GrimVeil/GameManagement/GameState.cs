@@ -1,11 +1,11 @@
 ﻿using Core.Game;
 using Core.Patterns.Behaviours.FiniteStateMachines;
+using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Collections.Generic;
-using Managers.InputManagement;
 using IDrawable = Core.Game.IDrawable;
 
 namespace GrimVeil.GameManagement;
@@ -31,13 +31,15 @@ public abstract class GameState : State<GameState, GameManager>
     protected virtual void OnLoadContent() { }
     protected virtual void OnInitialize() { }
 
-    public virtual void Update(GameTime gameTime)
+    public void CoreUpdate(GameTime gameTime)
     {
         InputManager.Update(gameTime);
 
         foreach (KeyValuePair<object, IUpdatable> drawable in ObjectPool.Updateables)
             drawable.Value.Update(gameTime);
     }
+
+    public virtual void Update(GameTime gameTime) { }
 
     public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {

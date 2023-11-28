@@ -30,6 +30,7 @@ public class GameManager : StateMachine<GameState, GameManager>
     {
         try
         {
+            CurrentState?.CoreUpdate(gameTime);
             CurrentState?.Update(gameTime);
         }
         catch (Exception e)

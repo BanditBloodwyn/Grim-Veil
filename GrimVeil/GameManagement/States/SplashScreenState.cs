@@ -50,8 +50,6 @@ public class SplashScreenState : GameState
 
     public override void Update(GameTime gameTime)
     {
-        base.Update(gameTime);
-
         TimeSpan startingTime = gameTime.TotalGameTime;
 
         while (startingTime.TotalSeconds < MINIMUM_SPLASHSCREEN_TIME_SECONDS)
