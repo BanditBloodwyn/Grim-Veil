@@ -5,7 +5,7 @@ using Pools;
 using UI.Core;
 using UI.Core.Factories;
 
-namespace GrimVeil.GameManagement.States;
+namespace StateManagement.Program.States;
 
 public class MainMenuState : GameState
 {

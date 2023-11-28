@@ -5,10 +5,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
-using System.Collections.Generic;
 using IDrawable = Core.Game.IDrawable;
 
-namespace GrimVeil.GameManagement;
+namespace StateManagement.Program;
 
 public abstract class GameState : State<GameState, GameManager>
 {

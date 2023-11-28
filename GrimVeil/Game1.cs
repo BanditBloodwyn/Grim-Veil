@@ -1,7 +1,7 @@
-﻿using GrimVeil.GameManagement;
-using GrimVeil.GameManagement.States;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StateManagement.Program;
+using StateManagement.Program.States;
 using System;
 
 namespace GrimVeil;
@@ -17,7 +17,7 @@ public class Game1 : Game
     {
         GraphicsDeviceManager graphics = new(this);
         graphics.SynchronizeWithVerticalRetrace = false;
-            
+
         IsFixedTimeStep = false;
         Content.RootDirectory = "Content";
         IsMouseVisible = true;

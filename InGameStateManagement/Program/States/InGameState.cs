@@ -1,16 +1,17 @@
-﻿using System.Diagnostics;
-using Managers.InputManagement;
+﻿using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
-namespace GrimVeil.GameManagement.States;
+namespace StateManagement.Program.States;
 
 public class InGameState : GameState
 {
+
     public override string StateLogString => "In Game";
-   
-    public InGameState(GameManager stateMachine, ContentManager content) 
+
+    public InGameState(GameManager stateMachine, ContentManager content)
         : base(stateMachine, content)
     { }
 

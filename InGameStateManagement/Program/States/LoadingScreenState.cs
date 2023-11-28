@@ -2,18 +2,17 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
-using System;
 using UI.Core;
 using UI.Core.Factories;
 
-namespace GrimVeil.GameManagement.States;
+namespace StateManagement.Program.States;
 
 public class LoadingScreenState : GameState
 {
     private readonly int _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
     private readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
     private TimeSpan? _startingTime;
-    
+
     public override string StateLogString => "Loading Screen";
 
     public LoadingScreenState(GameManager stateMachine, ContentManager content)
@@ -33,10 +32,10 @@ public class LoadingScreenState : GameState
         ObjectPool.AddObject(
             "loadingScreen_Label",
             LabelFactory.CreateLabel(
-                "Loading...", 
+                "Loading...",
                 ContentPool.Fonts["Victorian"],
-                _screenWidth / 2, 
-                _screenHeight - 50, 
+                _screenWidth / 2,
+                _screenHeight - 50,
                 true));
     }
 

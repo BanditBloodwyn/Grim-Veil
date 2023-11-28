@@ -1,5 +1,4 @@
-﻿using Core.Game;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace Managers.InputManagement;
@@ -9,14 +8,6 @@ public class InputManager
     private static KeyboardState _previousKeyboardState;
     private static MouseState _currentMouseState;
     private static MouseState _previousMouseState;
-
-    //public static InputManager()
-    //{
-    //    _currentKeyboardState = Keyboard.GetState();
-    //    _previousKeyboardState = _currentKeyboardState;
-    //    _currentMouseState = Mouse.GetState();
-    //    _previousMouseState = _currentMouseState;
-    //}
 
     public static void Update(GameTime gameTime)
     {

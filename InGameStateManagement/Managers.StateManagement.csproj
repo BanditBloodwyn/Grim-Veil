@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\Managers.InputManagement.csproj" />
+    <ProjectReference Include="..\Pools\Pools.csproj" />
+    <ProjectReference Include="..\UI.Core\UI.Core.csproj" />
+  </ItemGroup>
+
+</Project>

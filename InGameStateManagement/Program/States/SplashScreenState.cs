@@ -2,10 +2,9 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
-using System;
 using UI.Core;
 
-namespace GrimVeil.GameManagement.States;
+namespace StateManagement.Program.States;
 
 public class SplashScreenState : GameState
 {
