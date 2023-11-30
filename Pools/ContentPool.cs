@@ -22,7 +22,7 @@ public static class ContentPool
         Fonts.Add("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
     }
 
-    public static void LoadContent(ContentManager contentManager)
+    public static void LoadMainMenuContent(ContentManager contentManager)
     {
         Textures.Add("gameLogo_dark", contentManager.Load<Texture2D>("Images/logo_dark"));
         Textures.Add("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));

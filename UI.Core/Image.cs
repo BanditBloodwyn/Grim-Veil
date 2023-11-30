@@ -17,7 +17,7 @@ public class Image : IDrawable
         Rectangle = rectangle;
         Tint = tint ?? Color.White;
     }
-    public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+    public void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Draw(
             _texture,

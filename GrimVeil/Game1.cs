@@ -1,4 +1,6 @@
-﻿using Managers.StateManagement.Program;
+﻿using Managers.InputManagement;
+using Managers.SceneManagement;
+using Managers.StateManagement.Program;
 using Managers.StateManagement.Program.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -30,6 +32,9 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
+        SceneBuilder.Initialize(Content);
+        GameStateFactory.Initialize(_gameManager);
+
         base.Initialize();
     }
 
@@ -37,11 +42,14 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        _gameManager.ChangeState(new SplashScreenState(_gameManager, Content));
+        SceneManager.AddScene("splashScreen", SceneBuilder.BuildSplashScreen());
+       
+        _gameManager.ChangeState(new SplashScreenState(_gameManager));
     }
 
     protected override void Update(GameTime gameTime)
     {
+        InputManager.Update(gameTime);
         _gameManager.Update(gameTime);
 
         base.Update(gameTime);

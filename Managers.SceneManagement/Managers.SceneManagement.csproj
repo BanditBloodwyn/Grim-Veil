@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
+    <ProjectReference Include="..\Core.Game\Core.Game.csproj" />
+    <ProjectReference Include="..\Pools\Pools.csproj" />
+    <ProjectReference Include="..\Settings\Settings.csproj" />
+    <ProjectReference Include="..\UI.Core\UI.Core.csproj" />
+  </ItemGroup>
+
 </Project>

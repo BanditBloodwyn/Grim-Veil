@@ -9,8 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
     <ProjectReference Include="..\Managers.InputManagement\Managers.InputManagement.csproj" />
-    <ProjectReference Include="..\Pools\Pools.csproj" />
-    <ProjectReference Include="..\UI.Core\UI.Core.csproj" />
+    <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
+    <ProjectReference Include="..\Settings\Settings.csproj" />
   </ItemGroup>
 
 </Project>

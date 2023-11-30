@@ -11,7 +11,6 @@ public class Button : IUpdatable, IDrawable
 {
     private readonly Image? _background;
     private readonly Label? _label;
-    private readonly InputManager _inputManager = new();
 
     private bool _isMouseOver;
     private bool _isMousePressed;
@@ -59,7 +58,7 @@ public class Button : IUpdatable, IDrawable
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+    public void Draw(SpriteBatch spriteBatch)
     {
         if (_background != null)
         {
@@ -72,7 +71,7 @@ public class Button : IUpdatable, IDrawable
             else
                 _background.Tint = NormalTint;
 
-            _background.Draw(spriteBatch, gameTime);
+            _background.Draw(spriteBatch);
         }
 
         if (_label != null)
@@ -86,7 +85,7 @@ public class Button : IUpdatable, IDrawable
             else
                 _label.FontColor = NormalFontColor;
 
-            _label.Draw(spriteBatch, gameTime);
+            _label.Draw(spriteBatch);
         }
     }
 }

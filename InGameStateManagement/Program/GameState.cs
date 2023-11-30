@@ -1,53 +1,51 @@
-﻿using Core.Game;
-using Core.Patterns.Behaviours.FiniteStateMachines;
-using Managers.InputManagement;
+﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+using Managers.SceneManagement;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
-using IDrawable = Core.Game.IDrawable;
+using System.Diagnostics;
 
 namespace Managers.StateManagement.Program;
 
 public abstract class GameState : State<GameState, GameManager>
 {
-    protected ObjectPool ObjectPool { get; }
-    protected ContentManager Content { get; }
+    protected Scene? _loadedScene;
 
-    protected GameState(GameManager stateMachine, ContentManager content)
+    protected abstract string AssociatedSceneName { get; }
+
+    protected GameState(GameManager stateMachine)
         : base(stateMachine)
-    {
-        ObjectPool = new ObjectPool();
-        Content = content;
-    }
+    { }
 
     public override void OnBegin()
     {
-        OnLoadContent();
+        LoadScene();
         OnInitialize();
     }
 
-    protected virtual void OnLoadContent() { }
+    private void LoadScene()
+    {
+        if (!SceneManager.TryGetSceneByName(AssociatedSceneName, out Scene scene))
+            Debug.WriteLine("Scene not found!");
+
+        _loadedScene = scene;
+    }
+
     protected virtual void OnInitialize() { }
 
     public void CoreUpdate(GameTime gameTime)
     {
-        InputManager.Update(gameTime);
-
-        foreach (KeyValuePair<object, IUpdatable> drawable in ObjectPool.Updateables)
-            drawable.Value.Update(gameTime);
+        _loadedScene?.Update(gameTime);
     }
 
     public virtual void Update(GameTime gameTime) { }
 
     public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
-        if (!ObjectPool.NoDrawables)
-        {
-            foreach (KeyValuePair<object, IDrawable> drawable in ObjectPool.Drawables)
-                drawable.Value.Draw(spriteBatch, gameTime);
+        _loadedScene?.Draw(spriteBatch);
+
+        if (!_loadedScene?.IsEmpty ?? false)
             return;
-        }
 
         spriteBatch.DrawString(ContentPool.Fonts["Default"], "State:", new Vector2(3, 3), Color.White);
         spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{GetType()}", new Vector2(100, 3), Color.White);
@@ -55,7 +53,4 @@ public abstract class GameState : State<GameState, GameManager>
         spriteBatch.DrawString(ContentPool.Fonts["Default"], "Gametime:", new Vector2(3, 23), Color.White);
         spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", new Vector2(100, 23), Color.White);
     }
-
-    protected void AddObject(object key, object @object) => ObjectPool.AddObject(key, @object);
-    protected void RemoveObject(object key) => ObjectPool.RemoveObject(key);
 }

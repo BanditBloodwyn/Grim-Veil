@@ -1,18 +1,17 @@
-﻿using System.Diagnostics;
-using Managers.InputManagement;
+﻿using Managers.InputManagement;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace Managers.StateManagement.Program.States;
 
 public class InGameState : GameState
 {
-
     public override string StateLogString => "In Game";
+    protected override string AssociatedSceneName => "inGameScene";
 
-    public InGameState(GameManager stateMachine, ContentManager content)
-        : base(stateMachine, content)
+    public InGameState(GameManager stateMachine)
+        : base(stateMachine)
     { }
 
     public override void Update(GameTime gameTime)

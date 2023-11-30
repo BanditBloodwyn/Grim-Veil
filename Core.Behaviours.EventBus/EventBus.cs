@@ -1,4 +1,6 @@
-﻿namespace Core.Patterns.Behaviours.EventBus;
+﻿using System.Diagnostics;
+
+namespace Core.Patterns.Behaviours.EventBus;
 
 public static class EventBus<T>
     where T : IEvent
@@ -10,6 +12,8 @@ public static class EventBus<T>
 
     public static void Raise(T @event)
     {
+        Debug.WriteLine($"Event fired. Type: {typeof(T).Name}");
+
         foreach (IEventBinding<T> binding in _bindings)
         {
             binding.OnEvent.Invoke(@event);

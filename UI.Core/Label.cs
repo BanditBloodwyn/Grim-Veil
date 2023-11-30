@@ -19,10 +19,10 @@ public class Label : IDrawable
         Rectangle = rectangle;
     }
 
-    public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+    public void Draw(SpriteBatch spriteBatch)
     {
-        float textPositionX = (Rectangle.X + (float)Rectangle.Width / 2) - SpriteFont.MeasureString(Text).X / 2;
-        float textPositionY = (Rectangle.Y + (float)Rectangle.Height / 2) - SpriteFont.MeasureString(Text).Y / 2;
+        float textPositionX = Rectangle.X + (float)Rectangle.Width / 2 - SpriteFont.MeasureString(Text).X / 2;
+        float textPositionY = Rectangle.Y + (float)Rectangle.Height / 2 - SpriteFont.MeasureString(Text).Y / 2;
         
         spriteBatch.DrawString(
             SpriteFont,
