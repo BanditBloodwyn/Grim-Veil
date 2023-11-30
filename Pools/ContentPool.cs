@@ -10,24 +10,24 @@ public static class ContentPool
 
     public static void LoadSplashScreenContent(ContentManager contentManager)
     {
-        Textures.Add("splashscreen", contentManager.Load<Texture2D>("Images/splashscreen"));
-        Textures.Add("gameLogo", contentManager.Load<Texture2D>("Images/logo"));
+        Textures.TryAdd("splashscreen", contentManager.Load<Texture2D>("Images/splashscreen"));
+        Textures.TryAdd("gameLogo", contentManager.Load<Texture2D>("Images/logo"));
       
-        Fonts.Add("Default", contentManager.Load<SpriteFont>("Fonts/Default"));
+        Fonts.TryAdd("Default", contentManager.Load<SpriteFont>("Fonts/Default"));
     }
 
     public static void LoadLoadingScreenContent(ContentManager contentManager)
     {
-        Textures.Add("loadingScreen_Background1", contentManager.Load<Texture2D>("Images/loadingScreen1"));
-        Fonts.Add("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
+        Textures.TryAdd("loadingScreen_Background1", contentManager.Load<Texture2D>("Images/loadingScreen1"));
+        Fonts.TryAdd("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
     }
 
     public static void LoadMainMenuContent(ContentManager contentManager)
     {
-        Textures.Add("gameLogo_dark", contentManager.Load<Texture2D>("Images/logo_dark"));
-        Textures.Add("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
+        Textures.TryAdd("gameLogo_dark", contentManager.Load<Texture2D>("Images/logo_dark"));
+        Textures.TryAdd("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
         
-        Textures.Add("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));
+        Textures.TryAdd("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));
     }
 
 }
