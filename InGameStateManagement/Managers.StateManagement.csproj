@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
-    <ProjectReference Include="..\Managers.InputManagement\Managers.InputManagement.csproj" />
     <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
     <ProjectReference Include="..\Settings\Settings.csproj" />
   </ItemGroup>

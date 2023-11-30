@@ -24,7 +24,19 @@ public class SceneBuilder
         _initialized = true;
     }
 
-    public static Scene BuildSplashScreen()
+    public static Scene? BuildByName(string name)
+    {
+        return name switch
+        {
+            "splashScreenScene" => SplashScreen(),
+            "loadingScreenScene" => LoadingScreen(),
+            "mainMenuScene" => MainMenuScreen(),
+            "inGameScene" => null,
+            _ => SplashScreen()
+        };
+    }
+
+    public static Scene SplashScreen()
     {
         if (!_initialized)
             return new Scene();
@@ -47,7 +59,7 @@ public class SceneBuilder
         return scene;
     }
 
-    public static Scene BuildLoadingScreen()
+    public static Scene LoadingScreen()
     {
         if (!_initialized)
             return new Scene();
@@ -74,7 +86,7 @@ public class SceneBuilder
         return scene;
     }
 
-    public static Scene BuildMainMenuScreen()
+    public static Scene MainMenuScreen()
     {
         if (!_initialized)
             return new Scene();

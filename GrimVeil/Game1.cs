@@ -42,7 +42,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        SceneManager.AddScene("splashScreen", SceneBuilder.BuildSplashScreen());
+        SceneManager.AddScene("splashScreen", SceneBuilder.SplashScreen());
        
         _gameManager.ChangeState(new SplashScreenState(_gameManager));
     }

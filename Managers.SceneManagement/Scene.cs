@@ -1,6 +1,11 @@
 ﻿using Core.Game;
+using Core.Patterns.Behaviours.EventBus.Events;
+using Core.Patterns.Behaviours.EventBus;
+using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 using IDrawable = Core.Game.IDrawable;
 
 namespace Managers.SceneManagement;
@@ -34,6 +39,15 @@ public class Scene
     {
         foreach (KeyValuePair<object, IUpdatable> pair in Updateables)
             pair.Value.Update(gameTime);
+
+        if (!IsEmpty)
+            return;
+
+        if (InputManager.IsKeyPressed(Keys.Escape))
+            EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent());
+
+        if (InputManager.IsKeyPressed(Keys.Space))
+            Debug.WriteLine("Space");
     }
 
     public void Draw(SpriteBatch spriteBatch)

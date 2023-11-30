@@ -30,7 +30,7 @@ public class LoadingScreenState : GameState
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
-        SceneManager.AddScene("mainMenuScreen", SceneBuilder.BuildMainMenuScreen());
+        SceneManager.AddScene("mainMenuScreen", SceneBuilder.MainMenuScreen());
 
         ChangeState(new MainMenuState(stateMachine));
     }

@@ -12,9 +12,6 @@ namespace Managers.StateManagement.Program;
 
 public class GameManager : StateMachine<GameState, GameManager>
 {
-    private EventBinding<ChangeGameStateEvent> _changeGameStateEventBinding;
-    private EventBinding<RequestExitGameEvent> _requestExitGameEventBinding;
-
     public event Action? ExitRequested;
 
     public ContentManager Content { get; }
@@ -30,11 +27,11 @@ public class GameManager : StateMachine<GameState, GameManager>
         Graphics = graphics;
         Window = gameWindow;
 
-        _changeGameStateEventBinding = new EventBinding<ChangeGameStateEvent>(e => ChangeState(GameStateFactory.BuildByName(e.SceneName)));
-        EventBus<ChangeGameStateEvent>.Register(_changeGameStateEventBinding);
+        EventBinding<ChangeGameStateEvent> changeGameStateEventBinding = new(@event => ChangeState(GameStateFactory.BuildByName(@event.SceneName)));
+        EventBus<ChangeGameStateEvent>.Register(changeGameStateEventBinding);
 
-        _requestExitGameEventBinding = new EventBinding<RequestExitGameEvent>(OnExitGame);
-        EventBus<RequestExitGameEvent>.Register(_requestExitGameEventBinding);
+        EventBinding<RequestExitGameEvent> requestExitGameEventBinding = new(OnExitGame);
+        EventBus<RequestExitGameEvent>.Register(requestExitGameEventBinding);
     }
 
     public void Update(GameTime gameTime)

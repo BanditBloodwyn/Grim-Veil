@@ -36,7 +36,7 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
        
-        SceneManager.AddScene("loadingScreen", SceneBuilder.BuildLoadingScreen());
+        SceneManager.AddScene("loadingScreen", SceneBuilder.LoadingScreen());
        
         ChangeState(new LoadingScreenState(stateMachine));
     }
