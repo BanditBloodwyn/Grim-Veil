@@ -30,4 +30,8 @@ public static class ContentPool
         Textures.TryAdd("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));
     }
 
+    public static void LoadMainGameContent(ContentManager contentManager)
+    {
+
+    }
 }

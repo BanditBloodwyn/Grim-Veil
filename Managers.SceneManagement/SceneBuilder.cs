@@ -1,5 +1,6 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
 using Core.Patterns.Behaviours.EventBus.Events;
+using Maps;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -31,9 +32,23 @@ public class SceneBuilder
             "splashScreenScene" => SplashScreen(),
             "loadingScreenScene" => LoadingScreen(),
             "mainMenuScene" => MainMenuScreen(),
-            "inGameScene" => null,
+            "inGameScene" => InGameScene(),
             _ => SplashScreen()
         };
+    }
+
+    private static Scene InGameScene()
+    {
+        if (!_initialized)
+            return new Scene();
+
+        ContentPool.LoadMainGameContent(_contentManager);
+
+        Scene scene = new();
+
+        scene.AddObject("map", new WorldMap());
+
+        return scene;
     }
 
     public static Scene SplashScreen()
