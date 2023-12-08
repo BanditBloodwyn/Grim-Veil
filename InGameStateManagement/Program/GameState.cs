@@ -1,8 +1,8 @@
-﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using Core.Extentions;
+using Core.Patterns.Behaviours.FiniteStateMachines;
 using Managers.SceneManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pools;
 using System.Diagnostics;
 
 namespace Managers.StateManagement.Program;
@@ -44,13 +44,18 @@ public abstract class GameState : State<GameState, GameManager>
     {
         _loadedScene?.Draw(spriteBatch);
 
-        if (!_loadedScene?.IsEmpty ?? false)
-            return;
+        WriteDebugInfo(spriteBatch, gameTime);
+    }
 
-        spriteBatch.DrawString(ContentPool.Fonts["Default"], "State:", new Vector2(3, 3), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{GetType()}", new Vector2(100, 3), Color.White);
+    private void WriteDebugInfo(SpriteBatch spriteBatch, GameTime gameTime)
+    {
+        spriteBatch.WriteDefaultString("Gametime:", 3, 23);
+        spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", 100, 23);
 
-        spriteBatch.DrawString(ContentPool.Fonts["Default"], "Gametime:", new Vector2(3, 23), Color.White);
-        spriteBatch.DrawString(ContentPool.Fonts["Default"], $"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", new Vector2(100, 23), Color.White);
+        spriteBatch.WriteDefaultString("State:", 3, 3);
+        spriteBatch.WriteDefaultString($"{GetType().Name}", 100, 3);
+
+        if (_loadedScene != null)
+            spriteBatch.WriteDefaultString(_loadedScene.GetDebugInfo(), 3, 63);
     }
 }

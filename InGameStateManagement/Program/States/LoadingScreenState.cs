@@ -31,6 +31,7 @@ public class LoadingScreenState : GameState
             return;
 
         SceneManager.AddScene("mainMenuScreen", SceneBuilder.MainMenuScreen());
+        SceneManager.AddScene("inGameScene", SceneBuilder.InGameScene());
 
         ChangeState(new MainMenuState(stateMachine));
     }

@@ -1,6 +1,6 @@
 ﻿using Core.Game;
-using Core.Patterns.Behaviours.EventBus.Events;
 using Core.Patterns.Behaviours.EventBus;
+using Core.Patterns.Behaviours.EventBus.Events;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,6 +18,8 @@ public class Scene
     public bool NoUpdatables => Updateables.Count == 0;
     public bool NoDrawables => Drawables.Count == 0;
     public bool IsEmpty => NoUpdatables && NoDrawables;
+
+    public string? Name { get; set; }
 
     public void AddObject(object key, object @object)
     {

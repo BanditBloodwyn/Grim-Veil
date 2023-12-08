@@ -2,10 +2,10 @@
 
 public struct ChangeGameStateEvent : IEvent
 {
-    public string SceneName;
+    public string StateName;
 
-    public ChangeGameStateEvent(string sceneName)
+    public ChangeGameStateEvent(string stateName)
     {
-        SceneName = sceneName;
+        StateName = stateName;
     }
 }

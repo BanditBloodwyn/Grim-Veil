@@ -37,7 +37,7 @@ public class SceneBuilder
         };
     }
 
-    private static Scene InGameScene()
+    public static Scene InGameScene()
     {
         if (!_initialized)
             return new Scene();
@@ -45,6 +45,7 @@ public class SceneBuilder
         ContentPool.LoadMainGameContent(_contentManager);
 
         Scene scene = new();
+        scene.Name = "In Game Scene";
 
         scene.AddObject("map", new WorldMap());
 
