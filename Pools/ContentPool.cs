@@ -24,7 +24,6 @@ public static class ContentPool
 
     public static void LoadMainMenuContent(ContentManager contentManager)
     {
-        Textures.TryAdd("gameLogo_dark", contentManager.Load<Texture2D>("Images/logo_dark"));
         Textures.TryAdd("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
         
         Textures.TryAdd("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));

@@ -70,7 +70,9 @@ public class SceneBuilder
             "logo",
             new Image(
                 ContentPool.Textures["gameLogo"],
-                new Rectangle(GlobalSettings.SPLASHSCREEN_WIDTH / 6, 0, (int)(GlobalSettings.SPLASHSCREEN_WIDTH / 1.5f), GlobalSettings.SPLASHSCREEN_WIDTH / 4)));
+                new Rectangle(GlobalSettings.SPLASHSCREEN_WIDTH / 4, 0, 
+                    GlobalSettings.SPLASHSCREEN_WIDTH / 2, 
+                    GlobalSettings.SPLASHSCREEN_WIDTH / 2)));
 
         return scene;
     }
@@ -119,10 +121,10 @@ public class SceneBuilder
         scene.AddObject(
             "mainMenu_Logo",
             new Image(
-                ContentPool.Textures["gameLogo_dark"],
-                new Rectangle(100, 0,
-                    (int)(_screenWidth / (GlobalSettings.LOGO_SIZE_DEVIDER * 0.25f)),
-                    _screenWidth / (GlobalSettings.LOGO_SIZE_DEVIDER * 2 / 3))));
+                ContentPool.Textures["gameLogo"],
+                new Rectangle(30, 10,
+                    _screenWidth / GlobalSettings.LOGO_SIZE_DEVIDER * 3,
+                    _screenWidth / GlobalSettings.LOGO_SIZE_DEVIDER * 3)));
 
         scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", ContentPool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent("inGameState"))));
