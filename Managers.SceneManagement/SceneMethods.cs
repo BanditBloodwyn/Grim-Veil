@@ -6,14 +6,13 @@ public static class SceneMethods
 {
     public static string GetDebugInfo(this Scene scene)
     {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
 
         sb.AppendLine("Scene Info:");
 
         sb.Append("Name:");
-        sb.AppendLine();
         if (scene.Name != null) 
-            sb.Append('\t').Append(scene.Name);
+            sb.Append("   ").Append(scene.Name);
 
         return sb.ToString();
     }

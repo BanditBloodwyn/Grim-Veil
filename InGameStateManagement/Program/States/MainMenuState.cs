@@ -1,11 +1,13 @@
-﻿namespace Managers.StateManagement.Program.States;
+﻿using Globals.Enums;
+
+namespace Managers.StateManagement.Program.States;
 
 public class MainMenuState : GameState
 {
     public override string StateLogString => "Main Menu";
-    protected override string AssociatedSceneName => "mainMenuScreen";
+    protected override StateNames StateName => StateNames.MainMenu;
 
-    public MainMenuState(GameManager stateMachine)
+    internal MainMenuState(GameManager stateMachine)
         : base(stateMachine)
     { }
 }

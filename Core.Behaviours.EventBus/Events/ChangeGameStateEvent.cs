@@ -1,10 +1,12 @@
-﻿namespace Core.Patterns.Behaviours.EventBus.Events;
+﻿using Globals.Enums;
+
+namespace Core.Patterns.Behaviours.EventBus.Events;
 
 public struct ChangeGameStateEvent : IEvent
 {
-    public string StateName;
+    public StateNames StateName;
 
-    public ChangeGameStateEvent(string stateName)
+    public ChangeGameStateEvent(StateNames stateName)
     {
         StateName = stateName;
     }

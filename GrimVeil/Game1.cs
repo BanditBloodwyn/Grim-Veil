@@ -1,4 +1,5 @@
-﻿using Managers.InputManagement;
+﻿using Globals.Enums;
+using Managers.InputManagement;
 using Managers.SceneManagement;
 using Managers.StateManagement.Program;
 using Managers.StateManagement.Program.States;
@@ -42,9 +43,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        SceneManager.AddScene("splashScreen", SceneBuilder.SplashScreen());
-       
-        _gameManager.ChangeState(new SplashScreenState(_gameManager));
+        _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
     }
 
     protected override void Update(GameTime gameTime)

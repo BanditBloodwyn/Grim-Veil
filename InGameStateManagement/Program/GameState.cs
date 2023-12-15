@@ -1,5 +1,7 @@
 ﻿using Core.Extentions;
 using Core.Patterns.Behaviours.FiniteStateMachines;
+using Globals;
+using Globals.Enums;
 using Managers.SceneManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +13,7 @@ public abstract class GameState : State<GameState, GameManager>
 {
     protected Scene? _loadedScene;
 
-    protected abstract string AssociatedSceneName { get; }
+    protected abstract StateNames StateName { get; }
 
     protected GameState(GameManager stateMachine)
         : base(stateMachine)
@@ -25,8 +27,8 @@ public abstract class GameState : State<GameState, GameManager>
 
     private void LoadScene()
     {
-        if (!SceneManager.TryGetSceneByName(AssociatedSceneName, out Scene scene))
-            Debug.WriteLine("Scene not found!");
+        if (!SceneManager.TryGetSceneByName(StateName, out Scene scene))
+            Debug.WriteLine("Cannot get scene!");
 
         _loadedScene = scene;
     }
@@ -44,7 +46,8 @@ public abstract class GameState : State<GameState, GameManager>
     {
         _loadedScene?.Draw(spriteBatch);
 
-        WriteDebugInfo(spriteBatch, gameTime);
+        if (Settings.SHOWDEBUGINFO)
+            WriteDebugInfo(spriteBatch, gameTime);
     }
 
     private void WriteDebugInfo(SpriteBatch spriteBatch, GameTime gameTime)

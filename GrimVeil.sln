@@ -47,13 +47,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.StateManagement", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.SceneManagement", "Managers.SceneManagement\Managers.SceneManagement.csproj", "{71CAB45A-5E7A-46E9-AA00-0078A9935746}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Settings", "Settings\Settings.csproj", "{35A87A65-C1C6-450E-AF63-31FEE597F8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globals", "Settings\Globals.csproj", "{35A87A65-C1C6-450E-AF63-31FEE597F8E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Map", "Map", "{944EA297-8874-4108-8248-849E5F45F349}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maps", "Map\Maps.csproj", "{01CC9B06-80B5-4E8C-B6E0-1C139506EC24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Extentions", "Core.Extentions\Core.Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Extentions", "Core.Extentions\Core.Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

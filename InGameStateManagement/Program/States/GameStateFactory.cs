@@ -1,4 +1,6 @@
-﻿namespace Managers.StateManagement.Program.States;
+﻿using Globals.Enums;
+
+namespace Managers.StateManagement.Program.States;
 
 public class GameStateFactory
 {
@@ -11,44 +13,56 @@ public class GameStateFactory
         _initialized = true;
     }
 
-    public static GameState BuildByName(string name)
+    public static GameState BuildByName(StateNames name)
     {
         return name switch
         {
-            "splashScreenState" => SplashScreen(),
-            "loadingScreenState" => LoadingScreen(),
-            "mainMenuState" => MainMenu(),
-            "inGameState" => InGame(),
-            _ => SplashScreen()
+            StateNames.SplashScreen => SplashScreen(),
+            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
+            StateNames.MainMenu => MainMenu(),
+            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
+            StateNames.Ingame_Normal => InGame_Normal(),
+            _ => throw new ArgumentOutOfRangeException(nameof(name), name, null)
         };
     }
 
-    public static GameState SplashScreen()
+    private static GameState SplashScreen()
     {
         if (!_initialized)
             throw new Exception("GameStateFactory not initialized!");
 
         return new SplashScreenState(_gameManager);
     }
-    public static GameState LoadingScreen()
+
+    private static GameState StartupLoadingScreen()
     {
         if (!_initialized)
             throw new Exception("GameStateFactory not initialized!");
 
-        return new LoadingScreenState(_gameManager);
+        return new StartupLoadingScreenState(_gameManager);
     }
-    public static GameState MainMenu()
+
+    private static GameState MainMenu()
     {
         if (!_initialized)
             throw new Exception("GameStateFactory not initialized!");
 
         return new MainMenuState(_gameManager);
     }
-    public static GameState InGame()
+
+    private static GameState IngameLoadingScreen()
     {
         if (!_initialized)
             throw new Exception("GameStateFactory not initialized!");
 
-        return new InGameState(_gameManager);
+        throw new NotImplementedException();
+    }
+
+    private static GameState InGame_Normal()
+    {
+        if (!_initialized)
+            throw new Exception("GameStateFactory not initialized!");
+
+        return new InGame_Normal_State(_gameManager);
     }
 }

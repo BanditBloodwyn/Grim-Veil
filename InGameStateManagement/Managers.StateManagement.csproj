@@ -10,7 +10,7 @@
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
     <ProjectReference Include="..\Core.Extentions\Core.Extentions.csproj" />
     <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
-    <ProjectReference Include="..\Settings\Settings.csproj" />
+    <ProjectReference Include="..\Settings\Globals.csproj" />
   </ItemGroup>
 
 </Project>

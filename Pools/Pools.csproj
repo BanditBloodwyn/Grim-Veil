@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Game\Core.Game.csproj" />
+    <ProjectReference Include="..\Settings\Globals.csproj" />
   </ItemGroup>
 
 </Project>

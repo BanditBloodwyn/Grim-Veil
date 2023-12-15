@@ -1,11 +1,13 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
 using Core.Patterns.Behaviours.EventBus.Events;
+using Globals;
+using Globals.Enums;
 using Maps;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
-using Settings;
+using System.Diagnostics;
 using UI.Core;
 using UI.Core.Factories;
 
@@ -25,31 +27,24 @@ public class SceneBuilder
         _initialized = true;
     }
 
-    public static Scene? BuildByName(string name)
+    public static bool TryBuildByStateName(StateNames stateName, out Scene? scene)
     {
-        return name switch
+        ContentPool.LoadContentByStateName(stateName, _contentManager);
+     
+        scene = stateName switch
         {
-            "splashScreenScene" => SplashScreen(),
-            "loadingScreenScene" => LoadingScreen(),
-            "mainMenuScene" => MainMenuScreen(),
-            "inGameScene" => InGameScene(),
-            _ => SplashScreen()
+            StateNames.SplashScreen => SplashScreen(),
+            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
+            StateNames.MainMenu => MainMenuScreen(),
+            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
+            StateNames.Ingame_Normal => InGameScene(),
+            _ => null
         };
-    }
 
-    public static Scene InGameScene()
-    {
-        if (!_initialized)
-            return new Scene();
+        if (scene == null)
+            Debug.WriteLine("Scene unknown!");
 
-        ContentPool.LoadMainGameContent(_contentManager);
-
-        Scene scene = new();
-        scene.Name = "In Game Scene";
-
-        scene.AddObject("map", new WorldMap());
-
-        return scene;
+        return scene != null;
     }
 
     public static Scene SplashScreen()
@@ -57,34 +52,32 @@ public class SceneBuilder
         if (!_initialized)
             return new Scene();
 
-        ContentPool.LoadSplashScreenContent(_contentManager);
-
         Scene scene = new();
+        scene.Name = "Splash Screen Scene";
 
         scene.AddObject(
             "background",
             new Image(
                 ContentPool.Textures["splashscreen"],
-                new Rectangle(0, 0, GlobalSettings.SPLASHSCREEN_WIDTH, GlobalSettings.SPLASHSCREEN_HEIGHT)));
+                new Rectangle(0, 0, Settings.SPLASHSCREEN_WIDTH, Settings.SPLASHSCREEN_HEIGHT)));
         scene.AddObject(
             "logo",
             new Image(
                 ContentPool.Textures["gameLogo"],
-                new Rectangle(GlobalSettings.SPLASHSCREEN_WIDTH / 4, 0, 
-                    GlobalSettings.SPLASHSCREEN_WIDTH / 2, 
-                    GlobalSettings.SPLASHSCREEN_WIDTH / 2)));
+                new Rectangle(Settings.SPLASHSCREEN_WIDTH / 4, 0,
+                    Settings.SPLASHSCREEN_WIDTH / 2,
+                    Settings.SPLASHSCREEN_WIDTH / 2)));
 
         return scene;
     }
 
-    public static Scene LoadingScreen()
+    public static Scene StartupLoadingScreen()
     {
         if (!_initialized)
             return new Scene();
 
-        ContentPool.LoadLoadingScreenContent(_contentManager);
-
         Scene scene = new();
+        scene.Name = "Startup Loading Screen Scene";
 
         scene.AddObject(
             "loadingScreen_Background1",
@@ -109,9 +102,8 @@ public class SceneBuilder
         if (!_initialized)
             return new Scene();
 
-        ContentPool.LoadMainMenuContent(_contentManager);
-
         Scene scene = new();
+        scene.Name = "Main Menu Scene";
 
         scene.AddObject(
             "mainMenu_Background",
@@ -123,11 +115,11 @@ public class SceneBuilder
             new Image(
                 ContentPool.Textures["gameLogo"],
                 new Rectangle(30, 10,
-                    _screenWidth / GlobalSettings.LOGO_SIZE_DEVIDER * 3,
-                    _screenWidth / GlobalSettings.LOGO_SIZE_DEVIDER * 3)));
+                    _screenWidth / Settings.LOGO_SIZE_DEVIDER * 3,
+                    _screenWidth / Settings.LOGO_SIZE_DEVIDER * 3)));
 
         scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", ContentPool.Fonts["Victorian"],
-            _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent("inGameState"))));
+            _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent(StateNames.Ingame_Normal))));
         scene.AddObject("button_loadGame", ButtonFactory.CreateTextButton("Load", ContentPool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 430, null));
         scene.AddObject("button_settings", ButtonFactory.CreateTextButton("Settings", ContentPool.Fonts["Victorian"],
@@ -138,6 +130,30 @@ public class SceneBuilder
             _screenWidth - 400, _screenHeight - 220, null));
         scene.AddObject("button_quit", ButtonFactory.CreateTextButton("Quit", ContentPool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 150, static (_, _) => EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent())));
+
+        return scene;
+    }
+
+    private static Scene IngameLoadingScreen()
+    {
+        if (!_initialized)
+            return new Scene();
+
+        Scene scene = new();
+        scene.Name = "InGame Loading Screen Scene";
+
+        return scene;
+    }
+
+    public static Scene InGameScene()
+    {
+        if (!_initialized)
+            return new Scene();
+
+        Scene scene = new();
+        scene.Name = "InGame Scene";
+
+        scene.AddObject("map", new WorldMap());
 
         return scene;
     }

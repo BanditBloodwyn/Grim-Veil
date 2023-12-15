@@ -1,17 +1,17 @@
-﻿using Managers.SceneManagement;
+﻿using Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Managers.StateManagement.Program.States;
 
-public class LoadingScreenState : GameState
+public class StartupLoadingScreenState : GameState
 {
     private TimeSpan? _startingTime;
 
     public override string StateLogString => "Loading Screen";
-    protected override string AssociatedSceneName => "loadingScreen";
+    protected override StateNames StateName => StateNames.StartupLoadingScreen;
 
-    public LoadingScreenState(GameManager stateMachine)
+    internal StartupLoadingScreenState(GameManager stateMachine)
         : base(stateMachine)
     { }
 
@@ -30,9 +30,6 @@ public class LoadingScreenState : GameState
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
-        SceneManager.AddScene("mainMenuScreen", SceneBuilder.MainMenuScreen());
-        SceneManager.AddScene("inGameScene", SceneBuilder.InGameScene());
-
-        ChangeState(new MainMenuState(stateMachine));
+        ChangeState(GameStateFactory.BuildByName(StateNames.MainMenu));
     }
 }
