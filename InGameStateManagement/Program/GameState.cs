@@ -22,7 +22,7 @@ public abstract class GameState : State<GameState, GameManager>
     public override void OnBegin()
     {
         LoadScene();
-        OnInitialize();
+        Initialize();
     }
 
     private void LoadScene()
@@ -33,9 +33,9 @@ public abstract class GameState : State<GameState, GameManager>
         _loadedScene = scene;
     }
 
-    protected virtual void OnInitialize() { }
+    protected virtual void Initialize() { }
 
-    public void CoreUpdate(GameTime gameTime)
+    public void SceneUpdate(GameTime gameTime)
     {
         _loadedScene?.Update(gameTime);
     }

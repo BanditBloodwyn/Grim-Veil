@@ -3,7 +3,6 @@ using Core.Patterns.Behaviours.EventBus.Events;
 using Core.Patterns.Behaviours.FiniteStateMachines;
 using Managers.StateManagement.Program.States;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 using System.Text;
@@ -14,16 +13,13 @@ public class GameManager : StateMachine<GameState, GameManager>
 {
     public event Action? ExitRequested;
 
-    public ContentManager Content { get; }
     public GraphicsDeviceManager Graphics { get; }
     public GameWindow Window { get; }
 
     public GameManager(
         GraphicsDeviceManager graphics,
-        ContentManager contentManager,
         GameWindow gameWindow)
     {
-        Content = contentManager;
         Graphics = graphics;
         Window = gameWindow;
 
@@ -39,7 +35,7 @@ public class GameManager : StateMachine<GameState, GameManager>
     {
         try
         {
-            CurrentState?.CoreUpdate(gameTime);
+            CurrentState?.SceneUpdate(gameTime);
             CurrentState?.Update(gameTime);
         }
         catch (Exception e)

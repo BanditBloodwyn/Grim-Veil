@@ -15,7 +15,7 @@ public class StartupLoadingScreenState : GameState
         : base(stateMachine)
     { }
 
-    protected override void OnInitialize()
+    protected override void Initialize()
     {
         stateMachine.Window.Position = new Point(0, 0);
         stateMachine.Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;

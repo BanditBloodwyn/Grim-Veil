@@ -27,7 +27,7 @@ public class Game1 : Game
 
         Window.Title = "Grim Veil";
 
-        _gameManager = new GameManager(graphics, Content, Window);
+        _gameManager = new GameManager(graphics, Window);
         _gameManager.ExitRequested += OnExit;
     }
 
@@ -37,18 +37,19 @@ public class Game1 : Game
         GameStateFactory.Initialize(_gameManager);
 
         base.Initialize();
+
+        _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
     }
 
     protected override void Update(GameTime gameTime)
     {
         InputManager.Update(gameTime);
+
         _gameManager.Update(gameTime);
 
         base.Update(gameTime);

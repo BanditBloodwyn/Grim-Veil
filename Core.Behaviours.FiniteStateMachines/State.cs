@@ -13,7 +13,7 @@ public abstract class State<TState, TStateMachine>
         this.stateMachine = stateMachine;
     }
 
-    public abstract void OnBegin();
+    public virtual void OnBegin() {}
 
     public virtual void OnExit() {}
 
@@ -21,5 +21,4 @@ public abstract class State<TState, TStateMachine>
     {
         stateMachine.ChangeState(state);
     }
-
 }
