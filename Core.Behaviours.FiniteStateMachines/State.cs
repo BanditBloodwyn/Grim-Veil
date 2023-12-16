@@ -10,7 +10,7 @@ public abstract class State<TState, TStateMachine>
 
     protected State(TStateMachine stateMachine)
     {
-        this.StateMachine = stateMachine;
+        StateMachine = stateMachine;
     }
 
     public virtual void OnBegin() {}

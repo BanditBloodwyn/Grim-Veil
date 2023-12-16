@@ -23,8 +23,8 @@ public class GameManager : StateMachine<GameState, GameManager>
         Graphics = graphics;
         Window = gameWindow;
 
-        EventBinding<ChangeGameStateEvent> changeGameStateEventBinding = new(@event =>
-            ChangeState(GameStateFactory.BuildByName(@event.StateName)));
+        EventBinding<ChangeGameStateEvent> changeGameStateEventBinding = new(
+            @event => ChangeState(GameStateFactory.BuildByName(@event.StateName)));
         EventBus<ChangeGameStateEvent>.Register(changeGameStateEventBinding);
 
         EventBinding<RequestExitGameEvent> requestExitGameEventBinding = new(OnExitGame);

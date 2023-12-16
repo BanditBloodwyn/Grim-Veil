@@ -18,12 +18,6 @@ public class EventBinding<T> : IEventBinding<T>
         set => _onEventNoArgs = value;
     }
 
-    public EventBinding(Action<T> onEvent)
-    {
-        _onEvent = onEvent;
-    }
-    public EventBinding(Action onEventNoArgs)
-    {
-        _onEventNoArgs = onEventNoArgs;
-    }
+    public EventBinding(Action<T> onEvent) => _onEvent = onEvent;
+    public EventBinding(Action onEventNoArgs) => _onEventNoArgs = onEventNoArgs;
 }
