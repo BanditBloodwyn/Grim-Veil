@@ -1,6 +1,7 @@
-﻿using Globals.Enums;
+﻿using Core.Patterns.Behaviours.EventBus;
+using Globals.Enums;
 
-namespace Core.Patterns.Behaviours.EventBus.Events;
+namespace Framework.GameEvents;
 
 public struct ChangeGameStateEvent : IEvent
 {

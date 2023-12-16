@@ -1,12 +1,12 @@
-﻿using Core.Game;
-using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.EventBus.Events;
+﻿using Core.Patterns.Behaviours.EventBus;
+using Framework.Game;
+using Framework.GameEvents;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
-using IDrawable = Core.Game.IDrawable;
+using IDrawable = Framework.Game.IDrawable;
 
 namespace Managers.SceneManagement;
 

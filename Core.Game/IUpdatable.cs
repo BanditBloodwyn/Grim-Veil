@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Core.Game;
+namespace Framework.Game;
 
 public interface IUpdatable
 {

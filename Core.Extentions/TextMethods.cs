@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 
-namespace Core.Extentions;
+namespace Framework.Extentions;
 public static class TextMethods
 {
     public static void WriteDefaultString(this SpriteBatch spriteBatch, string text, int posX, int posY)

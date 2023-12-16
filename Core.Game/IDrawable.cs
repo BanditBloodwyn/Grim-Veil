@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Core.Game;
+namespace Framework.Game;
 
 public interface IDrawable
 {

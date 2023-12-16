@@ -1,4 +1,4 @@
-﻿using Core.Game;
+﻿using Framework.Game;
 using Microsoft.Xna.Framework;
 
 namespace Maps;

@@ -1,11 +1,11 @@
-﻿using Core.Extentions;
-using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using Core.Patterns.Behaviours.FiniteStateMachines;
 using Globals;
 using Globals.Enums;
 using Managers.SceneManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using Framework.Extentions;
 
 namespace Managers.StateManagement.Program;
 

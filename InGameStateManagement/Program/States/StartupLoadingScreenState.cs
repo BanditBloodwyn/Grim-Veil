@@ -9,6 +9,7 @@ public class StartupLoadingScreenState : GameState
     private TimeSpan? _startingTime;
 
     public override string StateLogString => "Loading Screen";
+    
     protected override StateNames StateName => StateNames.StartupLoadingScreen;
 
     internal StartupLoadingScreenState(GameManager stateMachine)
@@ -17,10 +18,10 @@ public class StartupLoadingScreenState : GameState
 
     protected override void Initialize()
     {
-        stateMachine.Window.Position = new Point(0, 0);
-        stateMachine.Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        stateMachine.Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-        stateMachine.Graphics.ApplyChanges();
+        StateMachine.Window.Position = new Point(0, 0);
+        StateMachine.Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        StateMachine.Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        StateMachine.Graphics.ApplyChanges();
     }
 
     public override void Update(GameTime gameTime)

@@ -1,9 +1,9 @@
-﻿using Core.Game;
+﻿using Framework.Game;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using IDrawable = Core.Game.IDrawable;
+using IDrawable = Framework.Game.IDrawable;
 
 namespace UI.Core;
 

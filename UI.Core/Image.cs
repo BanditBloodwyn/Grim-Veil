@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using IDrawable = Core.Game.IDrawable;
+using IDrawable = Framework.Game.IDrawable;
 
 namespace UI.Core;
 

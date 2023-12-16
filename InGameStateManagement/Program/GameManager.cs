@@ -1,11 +1,11 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.EventBus.Events;
 using Core.Patterns.Behaviours.FiniteStateMachines;
 using Managers.StateManagement.Program.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 using System.Text;
+using Framework.GameEvents;
 
 namespace Managers.StateManagement.Program;
 

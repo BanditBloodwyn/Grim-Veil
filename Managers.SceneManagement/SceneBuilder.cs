@@ -1,5 +1,5 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.EventBus.Events;
+using Framework.GameEvents;
 using Globals;
 using Globals.Enums;
 using Maps;
@@ -30,7 +30,7 @@ public class SceneBuilder
     public static bool TryBuildByStateName(StateNames stateName, out Scene? scene)
     {
         ContentPool.LoadContentByStateName(stateName, _contentManager);
-     
+
         scene = stateName switch
         {
             StateNames.SplashScreen => SplashScreen(),
