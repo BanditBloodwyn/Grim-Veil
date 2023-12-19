@@ -1,6 +1,6 @@
 ﻿namespace Globals.Enums;
 
-public enum StateNames
+public enum SceneNames
 {
     SplashScreen,
     StartupLoadingScreen,

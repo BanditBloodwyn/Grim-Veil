@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
-    <ProjectReference Include="..\Core.Extentions\Framework.Extentions.csproj" />
-    <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
+    <ProjectReference Include="..\GameEvents\Framework.GameEvents.csproj" />
     <ProjectReference Include="..\Settings\Globals.csproj" />
   </ItemGroup>
 

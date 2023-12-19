@@ -1,6 +1,6 @@
 ﻿using Globals.Enums;
 
-namespace Managers.StateManagement.Program.States;
+namespace Managers.StateManagement.States;
 
 public class GameStateFactory
 {
@@ -13,15 +13,15 @@ public class GameStateFactory
         _initialized = true;
     }
 
-    public static GameState BuildByName(StateNames name)
+    public static GameState BuildByName(SceneNames name)
     {
         return name switch
         {
-            StateNames.SplashScreen => SplashScreen(),
-            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
-            StateNames.MainMenu => MainMenu(),
-            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
-            StateNames.Ingame_Normal => InGame_Normal(),
+            SceneNames.SplashScreen => SplashScreen(),
+            SceneNames.StartupLoadingScreen => StartupLoadingScreen(),
+            SceneNames.MainMenu => MainMenu(),
+            SceneNames.IngameLoadingScreen => IngameLoadingScreen(),
+            SceneNames.Ingame_Normal => InGame_Normal(),
             _ => throw new ArgumentOutOfRangeException(nameof(name), name, null)
         };
     }

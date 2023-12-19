@@ -3,11 +3,11 @@ using Globals.Enums;
 
 namespace Framework.GameEvents;
 
-public struct ChangeGameStateEvent : IEvent
+public struct ChangeActiveSceneEvent : IEvent
 {
     public SceneNames SceneName;
 
-    public ChangeGameStateEvent(SceneNames sceneName)
+    public ChangeActiveSceneEvent(SceneNames sceneName)
     {
         SceneName = sceneName;
     }

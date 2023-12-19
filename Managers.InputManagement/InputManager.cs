@@ -9,7 +9,7 @@ public class InputManager
     private static MouseState _currentMouseState;
     private static MouseState _previousMouseState;
 
-    public static void Update(GameTime gameTime)
+    public void Update(GameTime gameTime)
     {
         _previousKeyboardState = _currentKeyboardState;
         _currentKeyboardState = Keyboard.GetState();
@@ -23,10 +23,7 @@ public class InputManager
     public static bool IsKeyHeld(Keys key) => _currentKeyboardState.IsKeyDown(key) && _previousKeyboardState.IsKeyDown(key);
     public static bool IsKeyReleased(Keys key) => _currentKeyboardState.IsKeyUp(key) && _previousKeyboardState.IsKeyDown(key);
 
-    public static bool IsLeftMouseButtonClicked() =>
-        _currentMouseState.LeftButton == ButtonState.Released &&
-        _previousMouseState.LeftButton == ButtonState.Pressed;
-
+    public static bool IsLeftMouseButtonClicked() => _currentMouseState.LeftButton == ButtonState.Released && _previousMouseState.LeftButton == ButtonState.Pressed;
     public static bool IsRightMouseButtonClicked() => _currentMouseState.RightButton == ButtonState.Released && _previousMouseState.RightButton == ButtonState.Pressed;
     public static bool IsMiddleMouseButtonClicked() => _currentMouseState.MiddleButton == ButtonState.Released && _previousMouseState.MiddleButton == ButtonState.Pressed;
 }

@@ -6,7 +6,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
+using Framework.Extentions;
 using IDrawable = Framework.Game.IDrawable;
+using System.Text;
+using Globals;
+using System;
 
 namespace Managers.SceneManagement;
 
@@ -52,9 +56,36 @@ public class Scene
             Debug.WriteLine("Space");
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
     {
         foreach (KeyValuePair<object, IDrawable> pair in Drawables)
             pair.Value.Draw(spriteBatch);
+        
+        if (Settings.SHOWDEBUGINFO)
+            WriteDebugInfo(spriteBatch, gameTime);
+    }
+
+    private void WriteDebugInfo(SpriteBatch spriteBatch, GameTime gameTime)
+    {
+        spriteBatch.WriteDefaultString("Gametime:", 3, 23);
+        spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", 100, 23);
+
+        spriteBatch.WriteDefaultString("State:", 3, 3);
+        spriteBatch.WriteDefaultString($"{GetType().Name}", 100, 3);
+
+        spriteBatch.WriteDefaultString(GetDebugInfo(), 3, 63);
+    }
+
+    public string GetDebugInfo()
+    {
+        StringBuilder sb = new();
+
+        sb.AppendLine("Scene Info:");
+
+        sb.Append("Name:");
+        if (Name != null)
+            sb.Append("   ").Append(Name);
+
+        return sb.ToString();
     }
 }
