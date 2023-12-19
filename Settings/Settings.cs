@@ -1,7 +1,7 @@
 ﻿namespace Globals;
 public static class Settings
 {
-    public static bool SHOWDEBUGINFO = false;
+    public static bool SHOWDEBUGINFO = true;
 
     public static float MINIMUM_SPLASHSCREEN_TIME_SECONDS = 2f;
 

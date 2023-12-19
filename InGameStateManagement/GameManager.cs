@@ -1,13 +1,12 @@
-﻿using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.FiniteStateMachines;
-using Managers.StateManagement.Program.States;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
+using Core.Patterns.Behaviours.EventBus;
+using Core.Patterns.Behaviours.FiniteStateMachines;
 using Framework.GameEvents;
+using Managers.StateManagement.States;
+using Microsoft.Xna.Framework;
 
-namespace Managers.StateManagement.Program;
+namespace Managers.StateManagement;
 
 public class GameManager : StateMachine<GameState, GameManager>
 {
@@ -24,7 +23,7 @@ public class GameManager : StateMachine<GameState, GameManager>
         Window = gameWindow;
 
         EventBinding<ChangeGameStateEvent> changeGameStateEventBinding = new(
-            @event => ChangeState(GameStateFactory.BuildByName(@event.StateName)));
+            @event => ChangeState(GameStateFactory.BuildByName(@event.SceneName)));
         EventBus<ChangeGameStateEvent>.Register(changeGameStateEventBinding);
 
         EventBinding<RequestExitGameEvent> requestExitGameEventBinding = new(OnExitGame);
@@ -35,31 +34,12 @@ public class GameManager : StateMachine<GameState, GameManager>
     {
         try
         {
-            CurrentState?.SceneUpdate(gameTime);
             CurrentState?.Update(gameTime);
         }
         catch (Exception e)
         {
             StringBuilder sb = new();
             sb.Append($"=== Exception during Update(): {e.Message}");
-            if (e.InnerException != null)
-                sb.Append($", {e.InnerException}");
-            Debug.WriteLine(sb.ToString());
-
-            OnExitGame();
-        }
-    }
-
-    public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
-    {
-        try
-        {
-            CurrentState?.Draw(spriteBatch, gameTime);
-        }
-        catch (Exception e)
-        {
-            StringBuilder sb = new();
-            sb.Append($"=== Exception during Draw(): {e.Message}");
             if (e.InnerException != null)
                 sb.Append($", {e.InnerException}");
             Debug.WriteLine(sb.ToString());

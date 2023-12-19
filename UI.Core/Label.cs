@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using IDrawable = Framework.Game.IDrawable;
 
-namespace UI.Core;
+namespace GameObjects.UI;
 
 public class Label : IDrawable
 {

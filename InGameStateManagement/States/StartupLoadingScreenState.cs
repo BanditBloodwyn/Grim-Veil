@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Managers.StateManagement.Program.States;
+namespace Managers.StateManagement.States;
 
 public class StartupLoadingScreenState : GameState
 {
@@ -10,7 +10,7 @@ public class StartupLoadingScreenState : GameState
 
     public override string StateLogString => "Loading Screen";
     
-    protected override StateNames StateName => StateNames.StartupLoadingScreen;
+    protected override SceneNames? AssociatedSceneName => SceneNames.StartupLoadingScreen;
 
     internal StartupLoadingScreenState(GameManager stateMachine)
         : base(stateMachine)
@@ -31,6 +31,6 @@ public class StartupLoadingScreenState : GameState
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(StateNames.MainMenu));
+        ChangeState(GameStateFactory.BuildByName(SceneNames.MainMenu));
     }
 }

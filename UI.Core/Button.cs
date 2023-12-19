@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using IDrawable = Framework.Game.IDrawable;
 
-namespace UI.Core;
+namespace GameObjects.UI;
 
 public class Button : IUpdatable, IDrawable
 {

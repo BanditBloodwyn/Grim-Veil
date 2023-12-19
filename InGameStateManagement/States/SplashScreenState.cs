@@ -3,13 +3,13 @@ using Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Managers.StateManagement.Program.States;
+namespace Managers.StateManagement.States;
 
 public class SplashScreenState : GameState
 {
     public override string StateLogString => "Splash Screen State";
-  
-    protected override StateNames StateName => StateNames.SplashScreen;
+
+    protected override SceneNames? AssociatedSceneName => SceneNames.SplashScreen;
 
     internal SplashScreenState(GameManager stateMachine)
         : base(stateMachine)
@@ -35,6 +35,6 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < Settings.MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(StateNames.StartupLoadingScreen));
+        ChangeState(GameStateFactory.BuildByName(SceneNames.StartupLoadingScreen));
     }
 }

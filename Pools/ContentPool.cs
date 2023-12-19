@@ -9,27 +9,27 @@ public static class ContentPool
     public static Dictionary<object, Texture2D> Textures = new();
     public static Dictionary<object, SpriteFont> Fonts = new();
 
-    public static void LoadContentByStateName(StateNames stateName, ContentManager contentManager)
+    public static void LoadContentByStateName(SceneNames sceneName, ContentManager contentManager)
     {
-        switch (stateName)
+        switch (sceneName)
         {
-            case StateNames.SplashScreen:
+            case SceneNames.SplashScreen:
                 LoadSplashScreenContent(contentManager);
                 break;
-            case StateNames.StartupLoadingScreen:
+            case SceneNames.StartupLoadingScreen:
                 LoadStartupLoadingScreenContent(contentManager);
                 break;
-            case StateNames.MainMenu:
+            case SceneNames.MainMenu:
                 LoadMainMenuContent(contentManager);
                 break;
-            case StateNames.IngameLoadingScreen:
+            case SceneNames.IngameLoadingScreen:
                 LoadIngameLoadingScreenContent(contentManager);
                 break;
-            case StateNames.Ingame_Normal:
+            case SceneNames.Ingame_Normal:
                 LoadMainGameContent(contentManager);
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(stateName), stateName, null);
+                throw new ArgumentOutOfRangeException(nameof(sceneName), sceneName, null);
         }
     }
 

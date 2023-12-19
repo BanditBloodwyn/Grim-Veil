@@ -1,5 +1,7 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
 using Framework.GameEvents;
+using GameObjects.UI;
+using GameObjects.UI.Factories;
 using Globals;
 using Globals.Enums;
 using Maps;
@@ -8,8 +10,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Diagnostics;
-using UI.Core;
-using UI.Core.Factories;
 
 namespace Managers.SceneManagement;
 
@@ -27,17 +27,17 @@ public class SceneBuilder
         _initialized = true;
     }
 
-    public static bool TryBuildByStateName(StateNames stateName, out Scene? scene)
+    public static bool TryBuildByName(SceneNames stateName, out Scene? scene)
     {
         ContentPool.LoadContentByStateName(stateName, _contentManager);
 
         scene = stateName switch
         {
-            StateNames.SplashScreen => SplashScreen(),
-            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
-            StateNames.MainMenu => MainMenuScreen(),
-            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
-            StateNames.Ingame_Normal => InGameScene(),
+            SceneNames.SplashScreen => SplashScreen(),
+            SceneNames.StartupLoadingScreen => StartupLoadingScreen(),
+            SceneNames.MainMenu => MainMenuScreen(),
+            SceneNames.IngameLoadingScreen => IngameLoadingScreen(),
+            SceneNames.Ingame_Normal => InGameScene(),
             _ => null
         };
 
@@ -119,7 +119,7 @@ public class SceneBuilder
                     _screenWidth / Settings.LOGO_SIZE_DEVIDER * 3)));
 
         scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", ContentPool.Fonts["Victorian"],
-            _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent(StateNames.Ingame_Normal))));
+            _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent(SceneNames.Ingame_Normal))));
         scene.AddObject("button_loadGame", ButtonFactory.CreateTextButton("Load", ContentPool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 430, null));
         scene.AddObject("button_settings", ButtonFactory.CreateTextButton("Settings", ContentPool.Fonts["Victorian"],
