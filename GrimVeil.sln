@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Game", "Core.Game
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObjects", "GameObjects", "{B5F620C2-6570-40D9-92B1-F44514D47E44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.Core", "UI.Core\UI.Core.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.UI", "UI.Core\GameObjects.UI.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pools", "Pools\Pools.csproj", "{06B19F4D-E841-4AFD-82E7-3997878180BC}"
 EndProject
@@ -57,7 +57,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalContent", "GlobalCont
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{079670DC-8395-4B69-AA18-57A12D8E4F0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.GameEvents", "GameEvents\Framework.GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.GameEvents", "GameEvents\Framework.GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

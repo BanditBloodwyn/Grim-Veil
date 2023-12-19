@@ -12,7 +12,7 @@
     <ProjectReference Include="..\GameEvents\Framework.GameEvents.csproj" />
     <ProjectReference Include="..\Map\Maps.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />
-    <ProjectReference Include="..\UI.Core\UI.Core.csproj" />
+    <ProjectReference Include="..\UI.Core\GameObjects.UI.csproj" />
   </ItemGroup>
 
 </Project>
