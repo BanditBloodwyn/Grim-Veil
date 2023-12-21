@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Game", "Framework
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObjects", "GameObjects", "{B5F620C2-6570-40D9-92B1-F44514D47E44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.UI", "UI.Core\GameObjects.UI.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.UI", "GameObjects.UI\GameObjects.UI.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pools", "Pools\Pools.csproj", "{06B19F4D-E841-4AFD-82E7-3997878180BC}"
 EndProject
@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Managers", "Managers", "{AB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.InputManagement", "Managers.InputManagement\Managers.InputManagement.csproj", "{ADE00D3B-73CC-43C1-A0E6-9E2C55F1F310}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.StateManagement", "InGameStateManagement\Managers.StateManagement.csproj", "{1B60F8D4-A689-4678-802A-EA8B1AB66A5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.StateManagement", "Managers.StateManagement\Managers.StateManagement.csproj", "{1B60F8D4-A689-4678-802A-EA8B1AB66A5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.SceneManagement", "Managers.SceneManagement\Managers.SceneManagement.csproj", "{71CAB45A-5E7A-46E9-AA00-0078A9935746}"
 EndProject
@@ -57,7 +57,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalContent", "GlobalCont
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{079670DC-8395-4B69-AA18-57A12D8E4F0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.GameEvents", "GameEvents\Framework.GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.GameEvents", "Framework.GameEvents\Framework.GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
