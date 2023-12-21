@@ -17,8 +17,8 @@ public class SceneManager
 
     public SceneManager()
     {
-        EventBinding<ChangeActiveSceneEvent> requestExitGameEventBinding = new(OnChangeActiveScene);
-        EventBus<ChangeActiveSceneEvent>.Register(requestExitGameEventBinding);
+        EventBinding<ChangeActiveSceneEvent> changeActiveSceneEventBinding = new(OnChangeActiveScene);
+        EventBus<ChangeActiveSceneEvent>.Register(changeActiveSceneEventBinding);
     }
 
     public void Update(GameTime gameTime)

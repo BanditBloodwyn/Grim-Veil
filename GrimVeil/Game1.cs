@@ -45,7 +45,7 @@ public class Game1 : Game
 
         base.Initialize();
 
-        _gameManager.ChangeState(GameStateFactory.BuildByName(SceneNames.SplashScreen));
+        _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
     }
 
     protected override void LoadContent()

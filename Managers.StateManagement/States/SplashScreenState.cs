@@ -9,6 +9,8 @@ public class SplashScreenState : GameState
 {
     public override string StateLogString => "Splash Screen State";
 
+    protected override StateNames StateName => StateNames.SplashScreen;
+
     protected override SceneNames? AssociatedSceneName => SceneNames.SplashScreen;
 
     internal SplashScreenState(GameManager stateMachine)
@@ -35,6 +37,6 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < Settings.MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(SceneNames.StartupLoadingScreen));
+        ChangeState(GameStateFactory.BuildByName(StateNames.StartupLoadingScreen));
     }
 }

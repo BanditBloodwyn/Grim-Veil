@@ -5,10 +5,10 @@ namespace Framework.GameEvents;
 
 public struct ChangeGameStateEvent : IEvent
 {
-    public SceneNames SceneName;
+    public StateNames StateName;
 
-    public ChangeGameStateEvent(SceneNames sceneName)
+    public ChangeGameStateEvent(StateNames stateName)
     {
-        SceneName = sceneName;
+        StateName = stateName;
     }
 }

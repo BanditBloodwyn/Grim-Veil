@@ -13,15 +13,15 @@ public class GameStateFactory
         _initialized = true;
     }
 
-    public static GameState BuildByName(SceneNames name)
+    public static GameState BuildByName(StateNames name)
     {
         return name switch
         {
-            SceneNames.SplashScreen => SplashScreen(),
-            SceneNames.StartupLoadingScreen => StartupLoadingScreen(),
-            SceneNames.MainMenu => MainMenu(),
-            SceneNames.IngameLoadingScreen => IngameLoadingScreen(),
-            SceneNames.Ingame_Normal => InGame_Normal(),
+            StateNames.SplashScreen => SplashScreen(),
+            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
+            StateNames.MainMenu => MainMenu(),
+            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
+            StateNames.Ingame_Normal => InGame_Normal(),
             _ => throw new ArgumentOutOfRangeException(nameof(name), name, null)
         };
     }

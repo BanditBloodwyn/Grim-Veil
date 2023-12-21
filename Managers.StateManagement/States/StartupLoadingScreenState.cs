@@ -9,7 +9,9 @@ public class StartupLoadingScreenState : GameState
     private TimeSpan? _startingTime;
 
     public override string StateLogString => "Loading Screen";
-    
+
+    protected override StateNames StateName => StateNames.StartupLoadingScreen;
+
     protected override SceneNames? AssociatedSceneName => SceneNames.StartupLoadingScreen;
 
     internal StartupLoadingScreenState(GameManager stateMachine)
@@ -31,6 +33,6 @@ public class StartupLoadingScreenState : GameState
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(SceneNames.MainMenu));
+        ChangeState(GameStateFactory.BuildByName(StateNames.MainMenu));
     }
 }

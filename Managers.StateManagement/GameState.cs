@@ -8,6 +8,7 @@ namespace Managers.StateManagement;
 
 public abstract class GameState : State<GameState, GameManager>
 {
+    protected abstract StateNames StateName { get; }
     protected virtual SceneNames? AssociatedSceneName { get; }
 
     protected GameState(GameManager stateMachine)
