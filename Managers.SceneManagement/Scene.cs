@@ -1,16 +1,15 @@
 ﻿using Core.Patterns.Behaviours.EventBus;
+using Framework.Extentions;
 using Framework.Game;
 using Framework.GameEvents;
+using Globals;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
-using Framework.Extentions;
-using IDrawable = Framework.Game.IDrawable;
 using System.Text;
-using Globals;
-using System;
+using IDrawable = Framework.Game.IDrawable;
 
 namespace Managers.SceneManagement;
 
@@ -18,6 +17,8 @@ public class Scene
 {
     public Dictionary<object, IUpdatable> Updateables = new();
     public Dictionary<object, IDrawable> Drawables = new();
+
+    public event Func<string>? RequestActiveStateName;
 
     public bool NoUpdatables => Updateables.Count == 0;
     public bool NoDrawables => Drawables.Count == 0;
@@ -60,7 +61,7 @@ public class Scene
     {
         foreach (KeyValuePair<object, IDrawable> pair in Drawables)
             pair.Value.Draw(spriteBatch);
-        
+
         if (Settings.SHOWDEBUGINFO)
             WriteDebugInfo(spriteBatch, gameTime);
     }
@@ -70,8 +71,8 @@ public class Scene
         spriteBatch.WriteDefaultString("Gametime:", 3, 23);
         spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", 100, 23);
 
-        spriteBatch.WriteDefaultString("State:", 3, 3);
-        spriteBatch.WriteDefaultString($"{GetType().Name}", 100, 3);
+        spriteBatch.WriteDefaultString("Active state:", 3, 3);
+        spriteBatch.WriteDefaultString($"{RequestActiveStateName?.Invoke()}", 100, 3);
 
         spriteBatch.WriteDefaultString(GetDebugInfo(), 3, 63);
     }
@@ -82,7 +83,7 @@ public class Scene
 
         sb.AppendLine("Scene Info:");
 
-        sb.Append("Name:");
+        sb.Append("   Name:");
         if (Name != null)
             sb.Append("   ").Append(Name);
 

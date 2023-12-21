@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Core", "Tests.Core\Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{4CCE53FF-94F3-484A-BAC5-DBE3334E6EA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Game", "Core.Game\Framework.Game.csproj", "{5D228D6E-B940-49B7-AC68-0F18822C43E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Game", "Framework.Game\Framework.Game.csproj", "{5D228D6E-B940-49B7-AC68-0F18822C43E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObjects", "GameObjects", "{B5F620C2-6570-40D9-92B1-F44514D47E44}"
 EndProject
@@ -51,7 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Map", "Map", "{944EA297-887
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maps", "Map\Maps.csproj", "{01CC9B06-80B5-4E8C-B6E0-1C139506EC24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Extentions", "Core.Extentions\Framework.Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Extentions", "Framework.Extentions\Framework.Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalContent", "GlobalContent", "{7465C6C7-7D8F-4D64-9C1E-36A0D03E9102}"
 EndProject

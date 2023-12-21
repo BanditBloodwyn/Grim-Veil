@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
-    <ProjectReference Include="..\Core.Extentions\Framework.Extentions.csproj" />
-    <ProjectReference Include="..\Core.Game\Framework.Game.csproj" />
+    <ProjectReference Include="..\Framework.Extentions\Framework.Extentions.csproj" />
+    <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
     <ProjectReference Include="..\GameEvents\Framework.GameEvents.csproj" />
     <ProjectReference Include="..\Map\Maps.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />

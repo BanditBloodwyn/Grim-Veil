@@ -48,6 +48,11 @@ public class GameManager : StateMachine<GameState, GameManager>
         }
     }
 
+    public string GetActiveStateName()
+    {
+        return CurrentState?.GetType().Name ?? string.Empty;
+    }
+
     public void OnExitGame()
     {
         ExitRequested?.Invoke();

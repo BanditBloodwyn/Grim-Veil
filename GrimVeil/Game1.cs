@@ -33,6 +33,8 @@ public class Game1 : Game
         _gameManager.ExitRequested += OnExit;
 
         _sceneManager = new SceneManager();
+        _sceneManager.RequestActiveStateName += _gameManager.GetActiveStateName;
+        
         _inputManager = new InputManager();
     }
 
