@@ -1,4 +1,5 @@
-﻿using Core.Patterns.Behaviours.EventBus;
+﻿using Core.Extentions;
+using Core.Patterns.Behaviours.EventBus;
 using Framework.Extentions;
 using Framework.Game;
 using Framework.GameEvents;
@@ -83,9 +84,14 @@ public class Scene
 
         sb.AppendLine("Scene Info:");
 
-        sb.Append("   Name:");
+        sb.AppendSpaceTab().Append("Name:");
         if (Name != null)
-            sb.Append("   ").Append(Name);
+            sb.AppendSpaceTab().Append(Name);
+
+        sb.AppendLine();
+        sb.AppendSpaceTab().Append("Updatables:").AppendSpaceTab().Append(Updateables.Count);
+        sb.AppendLine();
+        sb.AppendSpaceTab().Append("Drawables: ").AppendSpaceTab().Append(Drawables.Count);
 
         return sb.ToString();
     }
