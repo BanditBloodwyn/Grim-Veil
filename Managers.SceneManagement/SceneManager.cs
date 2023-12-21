@@ -15,7 +15,7 @@ public class SceneManager
 
     public SceneManager()
     {
-        EventBinding<ChangeActiveSceneEvent> requestExitGameEventBinding = new(OnChangeScene);
+        EventBinding<ChangeActiveSceneEvent> requestExitGameEventBinding = new(OnChangeActiveScene);
         EventBus<ChangeActiveSceneEvent>.Register(requestExitGameEventBinding);
     }
 
@@ -29,30 +29,22 @@ public class SceneManager
         _activeScene?.Draw(spriteBatch, gameTime);
     }
 
-    private void OnChangeScene(ChangeActiveSceneEvent @event)
+    private void OnChangeActiveScene(ChangeActiveSceneEvent @event)
     {
-        if (!TryGetSceneByName(@event.SceneName, out _activeScene))
-            Debug.WriteLine("Cannot get scene!");
-    }
-
-    public bool TryGetSceneByName(SceneNames stateName, out Scene? scene)
-    {
-        scene = null;
-
-        if (_cachedScenes.TryGetValue(stateName, out Scene? loadedScene))
+        if (_cachedScenes.TryGetValue(@event.SceneName, out Scene? loadedScene))
         {
-            scene = loadedScene;
-            return true;
+            _activeScene = loadedScene;
+            return;
         }
 
-        if (SceneBuilder.TryBuildByName(stateName, out Scene? newScene))
+        if (SceneBuilder.TryBuildByName(@event.SceneName, out Scene? newScene))
         {
-            AddScene(stateName, newScene!);
-            scene = newScene!;
-            return true;
+            AddScene(@event.SceneName, newScene!);
+            _activeScene = newScene!;
+            return;
         }
 
-        return false;
+        Debug.WriteLine("Cannot get scene!");
     }
 
     private void AddScene(SceneNames stateName, Scene scene)

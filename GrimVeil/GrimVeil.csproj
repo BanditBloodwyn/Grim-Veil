@@ -20,7 +20,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
     <ProjectReference Include="..\InGameStateManagement\Managers.StateManagement.csproj" />
     <ProjectReference Include="..\Managers.InputManagement\Managers.InputManagement.csproj" />
     <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
