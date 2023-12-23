@@ -4,12 +4,12 @@ using GameObjects.UI;
 using GameObjects.UI.Factories;
 using Globals;
 using Globals.Enums;
-using Maps;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Diagnostics;
+using World.Managers;
 
 namespace Managers.SceneManagement;
 
@@ -153,7 +153,11 @@ public class SceneBuilder
         Scene scene = new();
         scene.Name = "InGame Scene";
 
-        scene.AddObject("map", new WorldMap());
+        EmbarkedMapBuilder embarkedMapBuilder = new(
+            new TileTypeManager());
+
+        scene.AddObject("map",
+            embarkedMapBuilder.Build(100, 100, -10, 10));
 
         return scene;
     }

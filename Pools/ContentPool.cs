@@ -50,7 +50,6 @@ public static class ContentPool
     private static void LoadMainMenuContent(ContentManager contentManager)
     {
         Textures.TryAdd("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
-        Textures.TryAdd("Environment/Buildings/House_verylower1", contentManager.Load<Texture2D>("Environment/Buildings/House_verylower1"));
     }
 
     private static void LoadIngameLoadingScreenContent(ContentManager contentManager)
@@ -59,6 +58,6 @@ public static class ContentPool
 
     private static void LoadMainGameContent(ContentManager contentManager)
     {
-
+        Textures.TryAdd("tile_grass", contentManager.Load<Texture2D>("Environment/Tiles/grassTile"));
     }
 }

@@ -13,8 +13,8 @@
     <ProjectReference Include="..\Framework.GameEvents\Framework.GameEvents.csproj" />
     <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
     <ProjectReference Include="..\GameObjects.UI\GameObjects.UI.csproj" />
-    <ProjectReference Include="..\Map\Maps.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />
+    <ProjectReference Include="..\World.Managers\World.Managers.csproj" />
   </ItemGroup>
 
 </Project>

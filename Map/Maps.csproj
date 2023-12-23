@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
+    <ProjectReference Include="..\World.Data\World.Data.csproj" />
   </ItemGroup>
 
 </Project>

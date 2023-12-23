@@ -1,12 +1,11 @@
 ﻿using System.Text;
 
-namespace Core.Extentions
+namespace Core.Extentions;
+
+public static class StringBuilderExtentions
 {
-    public static class StringBuilderExtentions
+    public static StringBuilder AppendSpaceTab(this StringBuilder sb)
     {
-        public static StringBuilder AppendSpaceTab(this StringBuilder sb)
-        {
-            return sb.Append("       ");
-        }
+        return sb.Append("       ");
     }
 }
