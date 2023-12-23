@@ -59,5 +59,8 @@ public static class ContentPool
     private static void LoadMainGameContent(ContentManager contentManager)
     {
         Textures.TryAdd("tile_grass", contentManager.Load<Texture2D>("Environment/Tiles/grassTile"));
+        Textures.TryAdd("tile_stone", contentManager.Load<Texture2D>("Environment/Tiles/stoneTile"));
+        Textures.TryAdd("tile_dirt", contentManager.Load<Texture2D>("Environment/Tiles/dirtTile"));
+        Textures.TryAdd("tile_water", contentManager.Load<Texture2D>("Environment/Tiles/waterTile"));
     }
 }
