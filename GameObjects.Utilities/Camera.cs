@@ -3,7 +3,7 @@ using Core.Patterns.Creators.Singletons;
 using Framework.Game;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
+using Microsoft.Xna.Framework.Graphics;
 using System.Text;
 
 namespace GameObjects.Utilities
@@ -12,12 +12,27 @@ namespace GameObjects.Utilities
     {
         private bool _isPanning;
 
-        public Vector2 Position { get; set; } = Vector2.Zero;
+        public Point Position { get; set; } = Point.Zero;
+
         public float Zoom { get; set; } = 1.0f;
         public float Rotation { get; set; } = 0.0f;
 
-        public float PanningSpeed { get; set; } = -0.1f;
+        public float PanningSpeed { get; set; } = 0.1f;
         public float ZoomingSpeed { get; set; } = 0.0002f;
+
+        public Matrix GetTransformation(GraphicsDevice graphics)
+        {
+            int viewportWidth = graphics.Viewport.Width;
+            int viewportHeight = graphics.Viewport.Height;
+            Matrix transform = Matrix.CreateRotationZ(Rotation);
+
+            // Apply scaling centered in the middle of the screen
+            transform *= Matrix.CreateTranslation(-viewportWidth / 2f, -viewportHeight / 2f, 0);
+            transform *= Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
+            transform *= Matrix.CreateTranslation(viewportWidth / 2f, viewportHeight / 2f, 0);
+
+            return transform;
+        }
 
         public void Update(GameTime gameTime)
         {
@@ -29,17 +44,8 @@ namespace GameObjects.Utilities
             AdjustZoom(GetZooming());
         }
 
-        public Matrix GetTransformation()
+        private void Move(Point amount)
         {
-            return
-                Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
-                Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
-                Matrix.CreateRotationZ(Rotation);
-        }
-
-        private void Move(Vector2 amount)
-        {
-            Debug.WriteLine($"Move camera: {amount}");
             Position += amount;
         }
 
@@ -51,10 +57,16 @@ namespace GameObjects.Utilities
                 Zoom = 0.1f;
         }
 
-        private Vector2 GetPanning(GameTime gameTime)
+        private Point GetPanning(GameTime gameTime)
         {
+            Point mouseDelta = InputManager.MouseDelta();
+            if (mouseDelta == Point.Zero)
+                return mouseDelta;
+
             float totalMilliseconds = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            return InputManager.MouseDelta() * totalMilliseconds * PanningSpeed;
+            Vector2 panningPoint = mouseDelta.ToVector2() * totalMilliseconds * PanningSpeed;
+
+            return new Point((int)panningPoint.X, (int)panningPoint.Y);
         }
 
         private float GetZooming()

@@ -1,4 +1,5 @@
-﻿using GameObjects.World.Tiles.TileTypes;
+﻿using GameObjects.Utilities;
+using GameObjects.World.Tiles.TileTypes;
 using Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,6 +25,9 @@ public class Tile : IDrawable
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(TileType.Texture, Rectangle, Tint);
+        spriteBatch.Draw(
+            TileType.Texture,
+            PositionShifter.GetShiftedRectangle(Rectangle),
+            Tint);
     }
 }

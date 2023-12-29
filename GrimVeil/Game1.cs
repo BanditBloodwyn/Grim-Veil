@@ -12,17 +12,19 @@ namespace GrimVeil;
 
 public class Game1 : Game
 {
-    private SpriteBatch? _spriteBatch;
     private readonly GameManager _gameManager;
     private readonly SceneManager _sceneManager;
     private readonly InputManager _inputManager;
+    private readonly GraphicsDeviceManager _graphics;
 
     private readonly Color CLEARCOLOR = new(new Vector3(0, 0, 0.2f));
 
+    private SpriteBatch? _spriteBatch;
+
     public Game1()
     {
-        GraphicsDeviceManager graphics = new(this);
-        graphics.SynchronizeWithVerticalRetrace = false;
+        _graphics = new GraphicsDeviceManager(this);
+        _graphics.SynchronizeWithVerticalRetrace = false;
 
         IsFixedTimeStep = false;
         Content.RootDirectory = "Content";
@@ -30,7 +32,7 @@ public class Game1 : Game
 
         Window.Title = "Grim Veil";
 
-        _gameManager = new GameManager(graphics, Window);
+        _gameManager = new GameManager(_graphics, Window);
         _gameManager.ExitRequested += OnExit;
 
         _sceneManager = new SceneManager();
@@ -66,25 +68,38 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(CLEARCOLOR);
-        if (_spriteBatch != null)
-        {
-            _spriteBatch.Begin(
-                SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
-                null,
-                null,
-                null,
-                null,
-                Camera.Instance.GetTransformation());
-            _sceneManager.Draw(_spriteBatch, gameTime);
-            _spriteBatch.End();
 
-            _spriteBatch.Begin();
-            _sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
-            _spriteBatch.End();
-        }
+        DrawWithCamera(gameTime);
+        DrawWithoutCamera(gameTime);
 
         base.Draw(gameTime);
+    }
+
+    private void DrawWithoutCamera(GameTime gameTime)
+    {
+        if (_spriteBatch == null)
+            return;
+        
+        _spriteBatch.Begin();
+        _sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
+        _spriteBatch.End();
+    }
+
+    private void DrawWithCamera(GameTime gameTime)
+    {
+        if (_spriteBatch == null)
+            return;
+
+        _spriteBatch.Begin(
+            SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            null,
+            null,
+            null,
+            null,
+            Camera.Instance.GetTransformation(_graphics.GraphicsDevice));
+        _sceneManager.Draw(_spriteBatch, gameTime);
+        _spriteBatch.End();
     }
 
     public void OnExit()

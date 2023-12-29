@@ -29,7 +29,7 @@ public class InputManager
     public static bool IsMiddleMouseButtonClicked() => _currentMouseState.MiddleButton == ButtonState.Released && _previousMouseState.MiddleButton == ButtonState.Pressed;
     public static bool IsMiddleMouseButtonHeld() => _currentMouseState.MiddleButton == ButtonState.Pressed && _previousMouseState.MiddleButton == ButtonState.Pressed;
 
-    public static Vector2 MouseDelta() => (_currentMouseState.Position - _previousMouseState.Position).ToVector2();
+    public static Point MouseDelta() => _currentMouseState.Position - _previousMouseState.Position;
 
     public static float MouseWheelDelta() => _currentMouseState.ScrollWheelValue - _previousMouseState.ScrollWheelValue;
 }
