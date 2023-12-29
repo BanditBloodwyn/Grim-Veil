@@ -3,6 +3,7 @@ using Core.Patterns.Behaviours.EventBus;
 using Framework.Extentions;
 using Framework.Game;
 using Framework.GameEvents;
+using GameObjects.Utilities;
 using Globals;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
@@ -18,6 +19,7 @@ public class Scene
 {
     public Dictionary<object, IUpdatable> Updateables = new();
     public Dictionary<object, IDrawable> Drawables = new();
+    public Dictionary<object, IDrawableIgnoreCamera> DrawablesWithoutCamera = new();
 
     public event Func<string>? RequestActiveStateName;
 
@@ -33,6 +35,8 @@ public class Scene
             Updateables.Add(key, updateable);
         if (@object is IDrawable drawable)
             Drawables.Add(key, drawable);
+        if (@object is IDrawableIgnoreCamera drawableWithoutCamera)
+            DrawablesWithoutCamera.Add(key, drawableWithoutCamera);
     }
 
     public void RemoveObject(object key)
@@ -41,6 +45,8 @@ public class Scene
             Updateables.Remove(key);
         if (Drawables.ContainsKey(key))
             Drawables.Remove(key);
+        if (DrawablesWithoutCamera.ContainsKey(key))
+            DrawablesWithoutCamera.Remove(key);
     }
 
     public void Update(GameTime gameTime)
@@ -62,7 +68,10 @@ public class Scene
     {
         foreach (KeyValuePair<object, IDrawable> pair in Drawables)
             pair.Value.Draw(spriteBatch);
+    }
 
+    public void DrawWithoutCamera(SpriteBatch spriteBatch, GameTime gameTime)
+    {
         if (Settings.SHOWDEBUGINFO)
             WriteDebugInfo(spriteBatch, gameTime);
     }
@@ -70,12 +79,14 @@ public class Scene
     private void WriteDebugInfo(SpriteBatch spriteBatch, GameTime gameTime)
     {
         spriteBatch.WriteDefaultString("Gametime:", 3, 23);
-        spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.Milliseconds} ms", 100, 23);
+        spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.TotalMilliseconds} ms", 100, 23);
 
         spriteBatch.WriteDefaultString("Active state:", 3, 3);
         spriteBatch.WriteDefaultString($"{RequestActiveStateName?.Invoke()}", 100, 3);
 
-        spriteBatch.WriteDefaultString(GetDebugInfo(), 3, 63);
+
+        spriteBatch.WriteDefaultString(Camera.Instance.GetDebugInfo(), 3, 63);
+        spriteBatch.WriteDefaultString(GetDebugInfo(), 3, 203);
     }
 
     public string GetDebugInfo()

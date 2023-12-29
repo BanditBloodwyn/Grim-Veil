@@ -19,8 +19,7 @@ public class EmbarkedMapBuilder
         int minimumElevationLevel,
         int maximumElevationLevel)
     {
-        return new EmbarkedMap(
-            InitializeTiles(tileCountX, tileCountY, minimumElevationLevel, maximumElevationLevel));
+        return new EmbarkedMap(new EmbarkedMapLayer[0]);
     }
 
     public Tile[,,] InitializeTiles(

@@ -1,10 +1,13 @@
-﻿using Framework.Game;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using IDrawable = Framework.Game.IDrawable;
 
 namespace GameObjects.World.Maps;
-public class Planet : IUpdatable
+public class Planet : IDrawable
 {
-    public void Update(GameTime gameTime)
+    public Rectangle Rectangle { get; }
+
+    public void Draw(SpriteBatch spriteBatch)
     {
     }
 }

@@ -30,6 +30,11 @@ public class SceneManager
     {
         _activeScene?.Draw(spriteBatch, gameTime);
     }
+    
+    public void DrawWithoutCamera(SpriteBatch spriteBatch, GameTime gameTime)
+    {
+        _activeScene?.DrawWithoutCamera(spriteBatch, gameTime);
+    }
 
     private void OnChangeActiveScene(ChangeActiveSceneEvent @event)
     {

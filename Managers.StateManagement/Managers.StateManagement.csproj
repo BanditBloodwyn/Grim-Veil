@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj" />
     <ProjectReference Include="..\Framework.GameEvents\Framework.GameEvents.csproj" />
+    <ProjectReference Include="..\GameObjects.Utilities\GameObjects.Utilities.csproj" />
     <ProjectReference Include="..\Settings\Globals.csproj" />
   </ItemGroup>
 

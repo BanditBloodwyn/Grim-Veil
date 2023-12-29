@@ -1,4 +1,5 @@
-﻿using Globals.Enums;
+﻿using GameObjects.Utilities;
+using Globals.Enums;
 using Managers.InputManagement;
 using Managers.SceneManagement;
 using Managers.StateManagement;
@@ -15,13 +16,14 @@ public class Game1 : Game
     private readonly GameManager _gameManager;
     private readonly SceneManager _sceneManager;
     private readonly InputManager _inputManager;
+    private readonly GraphicsDeviceManager _graphics;
 
     private readonly Color CLEARCOLOR = new(new Vector3(0, 0, 0.2f));
 
     public Game1()
     {
-        GraphicsDeviceManager graphics = new(this);
-        graphics.SynchronizeWithVerticalRetrace = false;
+        _graphics = new(this);
+        _graphics.SynchronizeWithVerticalRetrace = false;
 
         IsFixedTimeStep = false;
         Content.RootDirectory = "Content";
@@ -29,12 +31,12 @@ public class Game1 : Game
 
         Window.Title = "Grim Veil";
 
-        _gameManager = new GameManager(graphics, Window);
+        _gameManager = new GameManager(_graphics, Window);
         _gameManager.ExitRequested += OnExit;
 
         _sceneManager = new SceneManager();
         _sceneManager.RequestActiveStateName += _gameManager.GetActiveStateName;
-        
+
         _inputManager = new InputManager();
     }
 
@@ -65,11 +67,21 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(CLEARCOLOR);
-
         if (_spriteBatch != null)
         {
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(
+                SpriteSortMode.Deferred,
+                BlendState.AlphaBlend,
+                null,
+                null,
+                null,
+                null,
+                Camera.Instance.GetTransformation(_graphics.GraphicsDevice));
             _sceneManager.Draw(_spriteBatch, gameTime);
+            _spriteBatch.End();
+
+            _spriteBatch.Begin();
+            _sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
             _spriteBatch.End();
         }
 

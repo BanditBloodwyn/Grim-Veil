@@ -25,5 +25,11 @@ public class InputManager
 
     public static bool IsLeftMouseButtonClicked() => _currentMouseState.LeftButton == ButtonState.Released && _previousMouseState.LeftButton == ButtonState.Pressed;
     public static bool IsRightMouseButtonClicked() => _currentMouseState.RightButton == ButtonState.Released && _previousMouseState.RightButton == ButtonState.Pressed;
+
     public static bool IsMiddleMouseButtonClicked() => _currentMouseState.MiddleButton == ButtonState.Released && _previousMouseState.MiddleButton == ButtonState.Pressed;
+    public static bool IsMiddleMouseButtonHeld() => _currentMouseState.MiddleButton == ButtonState.Pressed && _previousMouseState.MiddleButton == ButtonState.Pressed;
+
+    public static Vector2 MouseDelta() => (_currentMouseState.Position - _previousMouseState.Position).ToVector2();
+
+    public static float MouseWheelDelta() => _currentMouseState.ScrollWheelValue;
 }
