@@ -12,17 +12,14 @@ public class Tile : IDrawable
 
     public Rectangle Rectangle { get; }
 
-    public int ElevationLevel { get; }
-
     public Color Tint { get; set; } = Color.White;
 
-    public Tile(TileType tileType, int coordX, int coordY, int elevationLevel)
+    public Tile(TileType tileType, int coordX, int coordY)
     {
         TileType = tileType;
         Rectangle = new Rectangle(
-            coordX, coordY, 
+            coordX, coordY,
             Settings.DEFAULT_TILE_SIZE, Settings.DEFAULT_TILE_SIZE);
-        ElevationLevel = elevationLevel;
     }
 
     public void Draw(SpriteBatch spriteBatch)

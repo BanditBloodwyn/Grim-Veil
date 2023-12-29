@@ -6,17 +6,29 @@ namespace GameObjects.World.Maps;
 
 public class EmbarkedMap : IDrawable
 {
-    public EmbarkedMapLayer[] ElevationLayers { get; }
+    private int _visibleLayer;
+    
+    public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; }
 
     public Rectangle Rectangle => new(0, 0, 0, 0);
 
-    public EmbarkedMap(EmbarkedMapLayer[] elevationLayers)
+    public EmbarkedMap(Dictionary<int, EmbarkedMapLayer> elevationLayers)
     {
         ElevationLayers = elevationLayers;
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
+        ElevationLayers[_visibleLayer].Draw(spriteBatch);
+    }
 
+    public void GoLayerUp()
+    {
+        _visibleLayer++;
+    }
+
+    public void GoLayerDown()
+    {
+        _visibleLayer--;
     }
 }

@@ -16,14 +16,13 @@ public class Game1 : Game
     private readonly GameManager _gameManager;
     private readonly SceneManager _sceneManager;
     private readonly InputManager _inputManager;
-    private readonly GraphicsDeviceManager _graphics;
 
     private readonly Color CLEARCOLOR = new(new Vector3(0, 0, 0.2f));
 
     public Game1()
     {
-        _graphics = new(this);
-        _graphics.SynchronizeWithVerticalRetrace = false;
+        GraphicsDeviceManager graphics = new(this);
+        graphics.SynchronizeWithVerticalRetrace = false;
 
         IsFixedTimeStep = false;
         Content.RootDirectory = "Content";
@@ -31,7 +30,7 @@ public class Game1 : Game
 
         Window.Title = "Grim Veil";
 
-        _gameManager = new GameManager(_graphics, Window);
+        _gameManager = new GameManager(graphics, Window);
         _gameManager.ExitRequested += OnExit;
 
         _sceneManager = new SceneManager();
@@ -76,7 +75,7 @@ public class Game1 : Game
                 null,
                 null,
                 null,
-                Camera.Instance.GetTransformation(_graphics.GraphicsDevice));
+                Camera.Instance.GetTransformation());
             _sceneManager.Draw(_spriteBatch, gameTime);
             _spriteBatch.End();
 

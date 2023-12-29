@@ -157,7 +157,7 @@ public class SceneBuilder
             new TileTypeManager());
 
         scene.AddObject("map",
-            embarkedMapBuilder.Build(100, 100, -10, 10));
+            embarkedMapBuilder.Build(40, 20, -10, 10));
 
         return scene;
     }

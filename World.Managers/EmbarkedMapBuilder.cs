@@ -19,29 +19,37 @@ public class EmbarkedMapBuilder
         int minimumElevationLevel,
         int maximumElevationLevel)
     {
-        return new EmbarkedMap(new EmbarkedMapLayer[0]);
+        Dictionary<int, EmbarkedMapLayer> layers = CreateLayers(tileCountX, tileCountY, minimumElevationLevel, maximumElevationLevel)
+            .ToDictionary(static layer => layer.ElevationLevel, static layer => layer);
+
+        return new EmbarkedMap(layers);
     }
 
-    public Tile[,,] InitializeTiles(
+    private IEnumerable<EmbarkedMapLayer> CreateLayers(
         int tileCountX,
         int tileCountY,
         int minimumElevationLevel,
         int maximumElevationLevel)
     {
-        int elevationLevelCount = maximumElevationLevel - minimumElevationLevel;
+        for (int elevationLevel = minimumElevationLevel; elevationLevel < maximumElevationLevel; elevationLevel++)
+        {
+            Tile[,] tiles = CreateTiles(tileCountX, tileCountY);
+            EmbarkedMapLayer layer = new(tiles, elevationLevel);
+            yield return layer;
+        }
+    }
 
-        Tile[,,] tiles = new Tile[tileCountX, tileCountY, elevationLevelCount];
+    private Tile[,] CreateTiles(int tileCountX, int tileCountY)
+    {
+        Tile[,] tiles = new Tile[tileCountX, tileCountY];
 
         for (int x = 0; x < tiles.GetLength(0); x++)
             for (int y = 0; y < tiles.GetLength(1); y++)
-                for (int z = 0; z < tiles.GetLength(2); z++)
-                    tiles[x, y, z] = new Tile(
-                        tileTypeManager.GetRandomType(),
-                        x * Settings.DEFAULT_TILE_SIZE,
-                        y * Settings.DEFAULT_TILE_SIZE,
-                        z);
+                tiles[x, y] = new Tile(
+                    tileTypeManager.GetRandomType(),
+                    x * Settings.DEFAULT_TILE_SIZE,
+                    y * Settings.DEFAULT_TILE_SIZE);
 
         return tiles;
     }
-
 }

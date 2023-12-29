@@ -3,7 +3,6 @@ using Core.Patterns.Creators.Singletons;
 using Framework.Game;
 using Managers.InputManagement;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 using System.Text;
 
@@ -17,10 +16,10 @@ namespace GameObjects.Utilities
         public float Zoom { get; set; } = 1.0f;
         public float Rotation { get; set; } = 0.0f;
 
-        public float PanningSpeed { get; set; } = 0.02f;
+        public float PanningSpeed { get; set; } = -0.02f;
 
 
-        public Matrix GetTransformation(GraphicsDevice graphicsDevice)
+        public Matrix GetTransformation()
         {
             return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
                    Matrix.CreateRotationZ(Rotation) *
