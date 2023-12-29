@@ -71,6 +71,9 @@ namespace GameObjects.Utilities
 
         private float GetZooming()
         {
+            if (InputManager.IsControlHeld())
+                return 0;
+                
             return InputManager.MouseWheelDelta() * ZoomingSpeed;
         }
 
