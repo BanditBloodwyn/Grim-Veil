@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace Managers.InputManagement;
+namespace Framework.InputManagement;
 public class InputManager
 {
     private static KeyboardState _currentKeyboardState;

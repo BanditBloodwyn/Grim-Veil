@@ -5,12 +5,12 @@ using Framework.Game;
 using Framework.GameEvents;
 using GameObjects.Utilities;
 using Globals;
-using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using System.Text;
+using Framework.InputManagement;
 using IDrawable = Framework.Game.IDrawable;
 
 namespace Managers.SceneManagement;

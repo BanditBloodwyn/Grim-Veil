@@ -1,10 +1,10 @@
 ﻿using Core.Extentions;
 using Core.Patterns.Creators.Singletons;
 using Framework.Game;
-using Managers.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Text;
+using Framework.InputManagement;
 
 namespace GameObjects.Utilities
 {

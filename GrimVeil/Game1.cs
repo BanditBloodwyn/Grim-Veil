@@ -1,12 +1,12 @@
 ﻿using GameObjects.Utilities;
 using Globals.Enums;
-using Managers.InputManagement;
 using Managers.SceneManagement;
 using Managers.StateManagement;
 using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Framework.InputManagement;
 
 namespace GrimVeil;
 

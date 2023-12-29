@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
-    <ProjectReference Include="..\Managers.InputManagement\Managers.InputManagement.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\Framework.InputManagement.csproj" />
   </ItemGroup>
 
 </Project>
