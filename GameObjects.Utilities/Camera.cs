@@ -16,29 +16,8 @@ namespace GameObjects.Utilities
         public float Zoom { get; set; } = 1.0f;
         public float Rotation { get; set; } = 0.0f;
 
-        public float PanningSpeed { get; set; } = -0.02f;
-
-
-        public Matrix GetTransformation()
-        {
-            return Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
-                   Matrix.CreateRotationZ(Rotation) *
-                   Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
-        }
-
-        public void Move(Vector2 amount)
-        {
-            Debug.WriteLine($"Move camera: {amount}");
-            Position += amount;
-        }
-
-        public void AdjustZoom(float amount)
-        {
-            Zoom += amount;
-
-            if (Zoom < 0.1f)
-                Zoom = 0.1f;
-        }
+        public float PanningSpeed { get; set; } = -0.1f;
+        public float ZoomingSpeed { get; set; } = 0.0002f;
 
         public void Update(GameTime gameTime)
         {
@@ -50,6 +29,28 @@ namespace GameObjects.Utilities
             AdjustZoom(GetZooming());
         }
 
+        public Matrix GetTransformation()
+        {
+            return
+                Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+                Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0)) *
+                Matrix.CreateRotationZ(Rotation);
+        }
+
+        private void Move(Vector2 amount)
+        {
+            Debug.WriteLine($"Move camera: {amount}");
+            Position += amount;
+        }
+
+        private void AdjustZoom(float amount)
+        {
+            Zoom += amount;
+
+            if (Zoom < 0.1f)
+                Zoom = 0.1f;
+        }
+
         private Vector2 GetPanning(GameTime gameTime)
         {
             float totalMilliseconds = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -58,7 +59,7 @@ namespace GameObjects.Utilities
 
         private float GetZooming()
         {
-            return 0;
+            return InputManager.MouseWheelDelta() * ZoomingSpeed;
         }
 
         public string GetDebugInfo()

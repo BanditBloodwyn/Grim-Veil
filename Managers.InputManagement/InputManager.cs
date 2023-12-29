@@ -31,5 +31,5 @@ public class InputManager
 
     public static Vector2 MouseDelta() => (_currentMouseState.Position - _previousMouseState.Position).ToVector2();
 
-    public static float MouseWheelDelta() => _currentMouseState.ScrollWheelValue;
+    public static float MouseWheelDelta() => _currentMouseState.ScrollWheelValue - _previousMouseState.ScrollWheelValue;
 }
