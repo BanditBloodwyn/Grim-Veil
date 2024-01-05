@@ -1,14 +1,14 @@
 ﻿using Core.Extentions;
-using Core.Patterns.Creators.Singletons;
+using Framework.Debugging;
 using Framework.Game;
+using Framework.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Text;
-using Framework.InputManagement;
 
 namespace GameObjects.Utilities
 {
-    public class Camera : Singleton<Camera>, IUpdatable
+    public class Camera : DebuggableSingleton<Camera>, IUpdatable
     {
         private bool _isPanning;
 
@@ -73,11 +73,11 @@ namespace GameObjects.Utilities
         {
             if (InputManager.IsControlHeld())
                 return 0;
-                
+
             return InputManager.MouseWheelDelta() * ZoomingSpeed;
         }
 
-        public string GetDebugInfo()
+        public override string GetDebugInfo()
         {
             StringBuilder sb = new();
 

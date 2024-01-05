@@ -6,6 +6,7 @@ using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Framework.Debugging;
 using Framework.InputManagement;
 
 namespace GrimVeil;
@@ -81,7 +82,8 @@ public class Game1 : Game
             return;
         
         _spriteBatch.Begin();
-        _sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
+        DebugConsole.Draw(_spriteBatch, gameTime);
+        //_sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
         _spriteBatch.End();
     }
 

@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.Utilities", "Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Utilities", "Core.Utilities\Core.Utilities.csproj", "{1A3793F2-A642-45E5-BEF1-FB758D1267BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Debugging", "Framework.Debugging\Framework.Debugging.csproj", "{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,10 @@ Global
 		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,6 +185,7 @@ Global
 		{39520EB5-46A7-43D8-A8BD-567987F2B1CF} = {52DC250E-455B-4E31-96AB-D7C94B37D934}
 		{FF460112-1A6A-4240-AF85-DC31AE28EAD4} = {B5F620C2-6570-40D9-92B1-F44514D47E44}
 		{1A3793F2-A642-45E5-BEF1-FB758D1267BE} = {BC21EE62-92F6-4BA3-A16B-06686AD4C8FA}
+		{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2} = {079670DC-8395-4B69-AA18-57A12D8E4F0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31BD5744-AA4C-4707-9E94-63C291A8E6AE}
