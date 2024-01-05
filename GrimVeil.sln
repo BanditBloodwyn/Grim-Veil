@@ -63,7 +63,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.World", "World.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "World.Managers", "World.Managers\World.Managers.csproj", "{39520EB5-46A7-43D8-A8BD-567987F2B1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameObjects.Utilities", "GameObjects.Utilities\GameObjects.Utilities.csproj", "{FF460112-1A6A-4240-AF85-DC31AE28EAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.Utilities", "GameObjects.Utilities\GameObjects.Utilities.csproj", "{FF460112-1A6A-4240-AF85-DC31AE28EAD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Utilities", "Core.Utilities\Core.Utilities.csproj", "{1A3793F2-A642-45E5-BEF1-FB758D1267BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +145,10 @@ Global
 		{FF460112-1A6A-4240-AF85-DC31AE28EAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF460112-1A6A-4240-AF85-DC31AE28EAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF460112-1A6A-4240-AF85-DC31AE28EAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3793F2-A642-45E5-BEF1-FB758D1267BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,6 +178,7 @@ Global
 		{FA717186-B242-412F-A08C-9F4D1DA57B1A} = {B5F620C2-6570-40D9-92B1-F44514D47E44}
 		{39520EB5-46A7-43D8-A8BD-567987F2B1CF} = {52DC250E-455B-4E31-96AB-D7C94B37D934}
 		{FF460112-1A6A-4240-AF85-DC31AE28EAD4} = {B5F620C2-6570-40D9-92B1-F44514D47E44}
+		{1A3793F2-A642-45E5-BEF1-FB758D1267BE} = {BC21EE62-92F6-4BA3-A16B-06686AD4C8FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31BD5744-AA4C-4707-9E94-63C291A8E6AE}

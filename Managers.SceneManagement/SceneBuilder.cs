@@ -47,7 +47,7 @@ public class SceneBuilder
         return scene != null;
     }
 
-    public static Scene SplashScreen()
+    private static Scene SplashScreen()
     {
         if (!_initialized)
             return new Scene();
@@ -71,7 +71,7 @@ public class SceneBuilder
         return scene;
     }
 
-    public static Scene StartupLoadingScreen()
+    private static Scene StartupLoadingScreen()
     {
         if (!_initialized)
             return new Scene();
@@ -97,7 +97,7 @@ public class SceneBuilder
         return scene;
     }
 
-    public static Scene MainMenuScreen()
+    private static Scene MainMenuScreen()
     {
         if (!_initialized)
             return new Scene();
@@ -145,7 +145,7 @@ public class SceneBuilder
         return scene;
     }
 
-    public static Scene InGameScene()
+    private static Scene InGameScene()
     {
         if (!_initialized)
             return new Scene();
