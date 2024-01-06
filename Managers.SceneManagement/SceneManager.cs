@@ -13,8 +13,6 @@ public class SceneManager
 
     private Scene? _activeScene;
 
-    public event Func<string>? RequestActiveStateName;
-
     public SceneManager()
     {
         EventBinding<ChangeActiveSceneEvent> changeActiveSceneEventBinding = new(OnChangeActiveScene);
@@ -30,11 +28,6 @@ public class SceneManager
     {
         _activeScene?.Draw(spriteBatch, gameTime);
     }
-    
-    public void DrawWithoutCamera(SpriteBatch spriteBatch, GameTime gameTime)
-    {
-        _activeScene?.DrawWithoutCamera(spriteBatch, gameTime);
-    }
 
     private void OnChangeActiveScene(ChangeActiveSceneEvent @event)
     {
@@ -46,18 +39,17 @@ public class SceneManager
 
         if (SceneBuilder.TryBuildByName(@event.SceneName, out Scene? newScene))
         {
-            newScene!.RequestActiveStateName += OnRequestActiveStateName;
-            AddScene(@event.SceneName, newScene);
+            AddScene(@event.SceneName, newScene!);
+
+            if (_activeScene != null)
+                _activeScene.IsDebugActive = false;
+
+            newScene!.IsDebugActive = true;
             _activeScene = newScene;
             return;
         }
 
         Debug.WriteLine("Cannot get scene!");
-    }
-
-    private string OnRequestActiveStateName()
-    {
-        return RequestActiveStateName?.Invoke() ?? string.Empty;
     }
 
     private void AddScene(SceneNames stateName, Scene scene)

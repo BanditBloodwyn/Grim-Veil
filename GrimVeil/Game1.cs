@@ -1,4 +1,7 @@
-﻿using GameObjects.Utilities;
+﻿using Framework.Debugging;
+using Framework.InputManagement;
+using GameObjects.Utilities;
+using Globals;
 using Globals.Enums;
 using Managers.SceneManagement;
 using Managers.StateManagement;
@@ -6,8 +9,6 @@ using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Framework.Debugging;
-using Framework.InputManagement;
 
 namespace GrimVeil;
 
@@ -37,9 +38,9 @@ public class Game1 : Game
         _gameManager.ExitRequested += OnExit;
 
         _sceneManager = new SceneManager();
-        _sceneManager.RequestActiveStateName += _gameManager.GetActiveStateName;
-
         _inputManager = new InputManager();
+
+        DebugConsole.RequestActiveStateName += _gameManager.GetActiveStateName;
     }
 
     protected override void Initialize()
@@ -80,10 +81,12 @@ public class Game1 : Game
     {
         if (_spriteBatch == null)
             return;
-        
+
         _spriteBatch.Begin();
-        DebugConsole.Draw(_spriteBatch, gameTime);
-        //_sceneManager.DrawWithoutCamera(_spriteBatch, gameTime);
+
+        if (Settings.SHOWDEBUGINFO)
+            DebugConsole.Draw(_spriteBatch, gameTime);
+
         _spriteBatch.End();
     }
 

@@ -1,33 +1,36 @@
 ﻿using Core.Extentions;
 using Core.Patterns.Behaviours.EventBus;
-using Framework.Extentions;
+using Framework.Debugging;
 using Framework.Game;
 using Framework.GameEvents;
-using GameObjects.Utilities;
-using Globals;
+using Framework.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using System.Text;
-using Framework.InputManagement;
 using IDrawable = Framework.Game.IDrawable;
 
 namespace Managers.SceneManagement;
 
-public class Scene
+public class Scene : IDebugInfoProvider
 {
     public Dictionary<object, IUpdatable> Updateables = new();
     public Dictionary<object, IDrawable> Drawables = new();
     public Dictionary<object, IDrawableIgnoreCamera> DrawablesWithoutCamera = new();
-
-    public event Func<string>? RequestActiveStateName;
 
     public bool NoUpdatables => Updateables.Count == 0;
     public bool NoDrawables => Drawables.Count == 0;
     public bool IsEmpty => NoUpdatables && NoDrawables;
 
     public string? Name { get; set; }
+
+    public bool IsDebugActive { get; set; }
+
+    public Scene()
+    {
+        DebugConsole.AddObject(this);
+    }
 
     public void AddObject(object key, object @object)
     {
@@ -68,25 +71,6 @@ public class Scene
     {
         foreach (KeyValuePair<object, IDrawable> pair in Drawables)
             pair.Value.Draw(spriteBatch);
-    }
-
-    public void DrawWithoutCamera(SpriteBatch spriteBatch, GameTime gameTime)
-    {
-        if (Settings.SHOWDEBUGINFO)
-            WriteDebugInfo(spriteBatch, gameTime);
-    }
-
-    private void WriteDebugInfo(SpriteBatch spriteBatch, GameTime gameTime)
-    {
-        spriteBatch.WriteDefaultString("Gametime:", 3, 23);
-        spriteBatch.WriteDefaultString($"{gameTime.TotalGameTime.TotalSeconds:N1} sec, {gameTime.ElapsedGameTime.TotalMilliseconds} ms", 100, 23);
-
-        spriteBatch.WriteDefaultString("Active state:", 3, 3);
-        spriteBatch.WriteDefaultString($"{RequestActiveStateName?.Invoke()}", 100, 3);
-
-
-        spriteBatch.WriteDefaultString(Camera.Instance.GetDebugInfo(), 3, 63);
-        spriteBatch.WriteDefaultString(GetDebugInfo(), 3, 203);
     }
 
     public string GetDebugInfo()

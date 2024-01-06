@@ -7,6 +7,12 @@
 
         public static T Instance => _instance.Value;
 
+        public bool IsDebugActive
+        {
+            get => true;
+            set { }
+        }
+     
         protected DebuggableSingleton()
         {
             DebugConsole.AddObject(this);

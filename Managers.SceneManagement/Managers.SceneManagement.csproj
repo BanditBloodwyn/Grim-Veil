@@ -9,11 +9,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
     <ProjectReference Include="..\Core.Extentions\Core.Extentions.csproj" />
-    <ProjectReference Include="..\Framework.Extentions\Framework.Extentions.csproj" />
     <ProjectReference Include="..\Framework.GameEvents\Framework.GameEvents.csproj" />
     <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
     <ProjectReference Include="..\GameObjects.UI\GameObjects.UI.csproj" />
-    <ProjectReference Include="..\GameObjects.Utilities\GameObjects.Utilities.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />
     <ProjectReference Include="..\World.Managers\World.Managers.csproj" />
   </ItemGroup>
