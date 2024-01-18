@@ -1,33 +1,14 @@
-﻿using GameObjects.Utilities;
-using GameObjects.World.Tiles.TileTypes;
+﻿using GameObjects.World.Tiles.TileTypes;
 using Globals;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using IDrawable = Framework.Game.IDrawable;
 
 namespace GameObjects.World.Tiles;
 
-public class Tile : IDrawable
+public class Tile(TileType tileType, int coordX, int coordY)
 {
-    public TileType TileType { get; set; }
+    public TileType TileType { get; set; } = tileType;
 
-    public Rectangle Rectangle { get; }
-
-    public Color Tint { get; set; } = Color.White;
-
-    public Tile(TileType tileType, int coordX, int coordY)
-    {
-        TileType = tileType;
-        Rectangle = new Rectangle(
-            coordX, coordY,
-            Settings.DEFAULT_TILE_SIZE, Settings.DEFAULT_TILE_SIZE);
-    }
-
-    public void Draw(SpriteBatch spriteBatch)
-    {
-        spriteBatch.Draw(
-            TileType.Texture,
-            PositionShifter.GetShiftedRectangle(Rectangle),
-            Tint);
-    }
+    public Rectangle Rectangle { get; } = new(
+        coordX, coordY,
+        Settings.DEFAULT_TILE_SIZE, Settings.DEFAULT_TILE_SIZE);
 }
