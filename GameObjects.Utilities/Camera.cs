@@ -2,8 +2,10 @@
 using Framework.Debugging;
 using Framework.Game;
 using Framework.InputManagement;
+using Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System.Text;
 
 namespace GameObjects.Utilities
@@ -15,19 +17,19 @@ namespace GameObjects.Utilities
         public Point Position { get; set; } = Point.Zero;
 
         public float Zoom { get; set; } = 1.0f;
-        public float Rotation { get; set; } = 0.0f;
+        public float Rotation { get; set; }
 
-        public float PanningSpeed { get; set; } = 0.1f;
+        public float PanningSpeed { get; set; } = 0.3f;
         public float ZoomingSpeed { get; set; } = 0.0002f;
 
         public Matrix GetTransformation(GraphicsDevice graphics)
         {
             int viewportWidth = graphics.Viewport.Width;
             int viewportHeight = graphics.Viewport.Height;
-            Matrix transform = Matrix.CreateRotationZ(Rotation);
 
             // Apply scaling centered in the middle of the screen
-            transform *= Matrix.CreateTranslation(-viewportWidth / 2f, -viewportHeight / 2f, 0);
+            Matrix transform = Matrix.CreateTranslation(-viewportWidth / 2f, -viewportHeight / 2f, 0);
+            transform *= Matrix.CreateRotationZ(Rotation);
             transform *= Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
             transform *= Matrix.CreateTranslation(viewportWidth / 2f, viewportHeight / 2f, 0);
 
@@ -42,6 +44,9 @@ namespace GameObjects.Utilities
                 Move(GetPanning(gameTime));
 
             AdjustZoom(GetZooming());
+
+            if (Settings.ALLOW_CAMERA_ROTATING)
+                AdjustRotation();
         }
 
         private void Move(Point amount)
@@ -55,6 +60,14 @@ namespace GameObjects.Utilities
 
             if (Zoom < 0.1f)
                 Zoom = 0.1f;
+        }
+
+        private void AdjustRotation()
+        {
+            if (InputManager.IsKeyHeld(Keys.N))
+                Rotation += 2 * MathF.PI / 3600;
+            if (InputManager.IsKeyHeld(Keys.M))
+                Rotation -= 2 * MathF.PI / 3600;
         }
 
         private Point GetPanning(GameTime gameTime)
