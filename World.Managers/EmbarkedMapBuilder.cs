@@ -4,15 +4,8 @@ using Globals;
 
 namespace World.Managers;
 
-public class EmbarkedMapBuilder
+public class EmbarkedMapBuilder(TileTypeManager tileTypeManager)
 {
-    private readonly TileTypeManager tileTypeManager;
-
-    public EmbarkedMapBuilder(TileTypeManager tileTypeManager)
-    {
-        this.tileTypeManager = tileTypeManager;
-    }
-
     public EmbarkedMap Build(
         int tileCountX,
         int tileCountY,
@@ -22,7 +15,7 @@ public class EmbarkedMapBuilder
         Dictionary<int, EmbarkedMapLayer> layers = CreateLayers(tileCountX, tileCountY, minimumElevationLevel, maximumElevationLevel)
             .ToDictionary(static layer => layer.ElevationLevel, static layer => layer);
 
-        return new EmbarkedMap(layers);
+        return new EmbarkedMap(layers, tileCountX, tileCountY, minimumElevationLevel, maximumElevationLevel);
     }
 
     private IEnumerable<EmbarkedMapLayer> CreateLayers(
