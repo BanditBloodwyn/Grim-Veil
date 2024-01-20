@@ -6,7 +6,9 @@ public static class Settings
     public static bool SHOWDEBUGINFO = true;
 
     // Camera
-    public static bool ALLOW_CAMERA_ROTATING = false;
+    public static bool CAMERA_ALLOWROTATING = false;
+    public static float CAMERA_PANNINGSPEED = 0.3f;
+    public static float CAMERA_ZOOMINGSPEED = 0.0002f;
 
     // Behaviour
     public static float MINIMUM_SPLASHSCREEN_TIME_SECONDS = 2f;

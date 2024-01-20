@@ -17,17 +17,14 @@ namespace GameObjects.Utilities
         public Point Position { get; set; } = Point.Zero;
 
         public float Zoom { get; set; } = 1.0f;
+      
         public float Rotation { get; set; }
-
-        public float PanningSpeed { get; set; } = 0.3f;
-        public float ZoomingSpeed { get; set; } = 0.0002f;
 
         public Matrix GetTransformation(GraphicsDevice graphics)
         {
             int viewportWidth = graphics.Viewport.Width;
             int viewportHeight = graphics.Viewport.Height;
 
-            // Apply scaling centered in the middle of the screen
             Matrix transform = Matrix.CreateTranslation(-viewportWidth / 2f, -viewportHeight / 2f, 0);
             transform *= Matrix.CreateRotationZ(Rotation);
             transform *= Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
@@ -45,7 +42,7 @@ namespace GameObjects.Utilities
 
             AdjustZoom(GetZooming());
 
-            if (Settings.ALLOW_CAMERA_ROTATING)
+            if (Settings.CAMERA_ALLOWROTATING)
                 AdjustRotation();
         }
 
@@ -70,24 +67,24 @@ namespace GameObjects.Utilities
                 Rotation -= 2 * MathF.PI / 3600;
         }
 
-        private Point GetPanning(GameTime gameTime)
+        private static Point GetPanning(GameTime gameTime)
         {
             Point mouseDelta = InputManager.MouseDelta();
             if (mouseDelta == Point.Zero)
                 return mouseDelta;
 
             float totalMilliseconds = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            Vector2 panningPoint = mouseDelta.ToVector2() * totalMilliseconds * PanningSpeed;
+            Vector2 panningPoint = mouseDelta.ToVector2() * totalMilliseconds * Settings.CAMERA_PANNINGSPEED;
 
             return new Point((int)panningPoint.X, (int)panningPoint.Y);
         }
 
-        private float GetZooming()
+        private static float GetZooming()
         {
             if (InputManager.IsControlHeld())
                 return 0;
 
-            return InputManager.MouseWheelDelta() * ZoomingSpeed;
+            return InputManager.MouseWheelDelta() * Settings.CAMERA_ZOOMINGSPEED;
         }
 
         public override string GetDebugInfo()
