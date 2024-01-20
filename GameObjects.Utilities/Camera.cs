@@ -29,6 +29,7 @@ namespace GameObjects.Utilities
             transform *= Matrix.CreateRotationZ(Rotation);
             transform *= Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
             transform *= Matrix.CreateTranslation(viewportWidth / 2f, viewportHeight / 2f, 0);
+            transform *= Matrix.CreateTranslation(Position.X, Position.Y, 0);
 
             return transform;
         }

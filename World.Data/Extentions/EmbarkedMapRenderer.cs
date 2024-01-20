@@ -23,7 +23,7 @@ public static class EmbarkedMapRenderer
 
                 spriteBatch.Draw(
                     tileToRender.TileType.Texture,
-                    PositionShifter.GetShiftedRectangle(tileToRender.Rectangle),
+                    tileToRender.Rectangle,
                     new Color(tintValue, tintValue, tintValue));
             }
         }
