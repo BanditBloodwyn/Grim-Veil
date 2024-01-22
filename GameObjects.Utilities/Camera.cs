@@ -1,6 +1,5 @@
 ﻿using Core.Extentions;
 using Framework.Debugging;
-using Framework.Game;
 using Framework.InputManagement;
 using Globals;
 using Microsoft.Xna.Framework;
@@ -10,7 +9,7 @@ using System.Text;
 
 namespace GameObjects.Utilities
 {
-    public class Camera : DebuggableSingleton<Camera>, IUpdatable
+    public class Camera : DebuggableSingleton<Camera>
     {
         private bool _isPanning;
 

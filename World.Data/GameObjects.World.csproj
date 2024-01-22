@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
-    <ProjectReference Include="..\GameObjects.Utilities\GameObjects.Utilities.csproj" />
     <ProjectReference Include="..\Pools\Pools.csproj" />
   </ItemGroup>
 

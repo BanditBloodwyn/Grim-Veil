@@ -9,7 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Extentions\Core.Extentions.csproj" />
     <ProjectReference Include="..\Framework.Debugging\Framework.Debugging.csproj" />
-    <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
     <ProjectReference Include="..\Managers.InputManagement\Framework.InputManagement.csproj" />
   </ItemGroup>
 

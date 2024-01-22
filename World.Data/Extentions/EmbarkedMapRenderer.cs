@@ -1,5 +1,4 @@
-﻿using GameObjects.Utilities;
-using GameObjects.World.Maps;
+﻿using GameObjects.World.Maps;
 using GameObjects.World.Tiles;
 using GameObjects.World.Tiles.TileTypes;
 using Microsoft.Xna.Framework;
@@ -44,7 +43,7 @@ public static class EmbarkedMapRenderer
         }
 
         if (layer - 1 < map.ElevationLevelSpan.Item1)
-                return false;
+            return false;
 
         return TryGetTileToRender(map, x, y, layer - 1, out tile, out tintValue, recursionDepth + 1);
     }
