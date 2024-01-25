@@ -5,7 +5,6 @@ using GameObjects.UI.Factories;
 using Globals;
 using Globals.Enums;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Pools;
 using System.Diagnostics;
@@ -15,21 +14,12 @@ namespace Managers.SceneManagement;
 
 public class SceneBuilder
 {
-    private static ContentManager _contentManager = null!;
-    private static bool _initialized;
-
     private static readonly int _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
     private static readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-    public static void Initialize(ContentManager contentManager)
-    {
-        _contentManager = contentManager;
-        _initialized = true;
-    }
-
     public static bool TryBuildByName(SceneNames stateName, out Scene? scene)
     {
-        ResourcePool.LoadContentByStateName(stateName, _contentManager);
+        ResourcePool.LoadContentByStateName(stateName);
 
         scene = stateName switch
         {
@@ -49,9 +39,6 @@ public class SceneBuilder
 
     private static Scene SplashScreen()
     {
-        if (!_initialized)
-            return new Scene();
-
         Scene scene = new();
         scene.Name = "Splash Screen Scene";
 
@@ -73,9 +60,6 @@ public class SceneBuilder
 
     private static Scene StartupLoadingScreen()
     {
-        if (!_initialized)
-            return new Scene();
-
         Scene scene = new();
         scene.Name = "Startup Loading Screen Scene";
 
@@ -99,9 +83,6 @@ public class SceneBuilder
 
     private static Scene MainMenuScreen()
     {
-        if (!_initialized)
-            return new Scene();
-
         Scene scene = new();
         scene.Name = "Main Menu Scene";
 
@@ -136,9 +117,6 @@ public class SceneBuilder
 
     private static Scene IngameLoadingScreen()
     {
-        if (!_initialized)
-            return new Scene();
-
         Scene scene = new();
         scene.Name = "InGame Loading Screen Scene";
 
@@ -147,9 +125,6 @@ public class SceneBuilder
 
     private static Scene InGameScene()
     {
-        if (!_initialized)
-            return new Scene();
-
         Scene scene = new();
         scene.Name = "InGame Scene";
 

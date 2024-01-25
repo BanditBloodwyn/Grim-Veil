@@ -6,61 +6,82 @@ namespace Pools;
 
 public static class ResourcePool
 {
+    private static ContentManager? _contentManager;
+
     public static Dictionary<object, Texture2D> Textures = new();
     public static Dictionary<object, SpriteFont> Fonts = new();
 
-    public static void LoadContentByStateName(SceneNames sceneName, ContentManager contentManager)
+    public static void Initialize(ContentManager content)
+    {
+        _contentManager = content;
+    }
+
+    public static void LoadContentByStateName(SceneNames sceneName)
     {
         switch (sceneName)
         {
             case SceneNames.SplashScreen:
-                LoadSplashScreenContent(contentManager);
+                LoadSplashScreenContent();
                 break;
             case SceneNames.StartupLoadingScreen:
-                LoadStartupLoadingScreenContent(contentManager);
+                LoadStartupLoadingScreenContent();
                 break;
             case SceneNames.MainMenu:
-                LoadMainMenuContent(contentManager);
+                LoadMainMenuContent();
                 break;
             case SceneNames.IngameLoadingScreen:
-                LoadIngameLoadingScreenContent(contentManager);
+                LoadIngameLoadingScreenContent();
                 break;
             case SceneNames.Ingame_Normal:
-                LoadMainGameContent(contentManager);
+                LoadMainGameContent();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(sceneName), sceneName, null);
         }
     }
 
-    private static void LoadSplashScreenContent(ContentManager contentManager)
+    private static void LoadSplashScreenContent()
     {
-        Textures.TryAdd("splashscreen", contentManager.Load<Texture2D>("Images/splashscreen"));
-        Textures.TryAdd("gameLogo", contentManager.Load<Texture2D>("Images/logo"));
+        if (_contentManager == null) 
+            return;
 
-        Fonts.TryAdd("Default", contentManager.Load<SpriteFont>("Fonts/Default"));
+        Textures.TryAdd("splashscreen", _contentManager.Load<Texture2D>("Images/splashscreen"));
+        Textures.TryAdd("gameLogo", _contentManager.Load<Texture2D>("Images/logo"));
+
+        Fonts.TryAdd("Default", _contentManager.Load<SpriteFont>("Fonts/Default"));
     }
 
-    private static void LoadStartupLoadingScreenContent(ContentManager contentManager)
+    private static void LoadStartupLoadingScreenContent()
     {
-        Textures.TryAdd("loadingScreen_Background1", contentManager.Load<Texture2D>("Images/loadingScreen1"));
-        Fonts.TryAdd("Victorian", contentManager.Load<SpriteFont>("Fonts/VictorianText"));
+        if (_contentManager == null)
+            return;
+
+        Textures.TryAdd("loadingScreen_Background1", _contentManager.Load<Texture2D>("Images/loadingScreen1"));
+        Fonts.TryAdd("Victorian", _contentManager.Load<SpriteFont>("Fonts/VictorianText"));
     }
 
-    private static void LoadMainMenuContent(ContentManager contentManager)
+    private static void LoadMainMenuContent()
     {
-        Textures.TryAdd("mainMenu_Background", contentManager.Load<Texture2D>("Images/title"));
+        if (_contentManager == null)
+            return;
+
+        Textures.TryAdd("mainMenu_Background", _contentManager.Load<Texture2D>("Images/title"));
     }
 
-    private static void LoadIngameLoadingScreenContent(ContentManager contentManager)
+    private static void LoadIngameLoadingScreenContent()
     {
+        if (_contentManager == null)
+            return;
     }
 
-    private static void LoadMainGameContent(ContentManager contentManager)
+    private static void LoadMainGameContent()
     {
-        Textures.TryAdd("tile_grass", contentManager.Load<Texture2D>("Environment/Tiles/grassTile"));
-        Textures.TryAdd("tile_stone", contentManager.Load<Texture2D>("Environment/Tiles/stoneTile"));
-        Textures.TryAdd("tile_dirt", contentManager.Load<Texture2D>("Environment/Tiles/dirtTile"));
-        Textures.TryAdd("tile_water", contentManager.Load<Texture2D>("Environment/Tiles/waterTile"));
+        if (_contentManager == null)
+            return;
+
+        Textures.TryAdd("tile_grass", _contentManager.Load<Texture2D>("Environment/Tiles/grassTile"));
+        Textures.TryAdd("tile_stone", _contentManager.Load<Texture2D>("Environment/Tiles/stoneTile"));
+        Textures.TryAdd("tile_dirt", _contentManager.Load<Texture2D>("Environment/Tiles/dirtTile"));
+        Textures.TryAdd("tile_water", _contentManager.Load<Texture2D>("Environment/Tiles/waterTile"));
     }
 }

@@ -9,6 +9,7 @@ using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Pools;
 
 namespace GrimVeil;
 
@@ -45,12 +46,18 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        SceneBuilder.Initialize(Content);
+        InitializePools();
         GameStateFactory.Initialize(_gameManager);
 
         base.Initialize();
 
         _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
+    }
+
+    private void InitializePools()
+    {
+        ResourcePool.Initialize(Content);
+        ContentPool.Initialize(Content);
     }
 
     protected override void LoadContent()
