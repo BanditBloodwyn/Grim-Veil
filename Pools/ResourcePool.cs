@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pools;
 
-public static class ContentPool
+public static class ResourcePool
 {
     public static Dictionary<object, Texture2D> Textures = new();
     public static Dictionary<object, SpriteFont> Fonts = new();

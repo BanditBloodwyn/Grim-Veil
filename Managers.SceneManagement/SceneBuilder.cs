@@ -29,7 +29,7 @@ public class SceneBuilder
 
     public static bool TryBuildByName(SceneNames stateName, out Scene? scene)
     {
-        ContentPool.LoadContentByStateName(stateName, _contentManager);
+        ResourcePool.LoadContentByStateName(stateName, _contentManager);
 
         scene = stateName switch
         {
@@ -58,12 +58,12 @@ public class SceneBuilder
         scene.AddObject(
             "background",
             new Image(
-                ContentPool.Textures["splashscreen"],
+                ResourcePool.Textures["splashscreen"],
                 new Rectangle(0, 0, Settings.SPLASHSCREEN_WIDTH, Settings.SPLASHSCREEN_HEIGHT)));
         scene.AddObject(
             "logo",
             new Image(
-                ContentPool.Textures["gameLogo"],
+                ResourcePool.Textures["gameLogo"],
                 new Rectangle(Settings.SPLASHSCREEN_WIDTH / 4, 0,
                     Settings.SPLASHSCREEN_WIDTH / 2,
                     Settings.SPLASHSCREEN_WIDTH / 2)));
@@ -82,14 +82,14 @@ public class SceneBuilder
         scene.AddObject(
             "loadingScreen_Background1",
             new Image(
-                ContentPool.Textures["loadingScreen_Background1"],
+                ResourcePool.Textures["loadingScreen_Background1"],
                 new Rectangle(0, 0, _screenWidth, _screenHeight)));
 
         scene.AddObject(
             "loadingScreen_Label",
             LabelFactory.CreateLabel(
                 "Loading...",
-                ContentPool.Fonts["Victorian"],
+                ResourcePool.Fonts["Victorian"],
                 _screenWidth / 2,
                 _screenHeight - 50,
                 true));
@@ -108,27 +108,27 @@ public class SceneBuilder
         scene.AddObject(
             "mainMenu_Background",
             new Image(
-                ContentPool.Textures["mainMenu_Background"],
+                ResourcePool.Textures["mainMenu_Background"],
                 new Rectangle(0, 0, _screenWidth, _screenHeight)));
         scene.AddObject(
             "mainMenu_Logo",
             new Image(
-                ContentPool.Textures["gameLogo"],
+                ResourcePool.Textures["gameLogo"],
                 new Rectangle(30, 10,
                     _screenWidth / Settings.LOGO_SIZE_DEVIDER * 3,
                     _screenWidth / Settings.LOGO_SIZE_DEVIDER * 3)));
 
-        scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 500, static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent(StateNames.Ingame_Normal))));
-        scene.AddObject("button_loadGame", ButtonFactory.CreateTextButton("Load", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_loadGame", ButtonFactory.CreateTextButton("Load", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 430, null));
-        scene.AddObject("button_settings", ButtonFactory.CreateTextButton("Settings", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_settings", ButtonFactory.CreateTextButton("Settings", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 360, null));
-        scene.AddObject("button_extras", ButtonFactory.CreateTextButton("Extras", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_extras", ButtonFactory.CreateTextButton("Extras", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 290, null));
-        scene.AddObject("button_credits", ButtonFactory.CreateTextButton("Credits", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_credits", ButtonFactory.CreateTextButton("Credits", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 220, null));
-        scene.AddObject("button_quit", ButtonFactory.CreateTextButton("Quit", ContentPool.Fonts["Victorian"],
+        scene.AddObject("button_quit", ButtonFactory.CreateTextButton("Quit", ResourcePool.Fonts["Victorian"],
             _screenWidth - 400, _screenHeight - 150, static (_, _) => EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent())));
 
         return scene;
