@@ -35,7 +35,7 @@ public static class EmbarkedMapRenderer
 
         Tile tileToRender = map.ElevationLayers[layer].Tiles[x, y];
 
-        if (tileToRender.TileType is not AirTileType)
+        if (tileToRender.TileType is not AirOldTileType)
         {
             tile = tileToRender;
             tintValue = 255 / recursionDepth;

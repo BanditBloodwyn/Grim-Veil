@@ -2,7 +2,7 @@
 
 namespace GameObjects.World.Tiles.TileTypes;
 
-public abstract class TileType
+public abstract class oldTileType
 {
     public abstract string Name { get; }
 

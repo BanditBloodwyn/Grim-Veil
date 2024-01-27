@@ -14,6 +14,6 @@ internal class JsonContentTypeWriter : ContentTypeWriter<TInput>
 
     public override string GetRuntimeReader(TargetPlatform targetPlatform)
     {
-        return "ContentPipeline.Json.JsonContentReader, ContentPipeline.Json";
+        return "ContentPipeline.Json.JsonContentTypeReader, ContentPipeline.Json";
     }
 }

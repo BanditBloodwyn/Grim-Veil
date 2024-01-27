@@ -6,7 +6,7 @@ using TImport = System.String;
 
 namespace ContentPipelineExtension.Json
 {
-    [ContentImporter(".json", DisplayName = "JSON Importer", DefaultProcessor = nameof(JsonContentProcessor))]
+    [ContentImporter(".json", DisplayName = "Json Importer", DefaultProcessor = nameof(JsonContentProcessor))]
     public class JsonContentImporter : ContentImporter<TImport>
     {
         public override TImport Import(string filename, ContentImporterContext context)

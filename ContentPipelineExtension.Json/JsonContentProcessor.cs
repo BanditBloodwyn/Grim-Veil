@@ -27,7 +27,7 @@ namespace ContentPipelineExtension.Json
             if (Minify) 
                 input = MinifyJson(input);
 
-            JsonContentProcessorResult result = new();
+            TOutput result = new();
             result.Json = input;
             result.RuntimeType = RuntimeType;
 

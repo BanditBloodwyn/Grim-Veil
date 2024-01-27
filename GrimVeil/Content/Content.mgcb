@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\..\ContentPipeline.Json\bin\Debug\net6.0\ContentPipeline.Json.dll
+/reference:..\..\ContentPipelineExtension.Json\bin\Debug\net6.0\ContentPipelineExtension.Json.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -123,4 +123,11 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/title.png
+
+#begin JSON/TileTypes/tileType_dirt.json
+/importer:JsonContentImporter
+/processor:JsonContentProcessor
+/processorParam:Minify=True
+/processorParam:RuntimeType=SpecialContentReaders.TileTypeReader, SpecialContentReaders
+/build:JSON/TileTypes/tileType_dirt.json
 

@@ -9,7 +9,11 @@ using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Reflection;
 using Pools;
+using ContentPipeline.Json;
+using Microsoft.Xna.Framework.Content;
+using Globals.World;
 
 namespace GrimVeil;
 
@@ -62,7 +66,9 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
+        var test = new JsonContentTypeReader<TileType>().GetType();
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        Content.Load<TileType>("JSON/TileTypes/tileType_dirt");
     }
 
     protected override void Update(GameTime gameTime)

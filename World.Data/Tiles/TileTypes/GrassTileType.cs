@@ -3,7 +3,7 @@ using Pools;
 
 namespace GameObjects.World.Tiles.TileTypes;
 
-public class GrassTileType : TileType
+public class GrassOldTileType : oldTileType
 {
     public override string Name => "Grass";
     public override Texture2D Texture => ResourcePool.Textures["tile_grass"];

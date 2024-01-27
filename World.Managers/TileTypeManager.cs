@@ -6,9 +6,9 @@ namespace World.Managers;
 
 public class TileTypeManager
 {
-    private readonly TileType[] _tileTypes = TypeLoader.CreateTypeInstancesByParentType<TileType>();
+    private readonly oldTileType[] _tileTypes = TypeLoader.CreateTypeInstancesByParentType<oldTileType>();
 
-    public TileType GetRandomType()
+    public oldTileType GetRandomType()
     {
         return _tileTypes.PickRandom();
     }

@@ -1,6 +1,7 @@
 ﻿using Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Pools;
 
 namespace Managers.StateManagement.States;
 
@@ -32,6 +33,8 @@ public class StartupLoadingScreenState : GameState
 
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
+
+        ContentPool.LoadTileTypes();
 
         ChangeState(GameStateFactory.BuildByName(StateNames.MainMenu));
     }
