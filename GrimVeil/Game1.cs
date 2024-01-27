@@ -66,7 +66,6 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
-        var test = new JsonContentTypeReader<TileType>().GetType();
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         Content.Load<TileType>("JSON/TileTypes/tileType_dirt");
     }
