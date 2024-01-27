@@ -3,17 +3,14 @@ using Framework.InputManagement;
 using GameObjects.Utilities;
 using Globals;
 using Globals.Enums;
+using Globals.World;
 using Managers.SceneManagement;
 using Managers.StateManagement;
 using Managers.StateManagement.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Reflection;
 using Pools;
-using ContentPipeline.Json;
-using Microsoft.Xna.Framework.Content;
-using Globals.World;
+using System;
 
 namespace GrimVeil;
 
