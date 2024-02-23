@@ -3,5 +3,5 @@ using Globals.World;
 
 namespace SpecialContentReaders
 {
-    public class TileTypeReader : JsonContentTypeReader<TileType>;
+    public class TileTypeReader : JsonContentTypeReader<TileType> { }
 }

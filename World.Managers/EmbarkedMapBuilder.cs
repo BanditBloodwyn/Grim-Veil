@@ -4,8 +4,15 @@ using Globals;
 
 namespace World.Managers;
 
-public class EmbarkedMapBuilder(TileTypeManager tileTypeManager)
+public class EmbarkedMapBuilder
 {
+    private readonly TileTypeManager _tileTypeManager;
+    
+    public EmbarkedMapBuilder(TileTypeManager tileTypeManager)
+    {
+        _tileTypeManager = tileTypeManager;
+    }
+
     public EmbarkedMap Build(
         int tileCountX,
         int tileCountY,
@@ -39,7 +46,7 @@ public class EmbarkedMapBuilder(TileTypeManager tileTypeManager)
         for (int x = 0; x < tiles.GetLength(0); x++)
             for (int y = 0; y < tiles.GetLength(1); y++)
                 tiles[x, y] = new Tile(
-                    tileTypeManager.GetRandomType(),
+                    _tileTypeManager.GetRandomType(),
                     x * Settings.DEFAULT_TILE_SIZE,
                     y * Settings.DEFAULT_TILE_SIZE);
 

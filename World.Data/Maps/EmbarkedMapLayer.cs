@@ -2,9 +2,15 @@
 
 namespace GameObjects.World.Maps;
 
-public class EmbarkedMapLayer(Tile[,] tiles, int elevationLevel)
+public class EmbarkedMapLayer
 {
-    public Tile[,] Tiles { get; } = tiles; // 2D array for the tiles
+    public Tile[,] Tiles { get; } // 2D array for the tiles
 
-    public int ElevationLevel { get; } = elevationLevel;
+    public int ElevationLevel { get; }
+
+    public EmbarkedMapLayer(Tile[,] tiles, int elevationLevel)
+    {
+        Tiles = tiles;
+        ElevationLevel = elevationLevel;
+    }
 }

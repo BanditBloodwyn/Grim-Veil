@@ -7,16 +7,25 @@ using IDrawable = Framework.Game.IDrawable;
 
 namespace GameObjects.World.Maps;
 
-public class EmbarkedMap(Dictionary<int, EmbarkedMapLayer> elevationLayers, int tileCountX, int tileCountY, int minimumElevationLevel, int maximumElevationLevel)
-    : IDrawable, IUpdatable
+public class EmbarkedMap : IDrawable, IUpdatable
 {
-    public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; } = elevationLayers;
+    public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; }
 
-    public (int, int) MapDimensions { get; } = (tileCountX, tileCountY);
-    public (int, int) ElevationLevelSpan { get; } = (minimumElevationLevel, maximumElevationLevel);
+    public (int, int) MapDimensions { get; }
+    public (int, int) ElevationLevelSpan { get; }
     public int VisibleLayer { get; private set; }
 
     public Rectangle Rectangle => new(0, 0, 0, 0);
+
+    public EmbarkedMap(
+        Dictionary<int, EmbarkedMapLayer> elevationLayers, 
+        int tileCountX, int tileCountY, 
+        int minimumElevationLevel, int maximumElevationLevel)
+    {
+        ElevationLayers = elevationLayers;
+        MapDimensions = (tileCountX, tileCountY);
+        ElevationLevelSpan = (minimumElevationLevel, maximumElevationLevel);
+    }
 
     public void Draw(SpriteBatch spriteBatch)
     {

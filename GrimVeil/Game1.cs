@@ -3,7 +3,6 @@ using Framework.InputManagement;
 using GameObjects.Utilities;
 using Globals;
 using Globals.Enums;
-using Globals.World;
 using Managers.SceneManagement;
 using Managers.StateManagement;
 using Managers.StateManagement.States;
@@ -64,7 +63,6 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        Content.Load<TileType>("JSON/TileTypes/tileType_dirt");
     }
 
     protected override void Update(GameTime gameTime)
