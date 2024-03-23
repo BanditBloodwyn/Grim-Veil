@@ -18,13 +18,12 @@ public class EmbarkedMap : IDrawable, IUpdatable
     public Rectangle Rectangle => new(0, 0, 0, 0);
 
     public EmbarkedMap(
-        Dictionary<int, EmbarkedMapLayer> elevationLayers, 
-        int tileCountX, int tileCountY, 
-        int minimumElevationLevel, int maximumElevationLevel)
+        Dictionary<int, EmbarkedMapLayer> elevationLayers,
+        int tileCountX, int tileCountY)
     {
         ElevationLayers = elevationLayers;
         MapDimensions = (tileCountX, tileCountY);
-        ElevationLevelSpan = (minimumElevationLevel, maximumElevationLevel);
+        ElevationLevelSpan = (elevationLayers.Keys.Min(), elevationLayers.Keys.Max());
     }
 
     public void Draw(SpriteBatch spriteBatch)

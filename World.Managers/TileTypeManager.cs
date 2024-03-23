@@ -12,4 +12,9 @@ public class TileTypeManager
     {
         return _tileTypes.PickRandom();
     }
+
+    public oldTileType GetByTypeName(string name)
+    {
+        return _tileTypes.FirstOrDefault(type => type.GetType().Name == name) ?? new AirOldTileType();
+    }
 }
