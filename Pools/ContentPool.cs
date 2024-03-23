@@ -13,10 +13,4 @@ public static class ContentPool
     {
         _contentManager = content;
     }
-
-    public static void LoadTileTypes()
-    {
-        if (_contentManager == null)
-            return;
-    }
 }
