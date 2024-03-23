@@ -20,7 +20,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContentPipeline.Json\ContentPipeline.Json.csproj" />
     <ProjectReference Include="..\Managers.InputManagement\Framework.InputManagement.csproj" />
     <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
     <ProjectReference Include="..\Managers.StateManagement\Managers.StateManagement.csproj" />

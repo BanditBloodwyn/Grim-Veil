@@ -18,7 +18,5 @@ public static class ContentPool
     {
         if (_contentManager == null)
             return;
-
-        TileTypes.TryAdd("dirt", _contentManager.Load<TileType>("JSON/TileTypes/tileType_dirt"));
     }
 }
