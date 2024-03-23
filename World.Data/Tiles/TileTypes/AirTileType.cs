@@ -1,4 +1,4 @@
-﻿namespace GameObjects.World.Tiles.TileTypes;
+﻿namespace GV.WorldObjects.Tiles.TileTypes;
 
 public class AirOldTileType : oldTileType
 {

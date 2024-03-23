@@ -1,8 +1,8 @@
-﻿using GameObjects.World.Tiles.TileTypes;
-using Globals;
+﻿using GV.Globals;
+using GV.WorldObjects.Tiles.TileTypes;
 using Microsoft.Xna.Framework;
 
-namespace GameObjects.World.Tiles;
+namespace GV.WorldObjects.Tiles;
 
 public class Tile
 {

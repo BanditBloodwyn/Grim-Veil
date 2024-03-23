@@ -1,19 +1,19 @@
-﻿using Framework.Debugging;
-using Framework.InputManagement;
-using GameObjects.Utilities;
-using Globals;
-using Globals.Enums;
-using Managers.SceneManagement;
-using Managers.StateManagement;
-using Managers.StateManagement.States;
+﻿using Debugging;
+using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pools;
 using System;
+using GV.Globals;
+using GV.Globals.Enums;
+using GV.Pools;
+using GV.SceneManagement;
+using GV.StateManagement;
+using GV.StateManagement.States;
+using GV.UtilityObjects;
 
 namespace GrimVeil;
 
-public class Game1 : Game
+public class Game1 : Microsoft.Xna.Framework.Game
 {
     private readonly GameManager _gameManager;
     private readonly SceneManager _sceneManager;
@@ -109,7 +109,7 @@ public class Game1 : Game
             null,
             null,
             null,
-            Camera.Instance.GetTransformation(_graphics.GraphicsDevice));
+            GameCamera.Instance.GetTransformation(_graphics.GraphicsDevice));
         _sceneManager.Draw(_spriteBatch, gameTime);
         _spriteBatch.End();
     }

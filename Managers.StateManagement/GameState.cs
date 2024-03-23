@@ -1,10 +1,10 @@
-﻿using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.FiniteStateMachines;
-using Framework.GameEvents;
-using Globals.Enums;
+﻿using GameEvents;
+using GV.EventBus;
+using GV.FiniteStateMachines;
+using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 
-namespace Managers.StateManagement;
+namespace GV.StateManagement;
 
 public abstract class GameState : State<GameState, GameManager>
 {

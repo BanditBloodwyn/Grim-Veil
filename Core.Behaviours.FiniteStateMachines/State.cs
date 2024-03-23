@@ -1,4 +1,4 @@
-﻿namespace Core.Patterns.Behaviours.FiniteStateMachines;
+﻿namespace GV.FiniteStateMachines;
 
 public abstract class State<TState, TStateMachine>
     where TState : State<TState, TStateMachine>

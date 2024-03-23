@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using IDrawable = Framework.Game.IDrawable;
+using Game_IDrawable = Game.IDrawable;
 
-namespace GameObjects.World.Maps;
-public class Planet : IDrawable
+namespace GV.WorldObjects.Maps;
+public class Planet : Game_IDrawable
 {
     public Rectangle Rectangle { get; }
 

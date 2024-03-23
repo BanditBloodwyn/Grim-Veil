@@ -1,8 +1,8 @@
-﻿using Globals.Enums;
+﻿using GV.Globals.Enums;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pools;
+namespace GV.Pools;
 
 public static class ResourcePool
 {

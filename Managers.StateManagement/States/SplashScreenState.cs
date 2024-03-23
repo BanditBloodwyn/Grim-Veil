@@ -1,9 +1,9 @@
-﻿using Globals;
-using Globals.Enums;
+﻿using GV.Globals;
+using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Managers.StateManagement.States;
+namespace GV.StateManagement.States;
 
 public class SplashScreenState : GameState
 {

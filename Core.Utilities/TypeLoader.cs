@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 
-namespace Core.Utilities
+namespace GV.CoreUtilities
 {
     public static class TypeLoader
     {

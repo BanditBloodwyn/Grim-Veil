@@ -1,4 +1,4 @@
-﻿namespace Core.Patterns.Behaviours.EventBus;
+﻿namespace GV.EventBus;
 
 public class EventBinding<T> : IEventBinding<T>
     where T : IEvent

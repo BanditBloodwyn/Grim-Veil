@@ -1,8 +1,8 @@
-﻿using Globals.Enums;
+﻿using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Managers.StateManagement.States;
+namespace GV.StateManagement.States;
 
 public class StartupLoadingScreenState : GameState
 {

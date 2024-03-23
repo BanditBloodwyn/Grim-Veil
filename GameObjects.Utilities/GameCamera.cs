@@ -1,22 +1,22 @@
-﻿using Core.Extentions;
-using Framework.Debugging;
-using Framework.InputManagement;
-using Globals;
+﻿using System.Text;
+using Debugging;
+using GV.Globals;
+using GV.TypeExtentions;
+using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Text;
 
-namespace GameObjects.Utilities
+namespace GV.UtilityObjects
 {
-    public class Camera : DebuggableSingleton<Camera>
+    public class GameCamera : DebuggableSingleton<GameCamera>
     {
         private bool _isPanning;
 
         public Point Position { get; set; } = Point.Zero;
 
         public float Zoom { get; set; } = 1.0f;
-      
+
         public float Rotation { get; set; }
 
         public Matrix GetTransformation(GraphicsDevice graphics)

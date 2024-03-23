@@ -1,8 +1,8 @@
-﻿using GameObjects.Utilities;
-using Globals.Enums;
+﻿using GV.Globals.Enums;
+using GV.UtilityObjects;
 using Microsoft.Xna.Framework;
 
-namespace Managers.StateManagement.States;
+namespace GV.StateManagement.States;
 
 public class InGame_Normal_State : GameState
 {
@@ -20,6 +20,6 @@ public class InGame_Normal_State : GameState
     {
         base.Update(gameTime);
 
-        Camera.Instance.Update(gameTime);
+        GameCamera.Instance.Update(gameTime);
     }
 }

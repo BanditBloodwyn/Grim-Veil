@@ -1,7 +1,7 @@
-﻿using Globals.World;
+﻿using GV.Globals.World;
 using Microsoft.Xna.Framework.Content;
 
-namespace Pools;
+namespace GV.Pools;
 
 public static class ContentPool
 {

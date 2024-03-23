@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using IDrawable = Framework.Game.IDrawable;
+using Game_IDrawable = Game.IDrawable;
 
-namespace GameObjects.UI;
+namespace GV.UIObjects;
 
-public class Image : IDrawable
+public class Image : Game_IDrawable
 {
     private readonly Texture2D _texture; 
     

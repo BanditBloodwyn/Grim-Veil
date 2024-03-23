@@ -1,4 +1,4 @@
-﻿namespace Framework.Debugging;
+﻿namespace Debugging;
 
 public interface IDebugInfoProvider
 {

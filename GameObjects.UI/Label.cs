@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using IDrawable = Framework.Game.IDrawable;
+using Game_IDrawable = Game.IDrawable;
 
-namespace GameObjects.UI;
+namespace GV.UIObjects;
 
-public class Label : IDrawable
+public class Label : Game_IDrawable
 {
     public string Text { get; set; }
     public SpriteFont SpriteFont { get; set; }

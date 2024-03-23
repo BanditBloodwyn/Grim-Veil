@@ -1,7 +1,7 @@
-﻿using Core.Patterns.Behaviours.EventBus;
-using Globals.Enums;
+﻿using GV.EventBus;
+using GV.Globals.Enums;
 
-namespace Framework.GameEvents;
+namespace GameEvents;
 
 public struct ChangeActiveSceneEvent : IEvent
 {

@@ -1,4 +1,4 @@
-﻿namespace Globals.World;
+﻿namespace GV.Globals.World;
 
 public class TileType
 {

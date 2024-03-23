@@ -1,16 +1,16 @@
-﻿using Core.Patterns.Behaviours.EventBus;
-using Framework.GameEvents;
-using GameObjects.UI;
-using GameObjects.UI.Factories;
-using Globals;
-using Globals.Enums;
+﻿using System.Diagnostics;
+using GameEvents;
+using GV.EventBus;
+using GV.Globals;
+using GV.Globals.Enums;
+using GV.Pools;
+using GV.UIObjects;
+using GV.UIObjects.Factories;
+using GV.WorldManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pools;
-using System.Diagnostics;
-using World.Managers;
 
-namespace Managers.SceneManagement;
+namespace GV.SceneManagement;
 
 public class SceneBuilder
 {

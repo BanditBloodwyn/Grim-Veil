@@ -1,4 +1,4 @@
-﻿namespace Globals.Enums;
+﻿namespace GV.Globals.Enums;
 
 public enum SceneNames
 {

@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Pools;
+﻿using GV.Pools;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace GameObjects.World.Tiles.TileTypes;
+namespace GV.WorldObjects.Tiles.TileTypes;
 
 public class DirtOldTileType : oldTileType
 {

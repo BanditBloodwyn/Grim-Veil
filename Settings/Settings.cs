@@ -1,4 +1,4 @@
-﻿namespace Globals;
+﻿namespace GV.Globals;
 
 public static class Settings
 {

@@ -1,9 +1,9 @@
-﻿using GameObjects.World.Maps;
-using GameObjects.World.Tiles;
-using GameObjects.World.Tiles.TileTypes;
-using Globals;
+﻿using GV.Globals;
+using GV.WorldObjects.Maps;
+using GV.WorldObjects.Tiles;
+using GV.WorldObjects.Tiles.TileTypes;
 
-namespace World.Managers;
+namespace GV.WorldManagement;
 
 public class EmbarkedMapBuilder
 {

@@ -1,10 +1,10 @@
-﻿using GameObjects.World.Maps;
-using GameObjects.World.Tiles;
-using GameObjects.World.Tiles.TileTypes;
+﻿using GV.WorldObjects.Maps;
+using GV.WorldObjects.Tiles;
+using GV.WorldObjects.Tiles.TileTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameObjects.World.Extentions;
+namespace GV.WorldObjects.Extentions;
 
 public static class EmbarkedMapRenderer
 {

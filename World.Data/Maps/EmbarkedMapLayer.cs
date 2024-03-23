@@ -1,6 +1,6 @@
-﻿using GameObjects.World.Tiles;
+﻿using GV.WorldObjects.Tiles;
 
-namespace GameObjects.World.Maps;
+namespace GV.WorldObjects.Maps;
 
 public class EmbarkedMapLayer
 {

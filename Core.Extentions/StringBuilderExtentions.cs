@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Core.Extentions;
+namespace GV.TypeExtentions;
 
 public static class StringBuilderExtentions
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GameObjects.UI.Factories;
+namespace GV.UIObjects.Factories;
 
 public static class ButtonFactory
 {

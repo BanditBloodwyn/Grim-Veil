@@ -1,4 +1,4 @@
-﻿namespace Core.Extentions;
+﻿namespace GV.TypeExtentions;
 
 public static class EnumerableExtensions
 {

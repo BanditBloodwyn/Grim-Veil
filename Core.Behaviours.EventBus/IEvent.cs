@@ -1,3 +1,3 @@
-﻿namespace Core.Patterns.Behaviours.EventBus;
+﻿namespace GV.EventBus;
 
 public interface IEvent { }

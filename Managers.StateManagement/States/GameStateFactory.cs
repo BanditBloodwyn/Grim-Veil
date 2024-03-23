@@ -1,6 +1,6 @@
-﻿using Globals.Enums;
+﻿using GV.Globals.Enums;
 
-namespace Managers.StateManagement.States;
+namespace GV.StateManagement.States;
 
 public class GameStateFactory
 {

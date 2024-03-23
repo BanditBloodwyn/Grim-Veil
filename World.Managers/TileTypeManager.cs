@@ -1,8 +1,8 @@
-﻿using Core.Extentions;
-using Core.Utilities;
-using GameObjects.World.Tiles.TileTypes;
+﻿using GV.CoreUtilities;
+using GV.TypeExtentions;
+using GV.WorldObjects.Tiles.TileTypes;
 
-namespace World.Managers;
+namespace GV.WorldManagement;
 
 public class TileTypeManager
 {

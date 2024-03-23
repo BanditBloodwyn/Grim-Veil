@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Core.Patterns.Behaviours.EventBus;
-using Core.Patterns.Behaviours.FiniteStateMachines;
-using Framework.GameEvents;
-using Managers.StateManagement.States;
+using GameEvents;
+using GV.EventBus;
+using GV.FiniteStateMachines;
+using GV.StateManagement.States;
 using Microsoft.Xna.Framework;
 
-namespace Managers.StateManagement;
+namespace GV.StateManagement;
 
 public class GameManager : StateMachine<GameState, GameManager>
 {

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Behaviours.EventBus\GV.EventBus.csproj" />
+    <ProjectReference Include="..\Core.Extentions\GV.TypeExtentions.csproj" />
+    <ProjectReference Include="..\Framework.Debugging\Debugging.csproj" />
+    <ProjectReference Include="..\Framework.GameEvents\GameEvents.csproj" />
+    <ProjectReference Include="..\Framework.Game\Game.csproj" />
+    <ProjectReference Include="..\GameObjects.UI\GV.UIObjects.csproj" />
+    <ProjectReference Include="..\Pools\GV.Pools.csproj" />
+    <ProjectReference Include="..\World.Managers\GV.WorldManagement.csproj" />
+  </ItemGroup>
+
+</Project>

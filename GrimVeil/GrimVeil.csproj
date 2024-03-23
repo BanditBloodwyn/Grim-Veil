@@ -20,9 +20,9 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Managers.InputManagement\Framework.InputManagement.csproj" />
-    <ProjectReference Include="..\Managers.SceneManagement\Managers.SceneManagement.csproj" />
-    <ProjectReference Include="..\Managers.StateManagement\Managers.StateManagement.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\InputManagement.csproj" />
+    <ProjectReference Include="..\Managers.SceneManagement\GV.SceneManagement.csproj" />
+    <ProjectReference Include="..\Managers.StateManagement\GV.StateManagement.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Fonts\" />

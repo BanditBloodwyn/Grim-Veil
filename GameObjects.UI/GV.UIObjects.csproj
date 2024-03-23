@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Framework.Game\Framework.Game.csproj" />
-    <ProjectReference Include="..\Managers.InputManagement\Framework.InputManagement.csproj" />
+    <ProjectReference Include="..\Framework.Game\Game.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\InputManagement.csproj" />
   </ItemGroup>
 
 </Project>

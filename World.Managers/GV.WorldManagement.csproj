@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj" />
-    <ProjectReference Include="..\Settings\Globals.csproj" />
+    <ProjectReference Include="..\Core.Extentions\GV.TypeExtentions.csproj" />
+    <ProjectReference Include="..\Core.Utilities\GV.CoreUtilities.csproj" />
+    <ProjectReference Include="..\World.Data\GV.WorldObjects.csproj" />
   </ItemGroup>
 
 </Project>

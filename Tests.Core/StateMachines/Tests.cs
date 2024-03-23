@@ -1,4 +1,4 @@
-﻿namespace Tests.Core.StateMachines;
+﻿namespace GV.Tests.Core.StateMachines;
 
 [TestFixture]
 public class Tests

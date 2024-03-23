@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Extentions\Core.Extentions.csproj" />
-    <ProjectReference Include="..\Core.Utilities\Core.Utilities.csproj" />
-    <ProjectReference Include="..\World.Data\GameObjects.World.csproj" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pools\GV.Pools.csproj" />
   </ItemGroup>
 
 </Project>

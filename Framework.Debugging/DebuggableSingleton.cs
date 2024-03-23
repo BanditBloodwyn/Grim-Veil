@@ -1,4 +1,4 @@
-﻿namespace Framework.Debugging
+﻿namespace Debugging
 {
     public abstract class DebuggableSingleton<T> : IDebugInfoProvider
         where T : class

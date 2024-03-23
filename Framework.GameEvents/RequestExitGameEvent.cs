@@ -1,6 +1,6 @@
-﻿using Core.Patterns.Behaviours.EventBus;
+﻿using GV.EventBus;
 
-namespace Framework.GameEvents;
+namespace GameEvents;
 
 public struct RequestExitGameEvent : IEvent
 {

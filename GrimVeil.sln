@@ -11,63 +11,63 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behaviours", "Behaviours", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Structures", "Structures", "{8DA3775C-5A7A-4110-9488-2C59A497118D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Patterns.Behaviours.FiniteStateMachines", "Core.Behaviours.FiniteStateMachines\Core.Patterns.Behaviours.FiniteStateMachines.csproj", "{940291D6-E5BF-4B1D-8DF9-E7B12FBBB211}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.FiniteStateMachines", "Core.Behaviours.FiniteStateMachines\GV.FiniteStateMachines.csproj", "{940291D6-E5BF-4B1D-8DF9-E7B12FBBB211}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architectures", "Architectures", "{7244D402-4DC4-4076-9C77-CA7C6796FCC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Creators", "Creators", "{658C7429-5693-427B-B601-70248FB2B261}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Patterns.Creators.Singletons", "Core.Creators.Singletons\Core.Patterns.Creators.Singletons.csproj", "{06ACCFAC-7BCE-4B28-A8F1-BCBB82062498}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.Singletons", "Core.Creators.Singletons\GV.Singletons.csproj", "{06ACCFAC-7BCE-4B28-A8F1-BCBB82062498}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Patterns.Behaviours.EventBus", "Core.Behaviours.EventBus\Core.Patterns.Behaviours.EventBus.csproj", "{58BD56F4-6954-43CF-B96F-79058F72966E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.EventBus", "Core.Behaviours.EventBus\GV.EventBus.csproj", "{58BD56F4-6954-43CF-B96F-79058F72966E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DC1E92DB-84AE-4237-9C25-3CCB0C1C8C0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Core", "Tests.Core\Tests.Core.csproj", "{B5B6135F-2CB0-4C27-8CE8-7CD66B20087B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.Tests.Core", "Tests.Core\GV.Tests.Core.csproj", "{B5B6135F-2CB0-4C27-8CE8-7CD66B20087B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{4CCE53FF-94F3-484A-BAC5-DBE3334E6EA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Game", "Framework.Game\Framework.Game.csproj", "{5D228D6E-B940-49B7-AC68-0F18822C43E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Game", "Framework.Game\Game.csproj", "{5D228D6E-B940-49B7-AC68-0F18822C43E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObjects", "GameObjects", "{B5F620C2-6570-40D9-92B1-F44514D47E44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.UI", "GameObjects.UI\GameObjects.UI.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.UIObjects", "GameObjects.UI\GV.UIObjects.csproj", "{BD035F91-B0FB-41C6-AE59-B30CFD216192}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pools", "Pools\Pools.csproj", "{06B19F4D-E841-4AFD-82E7-3997878180BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.Pools", "Pools\GV.Pools.csproj", "{06B19F4D-E841-4AFD-82E7-3997878180BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{D624BE64-E987-4027-897D-E7A0FDD96324}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Managers", "Managers", "{ABDDA7AD-0771-44BB-8FC7-3EC5C4B183B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.InputManagement", "Managers.InputManagement\Framework.InputManagement.csproj", "{ADE00D3B-73CC-43C1-A0E6-9E2C55F1F310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputManagement", "Managers.InputManagement\InputManagement.csproj", "{ADE00D3B-73CC-43C1-A0E6-9E2C55F1F310}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.StateManagement", "Managers.StateManagement\Managers.StateManagement.csproj", "{1B60F8D4-A689-4678-802A-EA8B1AB66A5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.StateManagement", "Managers.StateManagement\GV.StateManagement.csproj", "{1B60F8D4-A689-4678-802A-EA8B1AB66A5E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.SceneManagement", "Managers.SceneManagement\Managers.SceneManagement.csproj", "{71CAB45A-5E7A-46E9-AA00-0078A9935746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.SceneManagement", "Managers.SceneManagement\GV.SceneManagement.csproj", "{71CAB45A-5E7A-46E9-AA00-0078A9935746}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globals", "Settings\Globals.csproj", "{35A87A65-C1C6-450E-AF63-31FEE597F8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.Globals", "Settings\GV.Globals.csproj", "{35A87A65-C1C6-450E-AF63-31FEE597F8E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Extentions", "Framework.Extentions\Framework.Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extentions", "Framework.Extentions\Extentions.csproj", "{707B946A-E948-4C01-93D2-3B43C427B99A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{7465C6C7-7D8F-4D64-9C1E-36A0D03E9102}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{079670DC-8395-4B69-AA18-57A12D8E4F0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.GameEvents", "Framework.GameEvents\Framework.GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameEvents", "Framework.GameEvents\GameEvents.csproj", "{404186C7-3BC8-43BE-BC9F-2A190480343D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Extentions", "Core.Extentions\Core.Extentions.csproj", "{D71E22A3-673C-44C7-A84D-06A8788FDBAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.TypeExtentions", "Core.Extentions\GV.TypeExtentions.csproj", "{D71E22A3-673C-44C7-A84D-06A8788FDBAB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "World", "World", "{52DC250E-455B-4E31-96AB-D7C94B37D934}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.World", "World.Data\GameObjects.World.csproj", "{FA717186-B242-412F-A08C-9F4D1DA57B1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.WorldObjects", "World.Data\GV.WorldObjects.csproj", "{FA717186-B242-412F-A08C-9F4D1DA57B1A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "World.Managers", "World.Managers\World.Managers.csproj", "{39520EB5-46A7-43D8-A8BD-567987F2B1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.WorldManagement", "World.Managers\GV.WorldManagement.csproj", "{39520EB5-46A7-43D8-A8BD-567987F2B1CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameObjects.Utilities", "GameObjects.Utilities\GameObjects.Utilities.csproj", "{FF460112-1A6A-4240-AF85-DC31AE28EAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.UtilityObjects", "GameObjects.Utilities\GV.UtilityObjects.csproj", "{FF460112-1A6A-4240-AF85-DC31AE28EAD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Utilities", "Core.Utilities\Core.Utilities.csproj", "{1A3793F2-A642-45E5-BEF1-FB758D1267BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GV.CoreUtilities", "Core.Utilities\GV.CoreUtilities.csproj", "{1A3793F2-A642-45E5-BEF1-FB758D1267BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Debugging", "Framework.Debugging\Framework.Debugging.csproj", "{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Debugging", "Framework.Debugging\Debugging.csproj", "{9BA64114-9EC9-4CEE-8828-0EF92F63E0E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,13 +1,13 @@
-﻿using Framework.Game;
-using Framework.InputManagement;
+﻿using Game;
+using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using IDrawable = Framework.Game.IDrawable;
+using Game_IDrawable = Game.IDrawable;
 
-namespace GameObjects.UI;
+namespace GV.UIObjects;
 
-public class Button : IUpdatable, IDrawable
+public class Button : IUpdatable, Game_IDrawable
 {
     private readonly Image? _background;
     private readonly Label? _label;

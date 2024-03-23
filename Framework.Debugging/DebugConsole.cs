@@ -1,8 +1,8 @@
-﻿using Framework.Extentions;
+﻿using Extentions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Framework.Debugging;
+namespace Debugging;
 
 public static class DebugConsole
 {

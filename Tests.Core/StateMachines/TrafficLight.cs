@@ -1,6 +1,6 @@
-﻿using Core.Patterns.Behaviours.FiniteStateMachines;
+﻿using GV.FiniteStateMachines;
 
-namespace Tests.Core.StateMachines;
+namespace GV.Tests.Core.StateMachines;
 
 public class TrafficLight : StateMachine<TrafficState, TrafficLight>
 { }

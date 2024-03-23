@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GV.Pools;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pools;
 
-namespace Framework.Extentions;
+namespace Extentions;
 public static class TextMethods
 {
     public static int WriteDefaultString(this SpriteBatch spriteBatch, string text, int posX, int posY)

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Core.Patterns.Behaviours.EventBus;
+namespace GV.EventBus;
 
 public static class EventBus<T>
     where T : IEvent

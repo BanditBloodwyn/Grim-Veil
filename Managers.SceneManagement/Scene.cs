@@ -1,17 +1,17 @@
-﻿using Core.Extentions;
-using Core.Patterns.Behaviours.EventBus;
-using Framework.Debugging;
-using Framework.Game;
-using Framework.GameEvents;
-using Framework.InputManagement;
+﻿using System.Diagnostics;
+using System.Text;
+using Debugging;
+using Game;
+using GameEvents;
+using GV.EventBus;
+using GV.TypeExtentions;
+using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
-using System.Text;
-using IDrawable = Framework.Game.IDrawable;
+using IDrawable = Game.IDrawable;
 
-namespace Managers.SceneManagement;
+namespace GV.SceneManagement;
 
 public class Scene : IDebugInfoProvider
 {

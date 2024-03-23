@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace GameObjects.World.Tiles.TileTypes;
+namespace GV.WorldObjects.Tiles.TileTypes;
 
 public abstract class oldTileType
 {

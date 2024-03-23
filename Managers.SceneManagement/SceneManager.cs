@@ -1,11 +1,11 @@
-﻿using Core.Patterns.Behaviours.EventBus;
-using Framework.GameEvents;
-using Globals.Enums;
+﻿using System.Diagnostics;
+using GameEvents;
+using GV.EventBus;
+using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Diagnostics;
 
-namespace Managers.SceneManagement;
+namespace GV.SceneManagement;
 
 public class SceneManager
 {

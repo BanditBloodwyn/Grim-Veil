@@ -1,4 +1,4 @@
-﻿namespace Core.Patterns.Creators.Singletons;
+﻿namespace GV.Singletons;
 
 public abstract class Singleton<T>
     where T : class
