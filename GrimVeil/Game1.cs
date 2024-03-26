@@ -57,7 +57,6 @@ public class Game1 : Game
     private void InitializePools()
     {
         ResourcePool.Initialize(Content);
-        ContentPool.Initialize(Content);
     }
 
     protected override void LoadContent()

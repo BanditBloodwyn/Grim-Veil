@@ -1,16 +1,56 @@
-﻿using Globals.World;
-using Microsoft.Xna.Framework.Content;
+﻿using Globals.Enums;
+using Globals.World;
+using Repositories.JSON;
 
 namespace Pools;
 
 public static class ContentPool
 {
-    private static ContentManager? _contentManager;
-
     public static Dictionary<object, TileType> TileTypes = new();
-
-    public static void Initialize(ContentManager content)
+    
+    public static void LoadContentByStateName(SceneNames sceneName)
     {
-        _contentManager = content;
+        switch (sceneName)
+        {
+            case SceneNames.SplashScreen:
+                LoadSplashScreenContent();
+                break;
+            case SceneNames.StartupLoadingScreen:
+                LoadStartupLoadingScreenContent();
+                break;
+            case SceneNames.MainMenu:
+                LoadMainMenuContent();
+                break;
+            case SceneNames.IngameLoadingScreen:
+                LoadIngameLoadingScreenContent();
+                break;
+            case SceneNames.Ingame_Normal:
+                LoadMainGameContent();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(sceneName), sceneName, null);
+        }
+    }
+
+    private static void LoadSplashScreenContent()
+    {
+    }
+
+    private static void LoadStartupLoadingScreenContent()
+    {
+        JsonRepository repo = new JsonRepository();
+        TileType[] tileTypes = repo.LoadAll<TileType>().ToArray();
+    }
+
+    private static void LoadMainMenuContent()
+    {
+    }
+
+    private static void LoadIngameLoadingScreenContent()
+    {
+    }
+
+    private static void LoadMainGameContent()
+    {
     }
 }
