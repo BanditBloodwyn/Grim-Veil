@@ -6,8 +6,10 @@ namespace Pools;
 
 public static class ContentPool
 {
+    private static readonly JsonRepository _jsonRepository = new();
+
     public static Dictionary<object, TileType> TileTypes = new();
-    
+
     public static void LoadContentByStateName(SceneNames sceneName)
     {
         switch (sceneName)
@@ -38,8 +40,10 @@ public static class ContentPool
 
     private static void LoadStartupLoadingScreenContent()
     {
-        JsonRepository repo = new JsonRepository();
-        TileType[] tileTypes = repo.LoadAll<TileType>().ToArray();
+        TileType[] tileTypes = _jsonRepository.LoadAll<TileType>().ToArray();
+        
+        foreach (TileType tileType in tileTypes) 
+            TileTypes.Add(tileType.Name, tileType);
     }
 
     private static void LoadMainMenuContent()

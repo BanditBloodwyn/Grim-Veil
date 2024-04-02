@@ -19,7 +19,8 @@ public class JsonRepository
 
     public IEnumerable<T> LoadAll<T>()
     {
-        foreach (string filePath in Directory.GetFiles($"{_jsonSavePath}\\{typeof(T).Name}", "*.json"))
+        string path = $"{_jsonSavePath}\\{typeof(T).Name}";
+        foreach (string filePath in Directory.GetFiles(path, "*.json"))
         {
             if (JsonImporter.TryImport(filePath, out T? instance))
                 yield return instance!;
