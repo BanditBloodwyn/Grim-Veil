@@ -4,7 +4,7 @@ namespace Repositories.JSON;
 
 public class JsonRepository
 {
-    private readonly string _jsonSavePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Json";
+    private readonly string _jsonSavePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Content\Json";
 
     public JsonRepository()
     {

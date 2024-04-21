@@ -1,7 +1,5 @@
-﻿using GV.Globals.World;
-using Microsoft.Xna.Framework.Content;
-﻿using Globals.Enums;
-using Globals.World;
+﻿using GV.Globals.Enums;
+using GV.Globals.World;
 using Repositories.JSON;
 
 namespace GV.Pools;
@@ -43,8 +41,8 @@ public static class ContentPool
     private static void LoadStartupLoadingScreenContent()
     {
         TileType[] tileTypes = _jsonRepository.LoadAll<TileType>().ToArray();
-        
-        foreach (TileType tileType in tileTypes) 
+
+        foreach (TileType tileType in tileTypes)
             TileTypes.Add(tileType.Name, tileType);
     }
 
