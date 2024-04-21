@@ -20,6 +20,7 @@ public class SceneBuilder
     public static bool TryBuildByName(SceneNames stateName, out Scene? scene)
     {
         ResourcePool.LoadContentByStateName(stateName);
+        ContentPool.LoadContentByStateName(stateName);
 
         scene = stateName switch
         {

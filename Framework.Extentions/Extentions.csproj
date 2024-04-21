@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pools\GV.Pools.csproj" />
+    <ProjectReference Include="..\Import.JSON\Repositories.JSON.csproj" />
+    <ProjectReference Include="..\Settings\Globals.csproj" />
   </ItemGroup>
 
 </Project>

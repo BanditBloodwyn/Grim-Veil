@@ -1,16 +1,62 @@
 ﻿using GV.Globals.World;
 using Microsoft.Xna.Framework.Content;
+﻿using Globals.Enums;
+using Globals.World;
+using Repositories.JSON;
 
 namespace GV.Pools;
 
 public static class ContentPool
 {
-    private static ContentManager? _contentManager;
+    private static readonly JsonRepository _jsonRepository = new();
 
     public static Dictionary<object, TileType> TileTypes = new();
 
-    public static void Initialize(ContentManager content)
+    public static void LoadContentByStateName(SceneNames sceneName)
     {
-        _contentManager = content;
+        switch (sceneName)
+        {
+            case SceneNames.SplashScreen:
+                LoadSplashScreenContent();
+                break;
+            case SceneNames.StartupLoadingScreen:
+                LoadStartupLoadingScreenContent();
+                break;
+            case SceneNames.MainMenu:
+                LoadMainMenuContent();
+                break;
+            case SceneNames.IngameLoadingScreen:
+                LoadIngameLoadingScreenContent();
+                break;
+            case SceneNames.Ingame_Normal:
+                LoadMainGameContent();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(sceneName), sceneName, null);
+        }
+    }
+
+    private static void LoadSplashScreenContent()
+    {
+    }
+
+    private static void LoadStartupLoadingScreenContent()
+    {
+        TileType[] tileTypes = _jsonRepository.LoadAll<TileType>().ToArray();
+        
+        foreach (TileType tileType in tileTypes) 
+            TileTypes.Add(tileType.Name, tileType);
+    }
+
+    private static void LoadMainMenuContent()
+    {
+    }
+
+    private static void LoadIngameLoadingScreenContent()
+    {
+    }
+
+    private static void LoadMainGameContent()
+    {
     }
 }
