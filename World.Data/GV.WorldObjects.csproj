@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Framework.Game\Game.csproj" />
-    <ProjectReference Include="..\Managers.InputManagement\InputManagement.csproj" />
+    <ProjectReference Include="..\Framework.Game\GV.Game.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\GV.InputManagement.csproj" />
     <ProjectReference Include="..\Pools\GV.Pools.csproj" />
   </ItemGroup>
 

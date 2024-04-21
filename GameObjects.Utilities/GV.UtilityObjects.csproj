@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Extentions\GV.TypeExtentions.csproj" />
-    <ProjectReference Include="..\Framework.Debugging\Debugging.csproj" />
-    <ProjectReference Include="..\Managers.InputManagement\InputManagement.csproj" />
+    <ProjectReference Include="..\Framework.Debugging\GV.Debugging.csproj" />
+    <ProjectReference Include="..\Managers.InputManagement\GV.InputManagement.csproj" />
     <ProjectReference Include="..\Settings\GV.Globals.csproj" />
   </ItemGroup>
 

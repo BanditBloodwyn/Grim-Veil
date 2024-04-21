@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Import.JSON\Repositories.JSON.csproj" />
+    <ProjectReference Include="..\Import.JSON\GV.Repositories.JSON.csproj" />
     <ProjectReference Include="..\Settings\GV.Globals.csproj" />
   </ItemGroup>
 

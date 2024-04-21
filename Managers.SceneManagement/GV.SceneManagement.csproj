@@ -9,9 +9,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\GV.EventBus.csproj" />
     <ProjectReference Include="..\Core.Extentions\GV.TypeExtentions.csproj" />
-    <ProjectReference Include="..\Framework.Debugging\Debugging.csproj" />
-    <ProjectReference Include="..\Framework.GameEvents\GameEvents.csproj" />
-    <ProjectReference Include="..\Framework.Game\Game.csproj" />
+    <ProjectReference Include="..\Framework.Debugging\GV.Debugging.csproj" />
+    <ProjectReference Include="..\Framework.GameEvents\GV.GameEvents.csproj" />
+    <ProjectReference Include="..\Framework.Game\GV.Game.csproj" />
     <ProjectReference Include="..\GameObjects.UI\GV.UIObjects.csproj" />
     <ProjectReference Include="..\Pools\GV.Pools.csproj" />
     <ProjectReference Include="..\World.Managers\GV.WorldManagement.csproj" />

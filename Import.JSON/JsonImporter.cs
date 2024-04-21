@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Newtonsoft.Json;
 
-namespace Repositories.JSON;
+namespace GV.Repositories.JSON;
 
 internal class JsonImporter
 {

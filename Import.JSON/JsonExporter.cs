@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Repositories.JSON;
+namespace GV.Repositories.JSON;
 
 internal class JsonExporter
 {
