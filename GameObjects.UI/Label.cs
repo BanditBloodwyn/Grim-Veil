@@ -12,22 +12,25 @@ public class Label : Game_IDrawable
 
     public Rectangle Rectangle { get; }
 
-    public Label(string text, SpriteFont spriteFont, Rectangle rectangle)
+    public float Rotation { get; set; } = 0;
+   
+    public Vector2 Scale { get; set; } = Vector2.One;
+
+    internal Label(Rectangle rectangle)
     {
-        Text = text;
-        SpriteFont = spriteFont;
         Rectangle = rectangle;
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        float textPositionX = Rectangle.X + (float)Rectangle.Width / 2 - SpriteFont.MeasureString(Text).X / 2;
-        float textPositionY = Rectangle.Y + (float)Rectangle.Height / 2 - SpriteFont.MeasureString(Text).Y / 2;
+        float textPositionX = Rectangle.X + (float)Rectangle.Width / 2 - SpriteFont.MeasureString(Text).X * Scale.X / 2;
+        float textPositionY = Rectangle.Y + (float)Rectangle.Height / 2 - SpriteFont.MeasureString(Text).Y * Scale.Y / 2;
         
         spriteBatch.DrawString(
             SpriteFont,
             Text,
             new Vector2(textPositionX, textPositionY),
-            FontColor);
+            FontColor,
+            Rotation, Vector2.Zero, Scale, SpriteEffects.None, 0);
     }
 }

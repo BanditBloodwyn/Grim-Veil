@@ -6,21 +6,22 @@ namespace GV.UIObjects;
 
 public class Image : Game_IDrawable
 {
-    private readonly Texture2D _texture; 
-    
-    public Color Tint { get; set; }
+    public Color Tint { get; set; } = Color.White;
+    public Texture2D? Texture { get; set; } = null;
     public Rectangle Rectangle { get; }
 
-    public Image(Texture2D texture, Rectangle rectangle, Color? tint = null)
+    public Image(Rectangle rectangle)
     {
-        _texture = texture;
         Rectangle = rectangle;
-        Tint = tint ?? Color.White;
     }
+
     public void Draw(SpriteBatch spriteBatch)
     {
+        if (Texture == null)
+            return;
+
         spriteBatch.Draw(
-            _texture,
+            Texture,
             Rectangle,
             Tint);
     }

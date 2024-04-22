@@ -9,7 +9,7 @@ namespace GV.UIObjects;
 
 public class Button : IUpdatable, Game_IDrawable
 {
-    private readonly Image? _background;
+    private readonly Image _background;
     private readonly Label? _label;
 
     private bool _isMouseOver;
@@ -29,17 +29,22 @@ public class Button : IUpdatable, Game_IDrawable
 
     public event EventHandler? Clicked;
 
-    public Button(Rectangle rectangle, Texture2D? background = null, string? text = null, SpriteFont? spriteFont = null)
+    internal Button(Rectangle rectangle, Texture2D? background = null, string? text = null, Vector2? textScale = null, SpriteFont? spriteFont = null)
     {
         Rectangle = rectangle;
 
+        _background = new Image(Rectangle);
+
         if (background != null)
-            _background = new Image(
-                background,
-                Rectangle);
+            _background.Texture = background;
 
         if (!string.IsNullOrEmpty(text) && spriteFont != null)
-            _label = new Label(text, spriteFont, rectangle);
+        {
+            _label = new Label(Rectangle);
+            _label.Text = text;
+            _label.SpriteFont = spriteFont;
+            _label.Scale = textScale ?? Vector2.One;
+        }
     }
 
     public void Update(GameTime gameTime)
@@ -60,32 +65,29 @@ public class Button : IUpdatable, Game_IDrawable
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        if (_background != null)
+        if (_isMouseOver)
         {
-            if (_isMouseOver)
-            {
-                _background.Tint = _isMousePressed
-                    ? MousePressTint
-                    : MouseOverTint;
-            }
-            else
-                _background.Tint = NormalTint;
-
-            _background.Draw(spriteBatch);
+            _background.Tint = _isMousePressed
+                ? MousePressTint
+                : MouseOverTint;
         }
+        else
+            _background.Tint = NormalTint;
 
-        if (_label != null)
+        _background.Draw(spriteBatch);
+
+        if (_label == null)
+            return;
+
+        if (_isMouseOver)
         {
-            if (_isMouseOver)
-            {
-                _label.FontColor = _isMousePressed
-                    ? MousePressFontColor
-                    : MouseOverFontColor;
-            }
-            else
-                _label.FontColor = NormalFontColor;
-
-            _label.Draw(spriteBatch);
+            _label.FontColor = _isMousePressed
+                ? MousePressFontColor
+                : MouseOverFontColor;
         }
+        else
+            _label.FontColor = NormalFontColor;
+
+        _label.Draw(spriteBatch);
     }
 }

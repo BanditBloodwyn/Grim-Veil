@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Reflection.Emit;
 
 namespace GV.UIObjects.Factories;
 
@@ -13,8 +14,10 @@ public static class LabelFactory
             ? new Rectangle(posX - (int)(stringSize.X / 2), (int)(posY - stringSize.Y / 2), (int)stringSize.X, (int)stringSize.Y)
             : new Rectangle(posX, posY, (int)stringSize.X, (int)stringSize.Y);
 
-        Label label = new(text, font, rect);
-
+        Label label = new(rect);
+        label.Text = text;
+        label.SpriteFont = font;
+       
         return label;
     }
 

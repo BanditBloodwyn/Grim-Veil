@@ -5,12 +5,16 @@ namespace GV.UIObjects.Factories;
 
 public static class ButtonFactory
 {
-    public static Button CreateTextButton(string text, SpriteFont font, int posX, int posY, EventHandler? @event)
+    public static Button CreateTextButton(string text, SpriteFont font, int posX, int posY, Vector2 textScale, EventHandler? @event)
     {
+        float width = font.MeasureString(text).X * textScale.X;
+        float height = font.MeasureString(text).Y * textScale.Y;
+
         Button button = new(
-            new Rectangle(posX, posY, (int)font.MeasureString(text).X, (int)font.MeasureString(text).Y), 
+            new Rectangle(posX, posY, (int)width, (int)height), 
             null, 
-            text, 
+            text,
+            textScale,
             font);
 
         if (@event != null)
