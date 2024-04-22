@@ -1,15 +1,15 @@
-﻿using System.Diagnostics;
-using System.Text;
-using Debugging;
-using Game;
-using GameEvents;
+﻿using GV.Debugging;
 using GV.EventBus;
+using GV.Game;
+using GV.GameEvents;
+using GV.InputManagement;
 using GV.TypeExtentions;
-using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using IDrawable = Game.IDrawable;
+using System.Diagnostics;
+using System.Text;
+using IDrawable = GV.Game.IDrawable;
 
 namespace GV.SceneManagement;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace Game;
+namespace GV.Game;
 
 public interface IDrawableIgnoreCamera
 {

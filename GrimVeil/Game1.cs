@@ -1,10 +1,10 @@
-﻿using Debugging;
-using InputManagement;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using GV.Debugging;
 using GV.Globals;
 using GV.Globals.Enums;
+using GV.InputManagement;
 using GV.Pools;
 using GV.SceneManagement;
 using GV.StateManagement;

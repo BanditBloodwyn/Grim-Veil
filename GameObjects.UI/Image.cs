@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Game_IDrawable = Game.IDrawable;
+using Game_IDrawable = GV.Game.IDrawable;
+using IDrawable = GV.Game.IDrawable;
 
 namespace GV.UIObjects;
 
-public class Image : Game_IDrawable
+public class Image : IDrawable
 {
     public Color Tint { get; set; } = Color.White;
     public Texture2D? Texture { get; set; } = null;

@@ -1,6 +1,6 @@
-﻿using GameEvents;
-using GV.EventBus;
+﻿using GV.EventBus;
 using GV.FiniteStateMachines;
+using GV.GameEvents;
 using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 

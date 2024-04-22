@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using GameEvents;
-using GV.EventBus;
+﻿using GV.EventBus;
+using GV.GameEvents;
 using GV.Globals.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace GV.SceneManagement;
 

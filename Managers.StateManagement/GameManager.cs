@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using GameEvents;
 using GV.EventBus;
 using GV.FiniteStateMachines;
+using GV.GameEvents;
 using GV.StateManagement.States;
 using Microsoft.Xna.Framework;
 

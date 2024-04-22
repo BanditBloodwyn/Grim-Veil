@@ -1,5 +1,5 @@
-﻿using GameEvents;
-using GV.EventBus;
+﻿using GV.EventBus;
+using GV.GameEvents;
 using GV.Globals;
 using GV.Globals.Enums;
 using GV.Pools;

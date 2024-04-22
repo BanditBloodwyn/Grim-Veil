@@ -1,13 +1,14 @@
-﻿using Game;
+﻿using GV.Game;
+using GV.InputManagement;
 using GV.WorldObjects.Extentions;
-using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Game_IDrawable = Game.IDrawable;
+using Game_IDrawable = GV.Game.IDrawable;
+using IDrawable = GV.Game.IDrawable;
 
 namespace GV.WorldObjects.Maps;
 
-public class EmbarkedMap : Game_IDrawable, IUpdatable
+public class EmbarkedMap : IDrawable, IUpdatable
 {
     public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; }
 

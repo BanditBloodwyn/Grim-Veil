@@ -1,6 +1,6 @@
 ﻿using GV.EventBus;
 
-namespace GameEvents;
+namespace GV.GameEvents;
 
 public struct RequestExitGameEvent : IEvent
 {

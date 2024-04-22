@@ -1,4 +1,4 @@
-﻿namespace Debugging;
+﻿namespace GV.Debugging;
 
 public interface IDebugInfoProvider
 {

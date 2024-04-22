@@ -1,7 +1,7 @@
 ﻿using GV.EventBus;
 using GV.Globals.Enums;
 
-namespace GameEvents;
+namespace GV.GameEvents;
 
 public struct ChangeGameStateEvent : IEvent
 {

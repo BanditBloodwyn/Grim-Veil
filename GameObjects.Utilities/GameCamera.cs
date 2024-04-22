@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using Debugging;
+using GV.Debugging;
 using GV.Globals;
+using GV.InputManagement;
 using GV.TypeExtentions;
-using InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

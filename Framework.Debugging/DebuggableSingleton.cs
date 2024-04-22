@@ -1,4 +1,4 @@
-﻿namespace Debugging
+﻿namespace GV.Debugging
 {
     public abstract class DebuggableSingleton<T> : IDebugInfoProvider
         where T : class

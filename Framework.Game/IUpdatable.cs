@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Game;
+namespace GV.Game;
 
 public interface IUpdatable
 {
