@@ -57,7 +57,7 @@ public static class ResourcePool
             return;
 
         Textures.TryAdd("loadingScreen_Background1", _contentManager.Load<Texture2D>("Images/loadingScreen1"));
-        Fonts.TryAdd("Victorian", _contentManager.Load<SpriteFont>("Fonts/VictorianText"));
+        Fonts.TryAdd("Default", _contentManager.Load<SpriteFont>("Fonts/Default"));
     }
 
     private static void LoadMainMenuContent()

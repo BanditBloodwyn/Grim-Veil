@@ -68,13 +68,6 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Default.spritefont
 
-#begin Fonts/VictorianText.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:Fonts/VictorianText.spritefont
-
 #begin Images/grimVeil_Logo_transparent.png
 /importer:TextureImporter
 /processor:TextureProcessor

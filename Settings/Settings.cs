@@ -7,7 +7,7 @@ public static class Settings
 
     // Camera
     public static bool CAMERA_ALLOWROTATING = false;
-    public static float CAMERA_PANNINGSPEED = 0.2f;
+    public static float CAMERA_PANNINGSPEED = 2.2f;
     public static float CAMERA_ZOOMINGSPEED = 0.0002f;
 
     // Behaviour
