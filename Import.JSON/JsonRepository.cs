@@ -20,6 +20,10 @@ public class JsonRepository
     public IEnumerable<T> LoadAll<T>()
     {
         string path = $"{_jsonSavePath}\\{typeof(T).Name}";
+
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
+
         foreach (string filePath in Directory.GetFiles(path, "*.json"))
         {
             if (JsonImporter.TryImport(filePath, out T? instance))
