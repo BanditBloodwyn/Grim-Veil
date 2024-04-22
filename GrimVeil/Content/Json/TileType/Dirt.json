@@ -1,0 +1,6 @@
+{
+	"Name": "Dirt",
+	"TextureName": "DirtTile",
+	"IsWalkable": true,
+	"IsAir": false
+}
