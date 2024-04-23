@@ -1,10 +1,10 @@
 ﻿using GV.Debugging;
 using GV.Globals;
-using GV.Globals.Enums;
 using GV.InputManagement;
 using GV.Pools;
 using GV.SceneManagement;
 using GV.StateManagement;
+using GV.StateManagement.Data;
 using GV.StateManagement.States;
 using GV.UtilityObjects;
 using Microsoft.Xna.Framework;

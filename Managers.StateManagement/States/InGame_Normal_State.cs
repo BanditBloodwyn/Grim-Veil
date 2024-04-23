@@ -1,4 +1,5 @@
-﻿using GV.Globals.Enums;
+﻿using GV.SceneManagement.Data;
+using GV.StateManagement.Data;
 using GV.UtilityObjects;
 using Microsoft.Xna.Framework;
 

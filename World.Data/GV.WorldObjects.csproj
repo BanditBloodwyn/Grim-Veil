@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Framework.Game\GV.Game.csproj" />
     <ProjectReference Include="..\Managers.InputManagement\GV.InputManagement.csproj" />
     <ProjectReference Include="..\Pools\GV.Pools.csproj" />
+    <ProjectReference Include="..\Settings\GV.Globals.csproj" />
   </ItemGroup>
 
 </Project>

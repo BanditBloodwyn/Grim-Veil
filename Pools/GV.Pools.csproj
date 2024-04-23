@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GV.SceneManagement.Data\GV.SceneManagement.Data.csproj" />
+    <ProjectReference Include="..\GV.WorldManagement.Data\GV.WorldManagement.Data.csproj" />
     <ProjectReference Include="..\Import.JSON\GV.Repositories.JSON.csproj" />
-    <ProjectReference Include="..\Settings\GV.Globals.csproj" />
   </ItemGroup>
 
 </Project>

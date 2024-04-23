@@ -1,7 +1,8 @@
 ﻿using GV.EventBus;
 using GV.FiniteStateMachines;
 using GV.GameEvents;
-using GV.Globals.Enums;
+using GV.SceneManagement.Data;
+using GV.StateManagement.Data;
 using Microsoft.Xna.Framework;
 
 namespace GV.StateManagement;

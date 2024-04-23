@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pools\GV.Pools.csproj" />
-    <ProjectReference Include="..\Import.JSON\GV.Repositories.JSON.csproj" />
   </ItemGroup>
 
 </Project>

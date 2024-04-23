@@ -8,7 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\GV.EventBus.csproj" />
-    <ProjectReference Include="..\Settings\GV.Globals.csproj" />
+    <ProjectReference Include="..\GV.SceneManagement.Data\GV.SceneManagement.Data.csproj" />
+    <ProjectReference Include="..\GV.StateManagement.Data\GV.StateManagement.Data.csproj" />
   </ItemGroup>
 
 </Project>

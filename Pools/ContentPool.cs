@@ -1,6 +1,6 @@
-﻿using GV.Globals.Enums;
-using GV.Globals.World;
-using GV.Repositories.JSON;
+﻿using GV.Repositories.JSON;
+using GV.SceneManagement.Data;
+using GV.WorldManagement.Data;
 
 namespace GV.Pools;
 

@@ -1,5 +1,5 @@
 ﻿using GV.EventBus;
-using GV.Globals.Enums;
+using GV.SceneManagement.Data;
 
 namespace GV.GameEvents;
 

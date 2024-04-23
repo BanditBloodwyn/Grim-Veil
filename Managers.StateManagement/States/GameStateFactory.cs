@@ -1,4 +1,4 @@
-﻿using GV.Globals.Enums;
+﻿using GV.StateManagement.Data;
 
 namespace GV.StateManagement.States;
 

@@ -1,5 +1,6 @@
 ﻿using GV.Globals;
-using GV.Globals.Enums;
+using GV.SceneManagement.Data;
+using GV.StateManagement.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

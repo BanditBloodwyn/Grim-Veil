@@ -1,4 +1,4 @@
-﻿using GV.Globals.Enums;
+﻿using GV.SceneManagement.Data;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 

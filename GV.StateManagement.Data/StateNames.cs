@@ -1,4 +1,4 @@
-﻿namespace GV.Globals.Enums;
+﻿namespace GV.StateManagement.Data;
 
 public enum StateNames
 {

@@ -1,6 +1,6 @@
 ﻿using GV.EventBus;
 using GV.GameEvents;
-using GV.Globals.Enums;
+using GV.SceneManagement.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
