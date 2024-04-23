@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.Pools;
 
@@ -7,80 +6,32 @@ public static class ResourcePool
 {
     private static ContentManager? _contentManager;
 
-    public static Dictionary<object, Texture2D> Textures = [];
-    public static Dictionary<object, SpriteFont> Fonts = [];
+    public static Dictionary<object, object> Assets = [];
 
     public static void Initialize(ContentManager content)
     {
         _contentManager = content;
     }
 
-    public static void LoadContentByStateName(string sceneName)
-    {
-        switch (sceneName)
-        {
-            case "SplashScreen":
-                LoadSplashScreenContent();
-                break;
-            case "StartupLoadingScreen":
-                LoadStartupLoadingScreenContent();
-                break;
-            case "MainMenu":
-                LoadMainMenuContent();
-                break;
-            case "IngameLoadingScreen":
-                LoadIngameLoadingScreenContent();
-                break;
-            case "Ingame_Normal":
-                LoadMainGameContent();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(sceneName), sceneName, null);
-        }
-    }
-
-    private static void LoadSplashScreenContent()
+    public static void LoadAsset<T>(string assetName, string path)
     {
         if (_contentManager == null)
             return;
 
-        Textures.TryAdd("splashscreen", _contentManager.Load<Texture2D>("Images/splashscreen"));
-        Textures.TryAdd("gameLogo", _contentManager.Load<Texture2D>("Images/logo"));
+        T asset = _contentManager.Load<T>(path);
 
-        Fonts.TryAdd("Default", _contentManager.Load<SpriteFont>("Fonts/Default"));
+        if (asset != null)
+            Assets.TryAdd($"{nameof(T)}_{assetName}", asset);
     }
 
-    private static void LoadStartupLoadingScreenContent()
+    public static T GetAsset<T>(string assetName)
     {
         if (_contentManager == null)
-            return;
+            throw new Exception("ContentManager not initialized!");
 
-        Textures.TryAdd("loadingScreen_Background1", _contentManager.Load<Texture2D>("Images/loadingScreen1"));
-        Fonts.TryAdd("Default", _contentManager.Load<SpriteFont>("Fonts/Default"));
-    }
+        if (!Assets.TryGetValue($"{nameof(T)}_{assetName}", out object? asset))
+            throw new KeyNotFoundException($"Asset with name {nameof(T)}_{assetName} not found!");
 
-    private static void LoadMainMenuContent()
-    {
-        if (_contentManager == null)
-            return;
-
-        Textures.TryAdd("mainMenu_Background", _contentManager.Load<Texture2D>("Images/title"));
-    }
-
-    private static void LoadIngameLoadingScreenContent()
-    {
-        if (_contentManager == null)
-            return;
-    }
-
-    private static void LoadMainGameContent()
-    {
-        if (_contentManager == null)
-            return;
-
-        Textures.TryAdd("tile_grass", _contentManager.Load<Texture2D>("Environment/Tiles/grassTile"));
-        Textures.TryAdd("tile_stone", _contentManager.Load<Texture2D>("Environment/Tiles/stoneTile"));
-        Textures.TryAdd("tile_dirt", _contentManager.Load<Texture2D>("Environment/Tiles/dirtTile"));
-        Textures.TryAdd("tile_water", _contentManager.Load<Texture2D>("Environment/Tiles/waterTile"));
+        return (T)asset;
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.StateManagement.States;
 
-public class StartupLoadingScreenState(GameManager stateMachine) : GameState(stateMachine)
+public class LoadingScreenState(GameManager stateMachine) : GameState(stateMachine)
 {
     private TimeSpan? _startingTime;
 
@@ -18,7 +18,7 @@ public class StartupLoadingScreenState(GameManager stateMachine) : GameState(sta
         StateMachine.Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         StateMachine.Graphics.ApplyChanges();
 
-        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("StartupLoadingScreen"));
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("LoadingScreenScene"));
     }
 
     public override void Update(GameTime gameTime)

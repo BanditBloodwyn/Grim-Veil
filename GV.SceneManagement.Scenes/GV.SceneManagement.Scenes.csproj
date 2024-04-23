@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\GV.EventBus.csproj" />
-    <ProjectReference Include="..\Core.Utilities\GV.CoreUtilities.csproj" />
     <ProjectReference Include="..\Framework.Debugging\GV.Debugging.csproj" />
     <ProjectReference Include="..\Framework.GameEvents\GV.GameEvents.csproj" />
-    <ProjectReference Include="..\GV.SceneManagement.Scenes\GV.SceneManagement.Scenes.csproj" />
+    <ProjectReference Include="..\Framework.Game\GV.Game.csproj" />
+    <ProjectReference Include="..\GameObjects.UI\GV.UIObjects.csproj" />
+    <ProjectReference Include="..\Settings\GV.Globals.csproj" />
+    <ProjectReference Include="..\World.Managers\GV.WorldManagement.csproj" />
   </ItemGroup>
 
 </Project>

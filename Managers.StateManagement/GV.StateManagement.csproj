@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.Behaviours.EventBus\GV.EventBus.csproj" />
     <ProjectReference Include="..\Core.Behaviours.FiniteStateMachines\GV.FiniteStateMachines.csproj" />
+    <ProjectReference Include="..\Core.Utilities\GV.CoreUtilities.csproj" />
     <ProjectReference Include="..\Framework.GameEvents\GV.GameEvents.csproj" />
     <ProjectReference Include="..\GameObjects.Utilities\GV.UtilityObjects.csproj" />
     <ProjectReference Include="..\Settings\GV.Globals.csproj" />

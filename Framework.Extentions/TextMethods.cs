@@ -7,8 +7,8 @@ public static class TextMethods
 {
     public static int WriteDefaultString(this SpriteBatch spriteBatch, string text, int posX, int posY)
     {
-        spriteBatch.DrawString(ResourcePool.Fonts["Default"], text, new Vector2(posX, posY), Color.White);
+        spriteBatch.DrawString(ResourcePool.GetAsset<SpriteFont>("default"), text, new Vector2(posX, posY), Color.White);
         
-        return (int) ResourcePool.Fonts["Default"].MeasureString(text).Y;
+        return (int)ResourcePool.GetAsset<SpriteFont>("default").MeasureString(text).Y;
     }
 }

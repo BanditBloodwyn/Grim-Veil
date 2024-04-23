@@ -1,19 +1,14 @@
 ﻿using GV.Debugging;
-using GV.EventBus;
 using GV.Game;
-using GV.GameEvents;
-using GV.InputManagement;
-using GV.TypeExtentions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
 using System.Text;
+using GV.TypeExtentions;
 using IDrawable = GV.Game.IDrawable;
 
-namespace GV.SceneManagement;
+namespace GV.SceneManagement.Scenes;
 
-public class Scene : IDebugInfoProvider
+public abstract class Scene : IDebugInfoProvider
 {
     public Dictionary<object, IUpdatable> Updateables = new();
     public Dictionary<object, IDrawable> Drawables = new();
@@ -27,10 +22,14 @@ public class Scene : IDebugInfoProvider
 
     public bool IsDebugActive { get; set; }
 
-    public Scene()
+    protected Scene()
     {
         DebugConsole.AddObject(this);
     }
+
+    public abstract void LoadResources();
+   
+    public abstract void Build();
 
     public void AddObject(object key, object @object)
     {
@@ -56,15 +55,6 @@ public class Scene : IDebugInfoProvider
     {
         foreach (KeyValuePair<object, IUpdatable> pair in Updateables)
             pair.Value.Update(gameTime);
-
-        if (!IsEmpty)
-            return;
-
-        if (InputManager.IsKeyPressed(Keys.Escape))
-            EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent());
-
-        if (InputManager.IsKeyPressed(Keys.Space))
-            Debug.WriteLine("Space");
     }
 
     public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

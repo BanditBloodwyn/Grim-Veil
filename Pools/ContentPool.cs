@@ -25,7 +25,7 @@ public static class ContentPool
             case "IngameLoadingScreen":
                 LoadIngameLoadingScreenContent();
                 break;
-            case "Ingame_Normal":
+            case "Ingame":
                 LoadMainGameContent();
                 break;
             default:

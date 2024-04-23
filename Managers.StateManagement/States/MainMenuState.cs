@@ -9,6 +9,6 @@ public class MainMenuState(GameManager stateMachine) : GameState(stateMachine)
 
     protected override void Initialize()
     {
-        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("MainMenu"));
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("MainMenuScene"));
     }
 }

@@ -1,14 +1,16 @@
-﻿using GV.EventBus;
+﻿using GV.CoreUtilities;
+using GV.EventBus;
 using GV.GameEvents;
+using GV.SceneManagement.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Diagnostics;
+using System.Reflection;
 
 namespace GV.SceneManagement;
 
 public class SceneManager
 {
-    private readonly Dictionary<string, Scene> _cachedScenes = new();
+    private readonly Dictionary<string, Scene> _cachedScenes = [];
 
     private Scene? _activeScene;
 
@@ -36,22 +38,26 @@ public class SceneManager
             return;
         }
 
-        if (SceneBuilder.TryBuildByName(@event.SceneName, out Scene? newScene))
-        {
-            AddScene(@event.SceneName, newScene!);
+        Type type = GetSceneTypeFromString(@event.SceneName);
+        Scene newScene = new SceneFactory().InvokeGenericMethod<Scene>("BuildByType", type);
 
-            if (_activeScene != null)
-                _activeScene.IsDebugActive = false;
+        AddSceneToCache(@event.SceneName, newScene);
 
-            newScene!.IsDebugActive = true;
-            _activeScene = newScene;
-            return;
-        }
+        if (_activeScene != null)
+            _activeScene.IsDebugActive = false;
 
-        Debug.WriteLine("Cannot get scene!");
+        newScene.IsDebugActive = true;
+        _activeScene = newScene;
     }
 
-    private void AddScene(string stateName, Scene scene)
+    private static Type GetSceneTypeFromString(string sceneName)
+    {
+        Assembly? assembly = Assembly.GetAssembly(typeof(Scene));
+        return assembly?.GetType($"GV.SceneManagement.Scenes.{sceneName}")
+               ?? throw new ArgumentException($"Failed to get type for scene name {sceneName}");
+    }
+
+    private void AddSceneToCache(string stateName, Scene scene)
     {
         _cachedScenes.TryAdd(stateName, scene);
     }

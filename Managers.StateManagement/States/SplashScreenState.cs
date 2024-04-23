@@ -22,7 +22,7 @@ public class SplashScreenState(GameManager stateMachine) : GameState(stateMachin
 
         StateMachine.Graphics.ApplyChanges();
 
-        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("SplashScreen"));
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("SplashScreenScene"));
     }
 
     public override void Update(GameTime gameTime)
@@ -32,6 +32,6 @@ public class SplashScreenState(GameManager stateMachine) : GameState(stateMachin
         while (startingTime.TotalSeconds < Settings.MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        ChangeState(GameStateFactory.BuildByType<StartupLoadingScreenState>());
+        ChangeState(GameStateFactory.BuildByType<LoadingScreenState>());
     }
 }

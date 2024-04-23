@@ -5,13 +5,13 @@ using Microsoft.Xna.Framework;
 
 namespace GV.StateManagement.States;
 
-public class InGame_Normal_State(GameManager stateMachine) : GameState(stateMachine)
+public class InGameState(GameManager stateMachine) : GameState(stateMachine)
 {
     public override string StateLogString => "In Game";
 
     protected override void Initialize()
     {
-        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("Ingame_Normal"));
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("InGameScene"));
     }
 
     public override void Update(GameTime gameTime)
