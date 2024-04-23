@@ -2,8 +2,6 @@
 using GV.GameEvents;
 using GV.Globals;
 using GV.Pools;
-using GV.SceneManagement.Data;
-using GV.StateManagement.Data;
 using GV.UIObjects;
 using GV.UIObjects.Factories;
 using GV.WorldManagement;
@@ -18,18 +16,17 @@ public class SceneBuilder
     private static readonly int _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
     private static readonly int _screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-    public static bool TryBuildByName(SceneNames stateName, out Scene? scene)
+    public static bool TryBuildByName(string stateName, out Scene? scene)
     {
         ResourcePool.LoadContentByStateName(stateName);
         ContentPool.LoadContentByStateName(stateName);
 
         scene = stateName switch
         {
-            SceneNames.SplashScreen => SplashScreen(),
-            SceneNames.StartupLoadingScreen => StartupLoadingScreen(),
-            SceneNames.MainMenu => MainMenuScreen(),
-            SceneNames.IngameLoadingScreen => IngameLoadingScreen(),
-            SceneNames.Ingame_Normal => InGameScene(),
+            "SplashScreen" => SplashScreen(),
+            "LoadingScreen" => LoadingScreen(),
+            "MainMenu" => MainMenuScreen(),
+            "Ingame_Normal" => InGameScene(),
             _ => null
         };
 
@@ -59,10 +56,10 @@ public class SceneBuilder
         return scene;
     }
 
-    private static Scene StartupLoadingScreen()
+    private static Scene LoadingScreen()
     {
         Scene scene = new();
-        scene.Name = "Startup Loading Screen Scene";
+        scene.Name = "Loading Screen Scene";
 
         Image background = new Image(new Rectangle(0, 0, _screenWidth, _screenHeight));
         background.Texture = ResourcePool.Textures["loadingScreen_Background1"];
@@ -100,7 +97,8 @@ public class SceneBuilder
 
         SpriteFont font = ResourcePool.Fonts["Default"];
         scene.AddObject("button_newGame", ButtonFactory.CreateTextButton("New Game", font,
-            _screenWidth - 400, _screenHeight - 500, new Vector2(3), static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent(StateNames.Ingame_Normal))));
+            _screenWidth - 400, _screenHeight - 500, new Vector2(3),
+            static (_, _) => EventBus<ChangeGameStateEvent>.Raise(new ChangeGameStateEvent("Ingame_Normal"))));
         scene.AddObject("button_loadGame", ButtonFactory.CreateTextButton("Load", font,
             _screenWidth - 400, _screenHeight - 430, new Vector2(3), null));
         scene.AddObject("button_settings", ButtonFactory.CreateTextButton("Settings", font,
@@ -110,15 +108,8 @@ public class SceneBuilder
         scene.AddObject("button_credits", ButtonFactory.CreateTextButton("Credits", font,
             _screenWidth - 400, _screenHeight - 220, new Vector2(3), null));
         scene.AddObject("button_quit", ButtonFactory.CreateTextButton("Quit", font,
-            _screenWidth - 400, _screenHeight - 150, new Vector2(3), static (_, _) => EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent())));
-
-        return scene;
-    }
-
-    private static Scene IngameLoadingScreen()
-    {
-        Scene scene = new();
-        scene.Name = "InGame Loading Screen Scene";
+            _screenWidth - 400, _screenHeight - 150, new Vector2(3),
+            static (_, _) => EventBus<RequestExitGameEvent>.Raise(new RequestExitGameEvent())));
 
         return scene;
     }

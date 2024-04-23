@@ -1,5 +1,4 @@
-﻿using GV.SceneManagement.Data;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.Pools;
@@ -16,23 +15,23 @@ public static class ResourcePool
         _contentManager = content;
     }
 
-    public static void LoadContentByStateName(SceneNames sceneName)
+    public static void LoadContentByStateName(string sceneName)
     {
         switch (sceneName)
         {
-            case SceneNames.SplashScreen:
+            case "SplashScreen":
                 LoadSplashScreenContent();
                 break;
-            case SceneNames.StartupLoadingScreen:
+            case "StartupLoadingScreen":
                 LoadStartupLoadingScreenContent();
                 break;
-            case SceneNames.MainMenu:
+            case "MainMenu":
                 LoadMainMenuContent();
                 break;
-            case SceneNames.IngameLoadingScreen:
+            case "IngameLoadingScreen":
                 LoadIngameLoadingScreenContent();
                 break;
-            case SceneNames.Ingame_Normal:
+            case "Ingame_Normal":
                 LoadMainGameContent();
                 break;
             default:
@@ -42,7 +41,7 @@ public static class ResourcePool
 
     private static void LoadSplashScreenContent()
     {
-        if (_contentManager == null) 
+        if (_contentManager == null)
             return;
 
         Textures.TryAdd("splashscreen", _contentManager.Load<Texture2D>("Images/splashscreen"));

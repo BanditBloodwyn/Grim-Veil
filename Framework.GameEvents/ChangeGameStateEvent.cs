@@ -1,9 +1,8 @@
 ﻿using GV.EventBus;
-using GV.StateManagement.Data;
 
 namespace GV.GameEvents;
 
-public struct ChangeGameStateEvent(StateNames stateName) : IEvent
+public struct ChangeGameStateEvent(string stateName) : IEvent
 {
-    public StateNames StateName = stateName;
+    public string StateName = stateName;
 }

@@ -1,5 +1,4 @@
 ﻿using GV.Repositories.JSON;
-using GV.SceneManagement.Data;
 using GV.WorldManagement.Data;
 
 namespace GV.Pools;
@@ -10,23 +9,23 @@ public static class ContentPool
 
     public static Dictionary<object, TileType> TileTypes = [];
 
-    public static void LoadContentByStateName(SceneNames sceneName)
+    public static void LoadContentByStateName(string sceneName)
     {
         switch (sceneName)
         {
-            case SceneNames.SplashScreen:
+            case "SplashScreen":
                 LoadSplashScreenContent();
                 break;
-            case SceneNames.StartupLoadingScreen:
+            case "StartupLoadingScreen":
                 LoadStartupLoadingScreenContent();
                 break;
-            case SceneNames.MainMenu:
+            case "MainMenu":
                 LoadMainMenuContent();
                 break;
-            case SceneNames.IngameLoadingScreen:
+            case "IngameLoadingScreen":
                 LoadIngameLoadingScreenContent();
                 break;
-            case SceneNames.Ingame_Normal:
+            case "Ingame_Normal":
                 LoadMainGameContent();
                 break;
             default:

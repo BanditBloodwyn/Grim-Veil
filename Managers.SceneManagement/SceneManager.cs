@@ -1,6 +1,5 @@
 ﻿using GV.EventBus;
 using GV.GameEvents;
-using GV.SceneManagement.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
@@ -9,7 +8,7 @@ namespace GV.SceneManagement;
 
 public class SceneManager
 {
-    private readonly Dictionary<SceneNames, Scene> _cachedScenes = new();
+    private readonly Dictionary<string, Scene> _cachedScenes = new();
 
     private Scene? _activeScene;
 
@@ -52,7 +51,7 @@ public class SceneManager
         Debug.WriteLine("Cannot get scene!");
     }
 
-    private void AddScene(SceneNames stateName, Scene scene)
+    private void AddScene(string stateName, Scene scene)
     {
         _cachedScenes.TryAdd(stateName, scene);
     }

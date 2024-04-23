@@ -1,9 +1,8 @@
 ﻿using GV.EventBus;
-using GV.SceneManagement.Data;
 
 namespace GV.GameEvents;
 
-public struct ChangeActiveSceneEvent(SceneNames sceneName) : IEvent
+public struct ChangeActiveSceneEvent(string sceneName) : IEvent
 {
-    public SceneNames SceneName = sceneName;
+    public string SceneName = sceneName;
 }

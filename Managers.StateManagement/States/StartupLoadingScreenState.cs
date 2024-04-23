@@ -1,23 +1,15 @@
-﻿using GV.SceneManagement.Data;
-using GV.StateManagement.Data;
+﻿using GV.EventBus;
+using GV.GameEvents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.StateManagement.States;
 
-public class StartupLoadingScreenState : GameState
+public class StartupLoadingScreenState(GameManager stateMachine) : GameState(stateMachine)
 {
     private TimeSpan? _startingTime;
 
     public override string StateLogString => "Loading Screen";
-
-    protected override StateNames StateName => StateNames.StartupLoadingScreen;
-
-    protected override SceneNames? AssociatedSceneName => SceneNames.StartupLoadingScreen;
-
-    internal StartupLoadingScreenState(GameManager stateMachine)
-        : base(stateMachine)
-    { }
 
     protected override void Initialize()
     {
@@ -25,6 +17,8 @@ public class StartupLoadingScreenState : GameState
         StateMachine.Graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         StateMachine.Graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         StateMachine.Graphics.ApplyChanges();
+
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("StartupLoadingScreen"));
     }
 
     public override void Update(GameTime gameTime)
@@ -34,6 +28,6 @@ public class StartupLoadingScreenState : GameState
         while (gameTime.TotalGameTime.TotalSeconds - _startingTime.Value.TotalSeconds < 1)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(StateNames.MainMenu));
+        ChangeState(GameStateFactory.BuildByType<MainMenuState>());
     }
 }

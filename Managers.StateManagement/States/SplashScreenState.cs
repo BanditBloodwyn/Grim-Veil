@@ -1,22 +1,14 @@
-﻿using GV.Globals;
-using GV.SceneManagement.Data;
-using GV.StateManagement.Data;
+﻿using GV.EventBus;
+using GV.GameEvents;
+using GV.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.StateManagement.States;
 
-public class SplashScreenState : GameState
+public class SplashScreenState(GameManager stateMachine) : GameState(stateMachine)
 {
     public override string StateLogString => "Splash Screen State";
-
-    protected override StateNames StateName => StateNames.SplashScreen;
-
-    protected override SceneNames? AssociatedSceneName => SceneNames.SplashScreen;
-
-    internal SplashScreenState(GameManager stateMachine)
-        : base(stateMachine)
-    { }
 
     protected override void Initialize()
     {
@@ -29,6 +21,8 @@ public class SplashScreenState : GameState
         StateMachine.Window.IsBorderless = true;
 
         StateMachine.Graphics.ApplyChanges();
+
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("SplashScreen"));
     }
 
     public override void Update(GameTime gameTime)
@@ -38,6 +32,6 @@ public class SplashScreenState : GameState
         while (startingTime.TotalSeconds < Settings.MINIMUM_SPLASHSCREEN_TIME_SECONDS)
             return;
 
-        ChangeState(GameStateFactory.BuildByName(StateNames.StartupLoadingScreen));
+        ChangeState(GameStateFactory.BuildByType<StartupLoadingScreenState>());
     }
 }

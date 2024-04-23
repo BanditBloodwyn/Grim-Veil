@@ -1,6 +1,4 @@
-﻿using GV.StateManagement.Data;
-
-namespace GV.StateManagement.States;
+﻿namespace GV.StateManagement.States;
 
 public class GameStateFactory
 {
@@ -13,17 +11,30 @@ public class GameStateFactory
         _initialized = true;
     }
 
-    public static GameState BuildByName(StateNames name)
+    public static GameState BuildByName(string name)
     {
         return name switch
         {
-            StateNames.SplashScreen => SplashScreen(),
-            StateNames.StartupLoadingScreen => StartupLoadingScreen(),
-            StateNames.MainMenu => MainMenu(),
-            StateNames.IngameLoadingScreen => IngameLoadingScreen(),
-            StateNames.Ingame_Normal => InGame_Normal(),
+            "SplashScreen" => SplashScreen(),
+            "StartupLoadingScreen" => StartupLoadingScreen(),
+            "MainMenu" => MainMenu(),
+            "IngameLoadingScreen" => IngameLoadingScreen(),
+            "Ingame_Normal" => InGame_Normal(),
             _ => throw new ArgumentOutOfRangeException(nameof(name), name, null)
         };
+    }
+
+    public static GameState BuildByType<T>() 
+        where T : GameState
+    {
+        Type type = typeof(T);
+
+        GameState? gameState = (GameState?)Activator.CreateInstance(type, _gameManager);
+
+        if (gameState != null) 
+            return gameState;
+
+        throw new Exception($"Failed to create GameState of type {type}");
     }
 
     private static GameState SplashScreen()

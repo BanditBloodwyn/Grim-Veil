@@ -1,21 +1,18 @@
-﻿using GV.SceneManagement.Data;
-using GV.StateManagement.Data;
+﻿using GV.EventBus;
+using GV.GameEvents;
 using GV.UtilityObjects;
 using Microsoft.Xna.Framework;
 
 namespace GV.StateManagement.States;
 
-public class InGame_Normal_State : GameState
+public class InGame_Normal_State(GameManager stateMachine) : GameState(stateMachine)
 {
     public override string StateLogString => "In Game";
 
-    protected override StateNames StateName => StateNames.Ingame_Normal;
-
-    protected override SceneNames? AssociatedSceneName => SceneNames.Ingame_Normal;
-
-    internal InGame_Normal_State(GameManager stateMachine)
-        : base(stateMachine)
-    { }
+    protected override void Initialize()
+    {
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("Ingame_Normal"));
+    }
 
     public override void Update(GameTime gameTime)
     {

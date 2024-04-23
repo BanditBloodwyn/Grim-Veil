@@ -4,7 +4,6 @@ using GV.InputManagement;
 using GV.Pools;
 using GV.SceneManagement;
 using GV.StateManagement;
-using GV.StateManagement.Data;
 using GV.StateManagement.States;
 using GV.UtilityObjects;
 using Microsoft.Xna.Framework;
@@ -51,7 +50,7 @@ public class Game1 : Game
 
         base.Initialize();
 
-        _gameManager.ChangeState(GameStateFactory.BuildByName(StateNames.SplashScreen));
+        _gameManager.ChangeState(GameStateFactory.BuildByType<SplashScreenState>());
     }
 
     private void InitializePools()

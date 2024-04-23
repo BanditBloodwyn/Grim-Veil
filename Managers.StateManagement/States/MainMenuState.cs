@@ -1,17 +1,14 @@
-﻿using GV.SceneManagement.Data;
-using GV.StateManagement.Data;
+﻿using GV.EventBus;
+using GV.GameEvents;
 
 namespace GV.StateManagement.States;
 
-public class MainMenuState : GameState
+public class MainMenuState(GameManager stateMachine) : GameState(stateMachine)
 {
     public override string StateLogString => "Main Menu";
 
-    protected override StateNames StateName => StateNames.MainMenu;
-
-    protected override SceneNames? AssociatedSceneName => SceneNames.MainMenu;
-
-    internal MainMenuState(GameManager stateMachine)
-        : base(stateMachine)
-    { }
+    protected override void Initialize()
+    {
+        EventBus<ChangeActiveSceneEvent>.Raise(new ChangeActiveSceneEvent("MainMenu"));
+    }
 }
