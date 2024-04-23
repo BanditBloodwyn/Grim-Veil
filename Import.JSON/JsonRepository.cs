@@ -19,16 +19,17 @@ public class JsonRepository
 
     public IEnumerable<T> LoadAll<T>()
     {
-        string path = $"{_jsonSavePath}\\{typeof(T).Name}";
+        string path = Path.Combine(_jsonSavePath, typeof(T).Name);
 
         if (!Directory.Exists(path))
-            Directory.CreateDirectory(path);
-
-        foreach (string filePath in Directory.GetFiles(path, "*.json"))
         {
-            if (JsonImporter.TryImport(filePath, out T? instance))
-                yield return instance!;
+            Directory.CreateDirectory(path);
+            return [];
         }
+        
+        return Directory.EnumerateFiles(path, "*.json")
+            .Select(static filePath => JsonImporter.TryImport(filePath, out T? instance) ? instance : default)
+            .Where(static instance => instance != null)!;
     }
 
     public void Delete<T>(T objectToDelete)
