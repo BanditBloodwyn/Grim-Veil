@@ -3,12 +3,7 @@ using GV.Globals.Enums;
 
 namespace GV.GameEvents;
 
-public struct ChangeActiveSceneEvent : IEvent
+public struct ChangeActiveSceneEvent(SceneNames sceneName) : IEvent
 {
-    public SceneNames SceneName;
-
-    public ChangeActiveSceneEvent(SceneNames sceneName)
-    {
-        SceneName = sceneName;
-    }
+    public SceneNames SceneName = sceneName;
 }

@@ -1,17 +1,12 @@
 ﻿namespace GV.FiniteStateMachines;
 
-public abstract class State<TState, TStateMachine>
+public abstract class State<TState, TStateMachine>(TStateMachine stateMachine)
     where TState : State<TState, TStateMachine>
     where TStateMachine : StateMachine<TState, TStateMachine>
 {
-    protected TStateMachine StateMachine { get; }
-  
-    public abstract string StateLogString { get; }
+    protected TStateMachine StateMachine { get; } = stateMachine;
 
-    protected State(TStateMachine stateMachine)
-    {
-        StateMachine = stateMachine;
-    }
+    public abstract string StateLogString { get; }
 
     public virtual void OnBegin() {}
 

@@ -3,8 +3,8 @@
 public class EventBinding<T> : IEventBinding<T>
     where T : IEvent
 {
-    private Action<T> _onEvent = _ => { };
-    private Action _onEventNoArgs = () => { };
+    private Action<T> _onEvent = static _ => { };
+    private Action _onEventNoArgs = static () => { };
 
     Action<T> IEventBinding<T>.OnEvent
     {

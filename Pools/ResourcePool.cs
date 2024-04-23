@@ -8,8 +8,8 @@ public static class ResourcePool
 {
     private static ContentManager? _contentManager;
 
-    public static Dictionary<object, Texture2D> Textures = new();
-    public static Dictionary<object, SpriteFont> Fonts = new();
+    public static Dictionary<object, Texture2D> Textures = [];
+    public static Dictionary<object, SpriteFont> Fonts = [];
 
     public static void Initialize(ContentManager content)
     {

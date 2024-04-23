@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using GV.Debugging;
+﻿using GV.Debugging;
 using GV.Globals;
 using GV.Globals.Enums;
 using GV.InputManagement;
@@ -10,10 +7,13 @@ using GV.SceneManagement;
 using GV.StateManagement;
 using GV.StateManagement.States;
 using GV.UtilityObjects;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace GrimVeil;
 
-public class Game1 : Microsoft.Xna.Framework.Game
+public class Game1 : Game
 {
     private readonly GameManager _gameManager;
     private readonly SceneManager _sceneManager;

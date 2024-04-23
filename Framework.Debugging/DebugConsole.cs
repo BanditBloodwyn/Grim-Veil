@@ -6,7 +6,7 @@ namespace GV.Debugging;
 
 public static class DebugConsole
 {
-    private static readonly List<WeakReference> _instances = new();
+    private static readonly List<WeakReference> _instances = [];
 
     public static event Func<string>? RequestActiveStateName;
 

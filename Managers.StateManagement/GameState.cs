@@ -6,14 +6,10 @@ using Microsoft.Xna.Framework;
 
 namespace GV.StateManagement;
 
-public abstract class GameState : State<GameState, GameManager>
+public abstract class GameState(GameManager stateMachine) : State<GameState, GameManager>(stateMachine)
 {
     protected abstract StateNames StateName { get; }
     protected virtual SceneNames? AssociatedSceneName { get; }
-
-    protected GameState(GameManager stateMachine)
-        : base(stateMachine)
-    { }
 
     public override void OnBegin()
     {

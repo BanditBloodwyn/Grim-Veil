@@ -2,5 +2,4 @@
 
 namespace GV.Tests.Core.StateMachines;
 
-public class TrafficLight : StateMachine<TrafficState, TrafficLight>
-{ }
+public class TrafficLight : StateMachine<TrafficState, TrafficLight>;

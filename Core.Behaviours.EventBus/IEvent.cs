@@ -1,3 +1,3 @@
 ﻿namespace GV.EventBus;
 
-public interface IEvent { }
+public interface IEvent;

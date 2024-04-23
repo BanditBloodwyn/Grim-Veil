@@ -8,7 +8,7 @@ public static class ContentPool
 {
     private static readonly JsonRepository _jsonRepository = new();
 
-    public static Dictionary<object, TileType> TileTypes = new();
+    public static Dictionary<object, TileType> TileTypes = [];
 
     public static void LoadContentByStateName(SceneNames sceneName)
     {

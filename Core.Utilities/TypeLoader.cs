@@ -12,7 +12,7 @@ namespace GV.CoreUtilities
             if (assembly == null)
             {
                 Debug.WriteLine("No assembly with class 'TileType' was found!");
-                return Array.Empty<Type>();
+                return [];
             }
 
             return assembly

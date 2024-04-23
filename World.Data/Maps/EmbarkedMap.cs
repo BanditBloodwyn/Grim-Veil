@@ -3,29 +3,20 @@ using GV.InputManagement;
 using GV.WorldObjects.Extentions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Game_IDrawable = GV.Game.IDrawable;
 using IDrawable = GV.Game.IDrawable;
 
 namespace GV.WorldObjects.Maps;
 
-public class EmbarkedMap : IDrawable, IUpdatable
+public class EmbarkedMap(Dictionary<int, EmbarkedMapLayer> elevationLayers, int tileCountX, int tileCountY)
+    : IDrawable, IUpdatable
 {
-    public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; }
+    public Dictionary<int, EmbarkedMapLayer> ElevationLayers { get; } = elevationLayers;
 
-    public (int, int) MapDimensions { get; }
-    public (int, int) ElevationLevelSpan { get; }
+    public (int, int) MapDimensions { get; } = (tileCountX, tileCountY);
+    public (int, int) ElevationLevelSpan { get; } = (elevationLayers.Keys.Min(), elevationLayers.Keys.Max());
     public int VisibleLayer { get; private set; }
 
     public Rectangle Rectangle => new(0, 0, 0, 0);
-
-    public EmbarkedMap(
-        Dictionary<int, EmbarkedMapLayer> elevationLayers,
-        int tileCountX, int tileCountY)
-    {
-        ElevationLayers = elevationLayers;
-        MapDimensions = (tileCountX, tileCountY);
-        ElevationLevelSpan = (elevationLayers.Keys.Min(), elevationLayers.Keys.Max());
-    }
 
     public void Draw(SpriteBatch spriteBatch)
     {

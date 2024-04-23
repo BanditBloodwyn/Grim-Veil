@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Reflection.Emit;
 
 namespace GV.UIObjects.Factories;
 
@@ -17,7 +16,7 @@ public static class LabelFactory
         Label label = new(rect);
         label.Text = text;
         label.SpriteFont = font;
-       
+
         return label;
     }
 

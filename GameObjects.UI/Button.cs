@@ -3,7 +3,6 @@ using GV.InputManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Game_IDrawable = GV.Game.IDrawable;
 using IDrawable = GV.Game.IDrawable;
 
 namespace GV.UIObjects;

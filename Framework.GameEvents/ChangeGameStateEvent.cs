@@ -3,12 +3,7 @@ using GV.Globals.Enums;
 
 namespace GV.GameEvents;
 
-public struct ChangeGameStateEvent : IEvent
+public struct ChangeGameStateEvent(StateNames stateName) : IEvent
 {
-    public StateNames StateName;
-
-    public ChangeGameStateEvent(StateNames stateName)
-    {
-        StateName = stateName;
-    }
+    public StateNames StateName = stateName;
 }

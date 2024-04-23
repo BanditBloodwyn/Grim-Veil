@@ -5,7 +5,7 @@ namespace GV.EventBus;
 public static class EventBus<T>
     where T : IEvent
 {
-    private static readonly HashSet<IEventBinding<T>> _bindings = new();
+    private static readonly HashSet<IEventBinding<T>> _bindings = [];
 
     public static void Register(EventBinding<T> binding) => _bindings.Add(binding);
     public static void Unregister(EventBinding<T> binding) => _bindings.Remove(binding);
