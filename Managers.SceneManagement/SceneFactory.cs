@@ -11,11 +11,9 @@ public class SceneFactory
     {
         Type type = typeof(T);
 
-        Scene? scene = (Scene?)Activator.CreateInstance(type);
-
-        if (scene == null)
-            throw new Exception($"Failed to create Scene of type {type}");
-
+        Scene scene = (Scene?)Activator.CreateInstance(type) 
+                      ?? throw new Exception($"Failed to create Scene of type {type}");
+        
         scene.LoadResources();
         scene.Build();
         return scene;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using GV.Repositories.Core;
+using Microsoft.Xna.Framework.Content;
 
 namespace GV.Pools;
 
@@ -21,17 +22,21 @@ public static class ResourcePool
         T asset = _contentManager.Load<T>(path);
 
         if (asset != null)
-            Assets.TryAdd($"{nameof(T)}_{assetName}", asset);
+            Assets.TryAdd($"{typeof(T).Name}_{assetName}", asset);
     }
 
     public static T GetAsset<T>(string assetName)
     {
-        if (_contentManager == null)
-            throw new Exception("ContentManager not initialized!");
-
-        if (!Assets.TryGetValue($"{nameof(T)}_{assetName}", out object? asset))
-            throw new KeyNotFoundException($"Asset with name {nameof(T)}_{assetName} not found!");
+        if (!Assets.TryGetValue($"{typeof(T).Name}_{assetName}", out object? asset))
+            throw new KeyNotFoundException($"Asset with name {typeof(T).Name}_{assetName} not found!");
 
         return (T)asset;
+    }
+
+    public static void LoadAllJsonData<T>() 
+        where T : ILoadable
+    {
+        foreach (T data in RepositoryPool.Json.LoadAll<T>())
+            Assets.TryAdd($"{typeof(T).Name}_{data}", data);
     }
 }

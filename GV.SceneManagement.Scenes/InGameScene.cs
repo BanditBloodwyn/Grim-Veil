@@ -1,5 +1,6 @@
 ﻿using GV.Pools;
 using GV.WorldManagement;
+using GV.WorldManagement.Data;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GV.SceneManagement.Scenes;
@@ -12,6 +13,8 @@ public class InGameScene : Scene
         ResourcePool.LoadAsset<Texture2D>("tile_stone", "Environment/Tiles/stoneTile");
         ResourcePool.LoadAsset<Texture2D>("tile_dirt", "Environment/Tiles/dirtTile");
         ResourcePool.LoadAsset<Texture2D>("tile_water", "Environment/Tiles/waterTile");
+
+        ResourcePool.LoadAllJsonData<TileType>();
     }
 
     public override void Build()
